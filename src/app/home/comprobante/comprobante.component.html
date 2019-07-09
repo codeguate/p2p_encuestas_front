@@ -1,0 +1,117 @@
+
+
+<div class="container pt-5" *ngIf="comprobante && SelectedData">
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1 mb-auto">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h3><a class="pointer text-primary"><img alt="" src="./../../../assets/png/fondos/TICKE3-8.png" height="50" width="150" /><br> Come With Me </a></h3>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right text-dark" *ngIf="comprobante.ern!=''">
+          <h1>FACTURA</h1>
+          <h1><small>Factura #{{comprobante.ern}}</small></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>De: <a href="#">Foxylabs</a></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 text-right">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>Para : <a href="#">{{nombres}} {{apellidos}}</a></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table class="table table-bordered border-primary">
+        <thead class="text-dark">
+          <tr>
+            <th>
+              <h6>Asiento</h6>
+            </th>
+            <th>
+              <h6>Evento / Area</h6>
+            </th>
+            <th>
+              <h6>Fecha / Hora</h6>
+            </th>
+            <th>
+              <h6>Tarifa / Precio</h6>
+            </th>
+            <th>
+              <h6>Sub-Total</h6>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-secondary">
+          <tr *ngFor="let data of SelectedData.lugares">
+            <td>
+              <a class="text-primary pointer">
+                {{data.titulo}}
+              </a>
+            </td>
+            <td class=" text-right ">
+                {{data.eventos?data.eventos.eventos.descripcion:''}} / {{data.eventos?data.eventos.descripcion:''}}
+            </td>
+            <td class=" text-right ">
+              {{data.eventos?data.eventos.eventos.inicio.replace(' ',' / '):''}}
+            </td>
+            <td class=" text-right ">
+              ${{data.eventos.precio.toFixed(2)}}
+            </td>
+            <td class=" text-right ">
+              ${{data.eventos.precio.toFixed(2)}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row text-right">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 offset-xs-7 offset-sm-7 offset-md-7 offset-lg-7 text-dark">
+          <strong>
+          Sub Total:<br>
+          Impuestos (IVA 12%):<br>
+    <span *ngIf="SelectedData.descuento>0">Descuento:<br></span>
+          Total:<br>
+          </strong>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-primary">
+          <strong>
+              ${{(SelectedData.totalAll.toFixed(2)-(SelectedData.totalAll.toFixed(2)*0.12)).toFixed(2)}}<br>
+              ${{(SelectedData.totalAll.toFixed(2)*0.12).toFixed(2)}}<br>
+        <span class="text-danger" *ngIf="SelectedData.descuento>0">- ${{SelectedData.descuento.toFixed(2)}}<br></span>
+              ${{((SelectedData.totalAll-SelectedData.descuento)).toFixed(2)}}<br>
+          </strong>
+        </div>
+      </div>
+      <div class="row" *ngIf="comprobante.token!=''">
+        <div class = "col-xs-9 col-sm-9 col-md-9 col-lg-9 text-secondary">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Comprobante de Compra</h5>
+                <p class="card-text">
+                    {{nombres}} {{apellidos}}<br>
+                    Token de Transaccion: {{comprobante.token?comprobante.token:''}}<br>
+                    Número de Autorizacion: {{comprobante.aprobacion?comprobante.aprobacion:''}}<br>
+                </p>
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right pt-5" *ngIf="comprobante.token!=''">
+          <button type="button" class="btn btn-primary" (click)="enviarEmail()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Inicio Notificaciones -->
+<simple-notifications [options]="options"></simple-notifications>
+<!-- Fin Notificaciones -->
+

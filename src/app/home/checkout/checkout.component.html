@@ -1,0 +1,104 @@
+<div class="container pt-3">
+
+    <div class="row" *ngIf="errorPago">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="alert alert-warning">
+            <strong>Rayos <i class="fa fa-warning"></i> </strong>
+            <br>
+            <small>
+              Parece que hubo un error con la pasarela de pago, por favor trata nuevamente.
+            </small>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-left text-primary">
+      <h2>Detalles de la compra</h2>
+    </div>
+    <div class="row mt-3">
+      <div class = "col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-5">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Detalle</span>
+        </h4>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-text w-100">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right text-primary">
+                  Precio:<br>
+                  Subtotal:<br>
+                  Total (Sin Iva):<br>
+                  IVA:<br>
+                  <span [class.d-none]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0">Descuento:</span><br [class.d-none]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0">
+                  Total:<br>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left text-dark">
+                  ${{SelectedData.precio.toFixed(2)}}<br>
+                  ${{SelectedData.totalAll.toFixed(2)}}<br>
+                  ${{(SelectedData.totalAll.toFixed(2)-(SelectedData.totalAll.toFixed(2)*0.12)).toFixed(2)}}<br>
+                  ${{(SelectedData.totalAll.toFixed(2)*0.12).toFixed(2)}}<br>
+                 <span class="text-danger" [class.d-none]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0"> - ${{SelectedData.descuento.toFixed(2)}}</span><br [class.d-none]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0">
+                 ${{(((SelectedData.totalAll-SelectedData.descuento).toFixed(2)))}}<br>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Lugares Guardados</span>
+        <span class="badge badge-secondary badge-pill">{{SelectedData.lugares.length}}</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let data of SelectedData.lugares">
+          <div>
+            <h6 class="my-0">{{data.titulo}}</h6>
+            <small class="text-muted">Numero: {{data.numero}}</small>
+          </div>
+          <span class="text-muted">${{SelectedData.precio.toFixed(2)}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let data of vendedores">
+          <div>
+            <h6 class="my-0">{{data.titulo}}</h6>
+            <small class="text-muted">Codigo de descueto: {{data.codigo}}</small>
+          </div>
+          <span class="text-danger">- ${{data.total.toFixed(2)}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between text-dark">
+          <span>Total (USD)</span>
+          <strong>${{(SelectedData.precio.toFixed(2)*(SelectedData.lugares.length).toFixed(2)-SelectedData.descuento).toFixed(2)}}</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <div class="input-group">
+                <button type="submit" class="btn btn-secondary ml-auto" (click)="insert()">Pagar</button>
+                <button type="submit" class="btn btn-outline-secondary ml-1" (click)="goBack()">Regresar</button>
+            </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 offset-xs-3 offset-sm-3 offset-md-3 offset-lg-3" *ngIf="!SelectedData.descuentos && SelectedData.descuento<=0">
+        <form class="card p-2" autocomplete="off" id="promo-form"  #promoForm="ngForm" (ngSubmit)="buscarPromo(promoForm.value)">
+            <div class="input-group">
+              <input type="text" class="form-control" name="promoCode" id="promoCode" required
+              ngModel #promoCode="ngModel" [disabled]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0" placeholder="Codigo Promocional">
+              <div class="input-group-append">
+                <button type="submit" id="promoCodeBTN" class="btn btn-secondary" [disabled]="SelectedData.eventos.vendedores && SelectedData.eventos.vendedores.length<=0">Agregar Codigo</button>
+              </div>
+            </div>
+          </form>
+    </div>
+
+  </div>
+
+
+  </div>
+
+<!-- Inicio Notificaciones -->
+<simple-notifications [options]="options"></simple-notifications>
+<!-- Fin Notificaciones -->
+

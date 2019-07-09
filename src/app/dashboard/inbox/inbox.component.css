@@ -1,0 +1,60 @@
+.inbox-bishound{
+  height: auto;
+  width: 100%;
+  border: solid 0.1rem;
+  max-height: 50rem;
+
+}
+.inbox-users{
+  border-right: solid 0.1rem;
+  max-height: 40rem;
+}
+.border-inbox-users{
+  border-right: solid 0.1rem;
+}
+
+.scrolling{
+  overflow-y: scroll;
+}
+.rate {
+  height: 50px;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.rate p {
+  text-align: center;
+}
+
+.rate label {
+  font-size: 1.5rem!important;
+    margin-right: 0.3rem!important;
+}
+@media only screen and (max-width: 1300px) {
+
+  .rate label {
+    font-size: 100%!important;
+      margin-right: 0.3rem!important;
+  }
+}
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: #a7acb1;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: #0000ff;
+}
+
+input[type="radio"]:checked ~ label {
+  color: #0000ff;
+}

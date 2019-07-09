@@ -1,0 +1,211 @@
+<div class="pr-5 pl-5 bg-bishound mt-5">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['./../../dashboard/home']" >Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['./../../dashboard/eventos']" >Eventos</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['./../../dashboard/localidades']" >Localidades</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  <!-- Home Windows -->
+  <div class="row mt-3" *ngIf="SelectedData">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mb-3 ">
+      <!-- Seller Card -->
+      <div class="card box-shadow-medium">
+          <img class="shadow img-profile mt-3"src="{{(SelectedData.avatar && SelectedData.avatar!='null' && SelectedData.avatar!='')?SelectedData.avatar:'http://placehold.it/100px100/'}}" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title text-center c-azul-bishound">{{SelectedData.nombre+' '+SelectedData.apellido}}</h5>
+          </div>
+          <!-- Rate Area -->
+          <div class="row ml-0 mr-0">
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="rate">
+                  <div class="clasificacion">
+                    <input id="Ranking1" name="ranking" type="radio" [value]="5" disabled [class.checkStar]="ranking>=5">
+                    <label for="Ranking1">★</label>
+                    <input id="Ranking2" name="ranking" type="radio" [value]="4" disabled [class.checkStar]="ranking>=4">
+                    <label for="Ranking2">★</label>
+                    <input id="Ranking3" name="ranking" type="radio" [value]="3" disabled [class.checkStar]="ranking>=3">
+                    <label for="Ranking3">★</label>
+                    <input id="Ranking4" name="ranking" type="radio" [value]="2" disabled [class.checkStar]="ranking>=2">
+                    <label for="Ranking4">★</label>
+                    <input id="Ranking5" name="ranking" type="radio" [value]="1" disabled [class.checkStar]="ranking>=1">
+                    <label for="Ranking5">★</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pt-1 text-left c-celeste-bishound">
+                <h5>5</h5>
+              </div>
+            </div>
+            <!-- Fin Rate Area -->
+            <!-- info seller Area -->
+          <div class="row ml-0 mr-0">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center">
+                <h5 class="c-azul-bishound">Account Type</h5>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-1 text-center">
+                <a [routerLink]="['/settings']">Edit Profile</a>
+              </div>
+            </div>
+            <!-- Fin info seller Area -->
+          <!-- Seller Data -->
+          <div class="row ml-0 mr-0 mt-1 mb-4">
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left c-celeste-bishound">
+              Total completed Jobs
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right c-celeste-bishound">
+              <h5>0</h5>
+            </div>
+            <!-- <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-left">
+              Location
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-right">
+              <a href="#">view on map</a>
+            </div> -->
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              # Deliveries
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+              0
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Inbox
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+              <a href="#">View All</a>
+            </div>
+          </div>
+          <!-- Fin Seller Data -->
+
+
+      </div>
+      <!-- Fin Seller Card -->
+      <!-- Verified info Card -->
+      <div class="card mt-3 box-shadow-medium"  *ngIf="tipoUsuario>=2">
+        <h2 class="pl-3 c-azul-bishound">Verified Information</h2>
+
+        <!-- Verified Info options -->
+          <div class="row ml-0 mr-0 mt-1 mb-4">
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Goverment ID
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="checkbox">
+                    <label for="selectedCheck" class="selectedCheck">
+                      <i class="fa fa-check" [class.c-celeste-bishound]="selected.GovermentID" style="font-size:2rem;"></i>
+                    </label>
+                    <input id="selectedCheck" class="selectedCheck d-none" type="checkbox" [(ngModel)]="selected.GovermentID" disabled>
+                  </div>
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Comercial Patent
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="checkbox">
+                  <label for="selectedCheck" class="selectedCheck">
+                    <i class="fa fa-check" [class.c-celeste-bishound]="selected.ComercialPatent" style="font-size:2rem;"></i>
+                  </label>
+                  <input id="selectedCheck" class="selectedCheck d-none" type="checkbox" [(ngModel)]="selected.ComercialPatent" disabled>
+                </div>
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Email Address
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="checkbox">
+                  <label for="selectedCheck" class="selectedCheck">
+                    <i class="fa fa-check" [class.c-celeste-bishound]="selected.EmailAddress" style="font-size:2rem;"></i>
+                  </label>
+                  <input id="selectedCheck" class="selectedCheck d-none" type="checkbox" [(ngModel)]="selected.EmailAddress" disabled>
+                </div>
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Phone Number
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="checkbox">
+                  <label for="selectedCheck" class="selectedCheck">
+                    <i class="fa fa-check" [class.c-celeste-bishound]="selected.PhoneNumber" style="font-size:2rem;"></i>
+                  </label>
+                  <input id="selectedCheck" class="selectedCheck d-none" type="checkbox" [(ngModel)]="selected.PhoneNumber" disabled>
+                </div>
+            </div>
+            <div class="mb-2 col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left">
+              Bussiness Address
+            </div>
+            <div class="mb-2 col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right">
+                <div class="checkbox">
+                  <label for="selectedCheck" class="selectedCheck">
+                    <i class="fa fa-check" [class.c-celeste-bishound]="selected.BussinessAddress" style="font-size:2rem;"></i>
+                  </label>
+                  <input id="selectedCheck" class="selectedCheck d-none" type="checkbox" [(ngModel)]="selected.BussinessAddress" disabled>
+                </div>
+            </div>
+            <div class="mb-2 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left">
+              <a [routerLink]="['./../../profile/verified']">Verify more Info</a>
+            </div>
+          </div>
+          <!-- Fin Verified Info options -->
+      </div>
+      <!-- Fin Verified info Card -->
+    </div>
+    <!-- Main Home Page -->
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 c-azul-bishound">
+      <!-- <h2>Active Items</h2> -->
+      <div class="row ml-0 mr-0 mt-1 mb-4 border border-bishound p-4 box-shadow-medium bg-blanco-bishound">
+          <div class="mb-0 col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center border-right border-bottom border-bishound p-5">
+            <h1>
+              <strong>0</strong> Orders
+            </h1>
+          </div>
+          <div class="mb-0 col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center border-left border-bottom border-bishound p-5">
+            <h1>
+              <strong>0</strong> Products
+            </h1>
+          </div>
+          <div class="mb-0 col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center border-right border-top border-bishound p-5">
+            <h1>
+              <strong>{{((SelectedData.Bis)?SelectedData.Bis.length:'0')}}</strong> Bis
+            </h1>
+          </div>
+          <div class="mb-0 col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center border-left border-top border-bishound p-5">
+            <h1>
+              <strong>{{((SelectedData.Proforma)?SelectedData.Proforma.length:'0')}}</strong> Job Requests
+            </h1>
+          </div>
+      </div>
+
+      <div class="row ml-0 mr-0 mt-1 mb-4 p-4"  *ngIf="tipoUsuario>=2">
+        <h2>Overview</h2>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center box-shadow-medium bg-blanco-bishound">
+                  <canvas baseChart width="400" height="300px" style="height:300px;"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div>
+
+
+      </div>
+    </div>
+    <!-- Fin Main Home Page -->
+  </div>
+
+  <!-- Fin Home Windows -->
+</div>
+
+  <!-- Inicio Notificaciones -->
+  <simple-notifications [options]="options"></simple-notifications>
+  <!-- Fin Notificaciones -->

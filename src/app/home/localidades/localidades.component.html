@@ -1,0 +1,78 @@
+<div class="text-center mb-3">
+  <div class="ml-5 mr-5 text-left mt-5">
+    <div class="row pt-3" *ngIf="SelectedData">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2">
+        <div class="text-left">
+          <h2 class="text-primary">Evento: {{SelectedData.eventos.titulo}}</h2>
+          <p class="lead text-secondary">Area: {{SelectedData.titulo}}</p>
+        </div>
+
+
+        <div class="row text-dark">
+
+          <div style="width: 20%;" *ngFor="let data of SelectedData.lugares; let i = index">
+
+            <div class="checkbox" [class.text-secondary]="data.vendido==1" [class.text-dark]="data.vendido==0 && data.selected==0" [class.text-primary]="data.selected==1">
+              <label for="lugar{{data.id}}" class="pointer">
+                <input class="d-none" type="checkbox" (change)="add()" id="lugar{{data.id}}" [checked]="data.vendido==1" [disabled]="data.vendido==1" name="lugar{{data.id}}" [(ngModel)]="data.selected">
+                <i class="pointer fa " [class.fa-child]="data.selected==0" [class.fa-street-view]="data.selected==1" style="font-size: 18px;" ></i> {{data.titulo}}<i class="ml-2 fa " [class.fa-check]="data.selected==1" style="font-size: 18px;" ></i>
+              </label>
+            </div>
+
+          </div>
+        </div>
+        <div class="row text-dark">
+          <div class = "col-xs-6 col-sm-6 col-md-6 col-lg-6 offset-xs-6 offset-sm-6 offset-md-6 offset-lg-6 mb-5">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Costo</h5>
+                  <div class="card-text w-100">
+
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                          Cantidad:<br>
+                          Precio:<br>
+                          subtotal:<br>
+                          Total (Sin Iva):<br>
+                          IVA:<br>
+                          Total:<br>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-left">
+                          {{cantidad}}<br>
+                          ${{SelectedData.precio.toFixed(2)}}<br>
+                          ${{SelectedData.totalAll.toFixed(2)}}<br>
+                          ${{(SelectedData.totalAll.toFixed(2)-(SelectedData.totalAll.toFixed(2)*0.12)).toFixed(2)}}<br>
+                          ${{(SelectedData.totalAll.toFixed(2)*0.12).toFixed(2)}}<br>
+                          ${{((SelectedData.totalAll.toFixed(2)))}}<br>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2">
+
+            <button type="button" class="form-control btn btn-outline-primary" (click)="insert()">Comprar</button>
+
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+
+            <button type="button" class="form-control btn btn-outline-danger" (click)="goBack()">Cancelar</button>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- fin container -->
+  <!-- Inicio Notificaciones -->
+  <simple-notifications [options]="options"></simple-notifications>
+  <!-- Fin Notificaciones -->

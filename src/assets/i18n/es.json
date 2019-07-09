@@ -1,0 +1,635 @@
+{
+  "MENU":{
+    "become": "Anúnciate",
+    "sign_up": "Registrate",
+    "log_in": "Inicio de Sesión"
+  },
+  "HOME":{
+    "title": "Best Services on Demand",
+    "placeholder_search": "¿Qué servicios buscas?",
+    "how_to": "¿Cómo funciona?",
+    "explore": "Explora el Mercado",
+    "beneficios": "Beneficios para clientes",
+    "features": "Herramientas para oferentes",
+    "new_bis_section": "Nuevos Servicios",
+    "top_search": "Los más buscados"
+  },
+  "RESULTS":{
+    "filter_title": "Refinar por Filtrar por",
+    "price": "Precio",
+    "rating": "Opiniones Rating",
+    "seller_level": "Nivel del Vendedor",
+    "location": "Ubicación",
+    "add_to_compare": "Comparar "
+  },
+  "DETALLE_DE_BIS":{
+    "overview": "Resumen",
+    "faqs": "Preguntas Frecuentes",
+    "reviews": "Comentarios",
+    "add_to_favorites": "Favoritos Agregar a Favoritos",
+    "contact": "Contactar",
+    "from": "Ubicación",
+    "member_since": "Miembro desde",
+    "location": "Ubicación",
+    "number_deliveries": "Proyectos Entregados",
+    "description": "Descripción del Servicio",
+    "question": "Pregunta",
+    "see_details": "Detalle",
+    "show_more": "Ver más",
+    "related_services": "Servicios Relacionados"
+  },
+  "CONTACT_SELLER_FORM":{
+    "title": "Formulario de Contacto",
+    "tell_us_more": "Amplianos tu necesidad Cuéntanos más de tu solicitud",
+    "expected_date": "Tiempo de Entrega estimado",
+    "budget": "Presupuesto",
+    "address": "Dirección",
+    "phone_number": "Teléfono",
+    "email": "Correo Electrónico Email",
+    "success_message": "Felicidades, tu solicitud ha sido Enviado(a) con Éxito"
+  },
+  "QUOTE_REQUEST":{
+    "title": "Solicitea un Presupuesto",
+    "tell_us_more": "Amplianos tu necesidad Cuéntanos más de que es lo que necesitas",
+    "expected_date": "Tiempo de Entrega estimado  ¿Para cuándo lo necesitas?",
+    "budget": "Presupuesto",
+    "address": "Dirección",
+    "phone_number": "Teléfono",
+    "email": "Correo Electrónico Email",
+    "pick_the_sellers": "Seleccionea Tussus Oferentes",
+    "success_message": "Felicidades, tu solicitud ha sido Enviadoa con Éxito"
+  },
+  "SIGN_UP":{
+    "facebook": "Regístrate con Facebook",
+    "linked_in": "Regístrate con Linked In",
+    "email": "Regístrate con tu Correo Electrónico Email",
+    "help_text": "Posees Ya tienes una Cuenta en Bishound? Inicia Sesión"
+  },
+  "LOG_IN":{
+    "facebook": "Inicia sesión con Facebook",
+    "linked_in": "Inicia sesión con Linked In",
+    "email": "Inicia sesión con tu Correo Electronico Email",
+    "help_text": "Posees Ya tienes una Cuenta en Bishound? Inicia Sesión",
+    "first_name": "Nombre(s)",
+    "last_name": "Apellido(s)",
+    "email1": "Correo Electronico Email",
+    "password": "Crear Contraseña",
+    "confirm": "Confirmar Contraseña",
+    "birthday": "Fecha de Nacimiento",
+    "age_restriction": "Para registrate debes ser mayor de 18 años. Tu edad no será visible para otros miembros.",
+    "confirm1": "He leído y acepto los términos y condiciones"
+  },
+  "SIGN_UP_CONTINUE":{
+    "forgot_pass": "¿Olvidaste tu contraseña?",
+    "remember": "Recuerdame ¿Recuérdame?",
+    "not_member": "Aun no pertences a la comunidad de Bishound? Regístrate"
+  },
+  "RESET":{
+    "title": "Cambiar Contraseña Cambia tu Contraseña",
+    "legend": "En breve Pronto recibiras un correo electrónico con las Instrucciones Para Cambiar tu Contraseña",
+    "back": "Regresar"
+  },
+  "COMPARE_SELLERS":{
+    "service": "Servicios  ",
+    "skill": "Habilidades",
+    "rating": "Calificación Rating",
+    "orders": "Número de Ordenes Recibidas",
+    "contact_button": "Contactar a Vendedor Oferente?",
+    "cancel_button": "Cancelar "
+  },
+  "POST_PROJECT":{
+    "title": "Cuéntanos sobre tu Proyecto",
+    "name": "Nombra Dale un nombre a tu proyecto",
+    "description": "Descripción",
+    "legend_description": "Describe tu proyecto para poder obtener Ofetas que se ajustarán a tus necesidades ",
+    "left": "1500 carácteres",
+    "files": "Archivos",
+    "files_legend": "Provee toda la informacion necesaria para que los vendedores oferentes? puedan crear las ofertas adecuadas a tus necesidades",
+    "skills": "Habilidades Requeridas Skills",
+    "skills_legend": "Seleccione hasta 5 habilidades (skills) que ayuden a describir tu Proveedor (Oferente?) ideal. Ellos usarán estas habilidades para encontrar proyectos (ofertas)? que se ajusten a las habilidades que ellos poseen.",
+    "paid": "Selecciona el tipo de pago para tu Proyecto ¿Cómo prefieres que sea el tipo de pago para este proyecto?",
+    "fixed": "Proyectos de Precio Fijo",
+    "fixed_legend": "Recomendado para proyectos que tienen entregables finitos (fijos?) y cortos",
+    "fixed1": "Proyecto de Pago por Hora",
+    "fixed_legend1": "Recomendado para proyectos que son continuos ",
+    "delivery": "Tiempo de Entrega estimado deseado?",
+    "save_and_publish": "Guardar y Publicar Proyecto",
+    "cancel_button": "Cancelar Proyecto",
+    "fixed_price": "Presupuesto",
+    "hourly_minimum": "Presupuesto Mínimo",
+    "hourly_maximum": "Presupuesto Máximo"
+  },
+  "CREATE_OFFER":{
+    "title": "Oferta de Trabajo",
+    "describe": "Describe tu Oferta",
+    "describe_legend": "Tu Oferta es la oportunidad para crear una buena primera impresión con el cliente, haz que valga (hazla increíble)!",
+    "items": "Hitos de Trabajo (Tareas de la oferta) No se si los usuarios entenderán 'Hitos'",
+    "add": "Añade nuevo Hito Nueva Tarea",
+    "files": "Archivos",
+    "files_legend": "Provee todos los archivos necesarios para complementar tu oferta.",
+    "uplodad": "Carga tus archivos",
+    "item_cost": "Precio",
+    "item_time": "Tiempo",
+    "total_time": "Tiempo Total de Trabajo",
+    "total_project": "Costo Total del Proyecto",
+    "save_and_send": "Guardar y Enviar Oferta",
+    "cancel_button": "Cancelar Oferta"
+  },
+  "DASHBOARD_MENU_ITEMS":{
+    "dashboard": "Panel de Control Mi Dashboard",
+    "selling": "Ventas",
+    "buying": "Compras",
+    "contacts": "Contactos",
+    "inbox": "Mensajes Inbox",
+    "settings": "Configuración",
+    "tools": "Herramientas de Crecimiento Herramientas para crecer tu negocio"
+  },
+  "DASHBOARD":{
+    "edit_profile": "Editar Mi Perfil",
+    "completed_jobs": "Total de Órdenes Completadas",
+    "inbox": "Mensajes sin leer",
+    "view_all": "Ver todos",
+    "verified_info": "Mis Verificaciones",
+    "items": "Elementos Activos",
+    "items_orders": "Órdenes",
+    "items_products": "Productos",
+    "items_bis": "BIS",
+    "item_requests": "Solicitudes de trabajo",
+    "overview": "Resumen Overview"
+  },
+  "DASHBOARD_SELLING_MENU":{
+    "orders": "Órdenes",
+    "bis": "BIS",
+    "catalog": "Catálogo",
+    "analytics": "Estadísticas Analytics",
+    "buyers_requests": "Solicitudes de trabajo"
+  },
+  "ORDERS_MENU":{
+    "orders_actives": "Activas",
+    "orders_delivered": "Entregadas",
+    "orders_completed": "Completas",
+    "orders_cancelled": "Canceladas"
+  },
+  "ORDER_ITEM":{
+    "budget": "Presupuesto",
+    "delivery": "Tiempo de Entrega",
+    "view_order": "Ver Orden de trabajo",
+    "title": "Órdenes en Proceso",
+    "filter_by": "Filtrar por"
+  },
+  "DELIVERED_ORDERS":{
+    "buyer": "Comprador",
+    "project": "BIS/Proyecto",
+    "due_on": "Fecha de Entrega",
+    "status": "Estado",
+    "request_review": "Solicitar Evaluación",
+    "title": "Órdenes Entregadas"
+  },
+  "COMPLETED_ORDERS":{
+    "buyer": "Comprador",
+    "project": "BIS/Proyecto",
+    "rating": "Calificación",
+    "comment": "ver Comentario",
+    "title": "Órdenes Completadas"
+  },
+  "CANCELLED_ORDERS":{
+    "buyer": "Comprador",
+    "project": "BIS/Proyecto",
+    "date": "Fecha Cancelación",
+    "reason": "Ver Razon",
+    "title": "Órdenes Canceladas"
+  },
+  "BIS_MENU_ITEMS":{
+    "actives": "Activos",
+    "drafts": "Borradores",
+    "denied": "Denegados"
+  },
+  "ACTIVE_BIS":{
+    "title": "BIS Activos",
+    "impressions": "Impresiones",
+    "clicks": "Clicks",
+    "views": "Vistas",
+    "create": "Crear nuevo BIS"
+  },
+  "DRAFT_BIS":{
+    "title": "BIS Pendientes o por Finalizar"
+  },
+  "DENIED_BIS":{
+    "title": "BIS Denegados",
+    "name": "BIS",
+    "date": "Fecha Denegado",
+    "reason": "Motivo",
+    "view": "Ver Motivo"
+  },
+  "CATALOG":{
+    "title": "Productos Activos",
+    "view": "Ver Producto",
+    "edit": "Editar Producto",
+    "delete": "Eliminar Producto",
+    "create": "Agregar Producto",
+    "price": "Precio"
+  },
+  "ANALYTICS":{
+    "title": "Estadísticas Analytics",
+    "customers": "Total Clientes",
+    "orders": "Total Órdenes Completas",
+    "products": "Total Productos",
+    "reviews": "Total Revisiones",
+    "overview": "Resumen Overview",
+    "delivered": "Entregadas",
+    "completed": "Completadas",
+    "new_products": "Productos Nuevos",
+    "new_orders": "Ordenes Nuevas",
+    "level": "Nivel de Proveedor",
+    "learn": "Ver más",
+    "rating": "Clasificación Rating",
+    "all_time": "Histórico de Clasificación",
+    "breakdown": "Detalle de Clasificación",
+    "order": "Órdenes Calificadas"
+  },
+  "BUYERS_REQUEST":{
+    "title": "Solicitudes de trabajo",
+    "date": "Fecha Solicitud",
+    "view": "Ver Solicitud",
+    "send": "Enviar Oferta",
+    "reject": "Rechazar Solicitud",
+    "budget": "Presupuesto",
+    "delivery_time": "Tiempo de Entrega"
+  },
+  "CONTACTS":{
+    "buyers_tab": "Mis Clientes",
+    "sellers_tab": "Mis Proveedores",
+    "buyer_name": "Nombre Cliente",
+    "buyer_order": "Ordenes Realizadas",
+    "last_order": "Última Entrega",
+    "buyer_profile": "Perfil Usuario",
+    "buyer_history": "Historial",
+    "seller_name": "Nombre Proveedor",
+    "seller_ordero": "Órdenes Realizadas",
+    "last_order1": "Última Entrega",
+    "seller_profile": "Pefil Usuario",
+    "seller_history": "Historial"
+  },
+  "BUYING_ORDERS_MENU_ITEMS":{
+    "orders_actives": "Activas",
+    "orders_delivered": "Entregadas",
+    "orders_completed": "Completas Completadas",
+    "orders_cancelled": "Canceladas"
+  },
+  "BUYING_ACTIVE_ORDERS":{
+    "title": "Órdenes en Proceso",
+    "seller": "Proveedor",
+    "project": "BIS/Proyecto",
+    "due_on": "Fecha de Entrega",
+    "status": "Estado"
+  },
+  "BUYING_DELIVERED_ORDERS":{
+    "title": "Órdenes Entregadas",
+    "seller": "Proveedor",
+    "project": "BIS/Proyecto",
+    "due_on": "Fecha entregado",
+    "status": "Estado",
+    "post_review": "Calificar Servicio"
+  },
+  "BUYING_COMPLETED_ORDERS":{
+    "title": "Órdenes Completadas",
+    "seller": "Proveedor",
+    "bis": "BIS/Proyecto",
+    "rating": "Calificación Rating",
+    "view_comment": "ver Comentario"
+  },
+  "BUYING_MENU_ITEMS":{
+    "orders": "Órdenes",
+    "my_requests": "Mis solicitudes",
+    "my_projects": "Mis Proyectos"
+  },
+  "BUYING_MY_REQUESTS":{
+    "title": "Solicitudes de trabajo",
+    "date": "Fecha Solicitud",
+    "view": "Ver Solicitud",
+    "send": "Enviar Oferta",
+    "reject": "Rechazar Solicitud",
+    "budget": "Presupuesto",
+    "delivery_time": "Tiempo de Entrega",
+    "view_offers": "Ver Ofertas",
+    "edit_request": "Editar Solicitud",
+    "cancel_request": "Cancelar Solicitud"
+  },
+  "BUYING_MY_PROJECTS":{
+    "title": "Proyectos Publicados ",
+    "total_offers": "Total de Ofertas",
+    "budget": "Presupuesto",
+    "delivery_time": "Tiempo de Entrega",
+    "view_offers": "Ver Ofertas",
+    "editproject": "Editar Proyecto",
+    "delete_project": "Eliminar Proyecto"
+  },
+  "SETTINGS_MENU_ITEMS":{
+    "profile": "Perfil de Usuario",
+    "skills": "Habilidades Skills",
+    "trusts_and_verifications": "Verificaciones y Validaciones Validaciones y Verificaciones",
+    "references": "Referencias Profesionales"
+  },
+  "PROFILE_MEMBERSHIP":{
+    "title": "Membresía y Pagos",
+    "change_email": "Cambiar Correo Electrónico Cambiar Email",
+    "change_password": "Cambiar Contraseña",
+    "update_billing": "Actualizar o Cambiar método de Pago",
+    "billing_info": "Información de Pagos",
+    "cancel_membership": "Cancelar Membresía",
+    "upgrade_membership": "Actualiza tu Membresía Mejora tu Memebresía"
+  },
+  "PROFILE_REQUERIED":{
+    "title": "Perfil de usuario - Requerido",
+    "name": "Nombre(s)",
+    "lastname": "Apellidos(s)",
+    "iam": "soy Género ",
+    "birth_date": "Fecha de Nacimiento",
+    "phone_number": "Número de Teléfono",
+    "address": "Dirección",
+    "add_more": "Agrear Dirección Agregar otro contacto",
+    "describe": "Cuéntanos sobre ti",
+    "save": "Guardar Perfil"
+  },
+  "ENTERPRISE_PROFILE":{
+    "title": "Perfil Empresarial - Opcional",
+    "enterprise_name": "Nombre Empresarial",
+    "show_enterprise_name": "Mostrar Nombre Empresarial? Mostrar el nombre de tu empresa en vez de el nombre de tu perfil?",
+    "enterprise_size": "Tamaño de la Empresa",
+    "enterprise_contact_info": "Información de Contacto",
+    "address": "Dirección de la empresa",
+    "phone_number": "Número de Teléfono",
+    "describe": "Cuéntanos sobre tu empresa",
+    "save": "Guardar"
+  },
+  "SETTINGS_SKILLS":{
+    "title": "Destrezas y Habilidades Skills y Sub-categorías",
+    "add": "Agregar Destreza Agregar Skill",
+    "update": "Actualizar Destreza Actualizar Skill"
+  },
+  "ADD_SKILL_AND_SUB_CATEGORIES":{
+    "title": "Agregar Destreza y Habilidades Skills y Sub-categorías",
+    "main": "Destreza Skills",
+    "subcategories": "Habilidades Sub-Categorías",
+    "add_button": "Agregar Destreza y Habilidades Agrega Skill y Sub-categorías",
+    "cancel": "Cancelar"
+  },
+  "SETTINGS_TRUST_AND_VERIFICATIONS":{
+    "title": "Información Verificada",
+    "verify_email": "Validar Dirección de Correo Electrónico Email",
+    "verify_email_legend": "Enviaremos un correo electrónico a la direccion: (variable) Validar su tu dirección de correo electrónico es importante para poder asegurar una vía segura de comunicación entre usted TU y sus TUS clientes y/o proveedores",
+    "verify_phone": "Verificar Número de Teléfono",
+    "verify_phone_legend": "Enviaremos un mensaje de texto al número: (variable), deberá deberás ingresar el código de validación en la plataforma",
+    "government_id": "Documento de Identificación",
+    "upload_id": "Cargar Documento de Identificación",
+    "update_id": "Actualizar Documento de Identificación",
+    "see_id": "Ver Documento de Identificación",
+    "delete_id": "Eliminar Documento de Identificación",
+    "commercial_patent": "Patente de Comercio",
+    "upload_patent": "Cargar Patente de Comercio",
+    "update_patent": "Actualizar Patente de Comercio",
+    "see_patent": "Ver Patente de Comercio",
+    "delete_patent": "Eliminar Patente de Comercio"
+  },
+  "SETTINGS_REFERENCES":{
+    "title": "Referencias Profesionales",
+    "view": "Ver Referencia",
+    "hide": "Ocultar Referencia",
+    "request_reference": "Solicitar Referencia Profesional"
+  },
+  "UPLOAD_IMAGES":{
+    "title": "Carga tu",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "REQUEST_REFERENCE":{
+    "title": "Solicitud Referencia Profesional",
+    "legend": "Ingresa la dirección de correo electrónico de las personas que desees solicitar una Referencia Profesional, si ingresas más de una person debes separarla por punto y coma (;) Ingresa la dirección de correo electrónico de las personas a las que deseas solicitarles una Referencia Profesional, si ingresas màs de una persona, separala los correos electrónicos por un punto y come (;).",
+    "request": "Solicitar Reerencia",
+    "cancel": "Cancelar solicitud"
+  },
+  "VERIFY_PHONE_NUMBER":{
+    "title": "Verifica tu Número de Teléfono",
+    "legend": "Por favor ingrese en la parte de abajo, el código que recibio recibiste en su tu teléfono",
+    "verify": "Verificar"
+  },
+  "CHANGE_EMAIL":{
+    "title": "Cambiar Correo Electrónico Email",
+    "registered": "Correo Electrónico Email Registrado",
+    "new": "Nueva dirección de Correo Electrónico Nuevo Email",
+    "current_pass": "Ingrese Contraseña Ingresa tu contraseña",
+    "forgot_pass": "Olvidaste tu contraseña?",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "CHANGE_PASSWORD":{
+    "title": "Cambiar Contraseña",
+    "current_pass": "Contraseña Actual",
+    "forgot_pass": "Olvidaste tu contraseña?",
+    "new_pass": "Nueva Contraseña",
+    "confirm_pass": "Confirmar Contraseña Confirma tu nueva contraseña",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "PAID_METHODS":{
+    "title": "Métodos de Pago",
+    "current": "Método de Pago Actual",
+    "update": "Actualizar",
+    "delete": "Eliminar",
+    "principal": "Establecer como Principal",
+    "add": "Agregar Método de Pago"
+  },
+  "BILLING_INFORMATION":{
+    "title": "Información de Pagos",
+    "memberhip": "Tipo Membresía",
+    "next_billing_date": "Proxima Fecha de Pago",
+    "legend": "los cobros serán cargados al inicio de cada periodo y podrán aparecer reflejados en tu cuenta a los pocos días de haberse realizado el cobro.",
+    "date": "Fecha de pago",
+    "description": "Descripci{on",
+    "period": "Periódo de Pago",
+    "paid_method": "Método de Pago",
+    "total": "Total"
+  },
+  "MEMBERSHIP_INFO":{
+    "title": "Información sobre nuestras Membresías Nuestras Membresías",
+    "continue": "Continuar",
+    "cancel": "Cancelar"
+  },
+  "CHECKOUT":{
+    "title": "Realizar Pago",
+    "choose_paid_method": "Selecciona tu método de Pago",
+    "choose_chage_type": "Selecciona tu tipo de Pago",
+    "monthly": "Mensual",
+    "biyearly": "Semestral",
+    "yearly": "Anual"
+  },
+  "PAID_DETAILS":{
+    "title": "Detalle del Pago",
+    "description": "Descripción",
+    "amount": "Costo",
+    "sub_total": "Sub Total",
+    "total": "Total",
+    "date": "Fecha de Transacción",
+    "next_charge": "Proxima Fecha de Pago",
+    "paid_method": "Método de Pago",
+    "charge_type": "Tipo de Pago",
+    "back": "Regresar a Mi Dashboard",
+    "download": "Descargar"
+  },
+  "REVIEW":{
+    "title": "Revisión",
+    "sub-title": "descripción",
+    "rate": "Califica el Servicio",
+    "legend": "Estos son los aspectos principales que debes evaluar Aspectos a evaluar",
+    "compliment": "Deseas dar un Cumplido?",
+    "compliment_legend": "Si tu proveedor excede tus expectativas, otorga un cumplido Si tu proveedor ha soprepasado tus expectativas, ¿Por qué no darle un cumplido? ",
+    "submit": "Enviar Revisión",
+    "cancel": "Cancelar Revisión"
+  },
+  "REFERENCE":{
+    "title": "Referencia ",
+    "review": "Descripción",
+    "legend": "Proporciona una Referencia al proveedor, esto le ayudará a mejorar su perfil en nuestra plataforma y así poder podrá conseguir más clientes",
+    "aditional_info_title": "Información Adicional",
+    "full_name_and_position": "Nombre Completo y Puesto",
+    "since_you_met": "Hace cuanto conoce al Proveedor?",
+    "phone_number": "Número de Teléfono",
+    "picture": "Cargar Fotografía",
+    "submit": "Enviar Referencia",
+    "cancel": "Cancelar Referenci"
+  },
+  "CREATE_BIS_WIZARD_MENU_ITEMS":{
+    "overview": "Resumen Overview",
+    "pricing": "Precio",
+    "description": "Descripción",
+    "requirements": "Requerimientos",
+    "gallery": "Galería",
+    "publish": "Publicar BIS"
+  },
+  "CREATE_BIS_WIZARD_BUTTONS":{
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "save_and_continue": "Guardar y Continuar",
+    "back": "Regresar",
+    "add_faq": "Agregar FAQ's",
+    "add_requirement": "Agregar Requisitos",
+    "save_and_preview": "Guardar y Vista Previa",
+    "publish_bis": "Publicar BIS",
+    "done": "Finalizar"
+  },
+  "CREATE_BIS_START_PAGE":{
+    "title": "Como deseas empezar?",
+    "bis": "Crear un nuevos BIS",
+    "product": "Agregar nuevo Producto"
+  },
+  "CREATE_BIS_OVERVIEW":{
+    "title": "Titulo BIS",
+    "category": "Categoría",
+    "subcategory": "Sub Categoría",
+    "tags": "Etiquetas de búqueda"
+  },
+  "CREATE_BIS_PRICING":{
+    "title": "Tipo de Precio para tu BIS",
+    "fixed": "Precio Fijo",
+    "hourly": "Precio por Hora",
+    "rush": "Cuota de Entrega Rápida",
+    "rush_legend": "Describe el precio de tu la cuota de entrega rapida, no importa si es precio fijo o precio por hora"
+  },
+  "CREATE_BIS_DESCRIPTION":{
+    "title": "Descripción BIS",
+    "title_legend": "Describe tu BIS de una manera clara para tus posibles clientes",
+    "faqs_title": "Preguntas Frecuentes de tus clientes",
+    "faqs_legend": "Agrega las preguntas y respuestas más comunes de tus clintes acerca de tu BIS",
+    "add_faq": "Agregar FAQ's"
+  },
+  "CREATE_BIS_REQUIREMENTS":{
+    "title": "Cuéntale a tus clientes que necesitas de parte de ellos para poder empezar a trabajar con ellos",
+    "title_legend": "Crea las instrucciones para tus clientes, provee todo los requerimientos necesarios para que inicies servicios con ellos cuanto antes",
+    "requirement": "Requisito",
+    "placeholder": "Ejemplo: Especificaciones, dimensiones, guia de la marca o materiales que necesita para trabjar"
+  },
+  "CREATE_BIS_GALLERY":{
+    "title": "Galería de Imágenes para tu BIS",
+    "title_legend": "Añade contenido memorable a tu galería de imágenes para sobresalir ante otros posibles competidores.",
+    "bis_photos": "Fotografías BIS",
+    "bis_photos_legend": "Sube fotos que describan o estén relacionados a tu BIS",
+    "drag_and_drop": "Arrastra tus imágenes",
+    "browse": "Buscar",
+    "bis_files": "Archivos",
+    "bis_files_legend": "Te recomendamos agregar archivos PDF o .doc en dado caso sea necesario esclarecer aclarar el tipo de servicio que se proveerá"
+  },
+  "PUBLISH_BIS":{
+    "almost": "Unos pasos mas y estará listo",
+    "almost_legend": "Publicaremos su BIS para que los clientes empiecen a buscarte",
+    "alive": "Esta Listo!",
+    "alive_legend": "Comparte tu BIS"
+  },
+  "CREATE_LANDING_MENU_ITEMS":{
+    "home": "Inicio",
+    "about_us": "Sobre Nosotros",
+    "services": "Servicios",
+    "products": "Productos",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "preview": "Vista Previa"
+  },
+  "CREATE_LANDING_START_PAGE":{
+    "title": "Como deseas empezar?",
+    "landing": "Crea Tu Sitio",
+    "edit_landing": "Edita tu Sitio"
+  },
+  "CREATE_LANDING_GALLERY":{
+    "title": "Galería de Imágenes",
+    "title_legend": "Añade contenido memorable a tu galería de imágenes para sobresalir ante otros posibles competidores.",
+    "bis_photos": "Fotografías BIS",
+    "bis_photos_legend": "Sube fotos que describan o estén relacionados a tu BIS",
+    "drag_and_drop": "Arrastra tus imágenes",
+    "description_text": "Texto Descriptivo",
+    "description_legend": "Agrega un texto descriptivo para cada una de las imágenes o un solo texto.",
+    "add_text": "Agregar Texto"
+  },
+  "CREATE_LANDING_ABOUT_US":{
+    "title": "Te gustaria…",
+    "select_profile": "Seleccionar la descripcion de tu Perfil de Usuario",
+    "select_enterprise_profile": "Seleccionar la descripcion de tu perfil empresarial",
+    "add_new": "Agregar una nueva Descripción ",
+    "describe": "Descripción",
+    "show_references": "Ver Referencias Profesionales",
+    "legend": "Aumenta la oportunidad de ser seleccionado mostrando tus referencias profesionales a tus potenciales clientes, esto ayudará a construir confianza entre los clientes y tener la oportunidad de mostrar en la plataforma que opinan de ti fuera de la misma Aumenta la posibilidad de ser seleccionado al mostrar tus referencias profesionales a tus clientes potenciales. Esto te ayudará a generar confianza entre tus clientes y a mostrar lo que otras personas piensan de ti."
+  },
+  "CREATE_LANDING_SERVICES":{
+    "title": "Te gustaria…",
+    "export_bis": "Exportar tus BIS",
+    "export_skills": "Exporta tus Habilidades y Destrezas Skills",
+    "add_new_skill": "Agregar nueva Habilidad Skill"
+  },
+  "CREATE_LANDING_PRODUCTS":{
+    "title": "Te gustaria…",
+    "export_product": "Exportar tus Productos"
+  },
+  "CREATE_LANDING_PORTFOLIO":{
+    "title": "Te gustaria…",
+    "export_completed_order": "Exportar tus Órdenes Completadas",
+    "export_activer_ordes": "Exportar tus Órdenes Activas"
+  },
+  "CREATE_LANDING_CONTACT":{
+    "title": "Te gustaria…",
+    "export_personal_profile": "Exportar tu Perfil Personal como Información de Contacto",
+    "export_enterprise_profile": "Exportar Tu Perfil Empresarial como Información de Contacto"
+  },
+  "PUBLISH_LANDING":{
+    "almost": "Unos pasos mas y estará listo",
+    "almost_legend": "Publicaremos tu Sitio* para que los clientes empiecen a buscarte",
+    "alive": "Esta Listo!",
+    "alive_legend": "Comparte tu Sitio"
+  },
+  "CREATE_LANDING_WIZARD_BUTTONS":{
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "save_and_continue": "Guardar y Continuar",
+    "back": "Regresar",
+    "save_and_preview": "Guardar y Vista Previa",
+    "publish_site": "Publicar Sitio",
+    "done": "Finalizar"
+  }
+}

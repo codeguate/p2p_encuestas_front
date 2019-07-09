@@ -1,0 +1,638 @@
+{
+    "MENU":{
+      "become": "Become a Professional",
+      "sign_up": "Sign Up",
+      "log_in": "Log In"
+    },
+    "HOME":{
+      "title": "Best Services on Demand",
+      "placeholder_search": "What type of services are you looking for?",
+      "how_to": "How does it Work?",
+      "explore": "Recommended Services",
+      "beneficios": "Benefits for Buyers",
+      "features": "Features for Sellers",
+      "new_bis_section": "Recently Added",
+      "top_search": "Top Search Service  Top Searched Services"
+    },
+    "RESULTS":{
+      "filter_title": "Refine Results Filter Results",
+      "price": "Price",
+      "rating": "Rating",
+      "seller_level": "Seller Level",
+      "location": "Location",
+      "add_to_compare": "Add to Compare"
+    },
+    "DETALLE_DE_BIS":{
+      "overview": "Overview",
+      "description": "Description",
+      "faqs": "FAQ's",
+      "reviews": "Reviews",
+      "add_to_favorites": "Agregar a Favoritos Add to Favorites",
+      "contact": "Contact",
+      "from": "From",
+      "member_since": "Member since",
+      "location": "Location",
+      "number_deliveries": "# of Deliveries",
+      "description1": "Service Description",
+      "question": "Question",
+      "reviews1": "Reviews",
+      "see_details": "See Details",
+      "show_more": "Show More",
+      "related_services": "Related Services"
+    },
+    "CONTACT_SELLER_FORM":{
+      "title": "Contact Seller ",
+      "tell_us_more": "Tell us more about your requirement",
+      "expected_date": "Expected Delivery Time",
+      "budget": "Budget",
+      "address": "Address",
+      "phone_number": "Phone Number",
+      "email": "Email",
+      "success_message": "Form send Successfully  Congratulations, your form has been sended succesfully!"
+    },
+    "QUOTE_REQUEST":{
+      "title": "Quote Reques Request for Quotation",
+      "tell_us_more": "Tell us more about your requirements",
+      "expected_date": "Expected Delivery Time  Due Date",
+      "budget": "Budget",
+      "address": "Address",
+      "phone_number": "Phone Number",
+      "email": "Email",
+      "pick_the_sellers": "Pick the Sellers",
+      "success_message": "Form send Successfully  Congratulations, your form has been sended succesfully!"
+    },
+    "SIGN_UP":{
+      "facebook": "Sign Up with Facebook",
+      "linked_in": "Sign Up with LinkedIn",
+      "email": "Sign Up with Email",
+      "help_text": "Already have a Bishound account? Log In"
+    },
+    "LOG_IN":{
+      "facebook": "Sign Up with Facebook",
+      "linked_in": "Sign Up with LinkedIn",
+      "email": "Sign Up with Email",
+      "help_text": "Already have a Bishound account? Log In",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email1": "Email Account",
+      "password": "Create Password",
+      "confirm": "Confirm Password",
+      "birthday": "Birthday",
+      "age_restriction": "To Sign Up, you must be 18 yo or older. Other people users won't see your age.",
+      "confirm1": "I've read the terms and conditions and Agree with them"
+    },
+    "SIGN_UP_CONTINUE":{
+      "forgot_pass": "Forgot your password.",
+      "remember": "Remember me?",
+      "not_member": "Not a member yet? Sign Up "
+    },
+    "RESET":{
+      "title": "Reset Password",
+      "legend": "We'll send Password reset instructions to the email address associated with your account ",
+      "back": "Back to Sign In"
+    },
+    "COMPARE_SELLERS":{
+      "service": "Services",
+      "skill": "Skills",
+      "rating": "Rating",
+      "orders": "Number of Jobs",
+      "contact_button": "Contact Seller ",
+      "cancel_button": "Cancel"
+    },
+    "POST_PROJECT":{
+      "title": "Tell us more about your project",
+      "name": "Choose a name for your project",
+      "description": "Describe Your project",
+      "legend_description": "Your Project Description is your chance to get amazing offers tailored just for you",
+      "left": "Left 1500 character",
+      "files": "Files",
+      "files_legend": "Provide all necessary files to help the sellers create an accurate offer for your project",
+      "skills": "Skills Required",
+      "skills_legend": "Enter up to 5 skills that will improve your project. Sellers will use these skills to find projects that matches their own skills. Sellers will use these skills to find projects in which they are most interested an have more experience",
+      "paid": "How do  you want to pay for it? How would you like to pay this proyect?",
+      "fixed": "Fixed Price Project",
+      "fixed_legend": "Highly recommend for finite projects with short duration.",
+      "fixed1": "Hourly Price Project",
+      "fixed_legend1": "Highly recommend for long duration projects Highly recommended for continuous projects.",
+      "delivery": "Delivery Time Frame",
+      "save_and_publish": "Save and Publish Project",
+      "cancel_button": "Cancel Project",
+      "fixed_price": "Budget",
+      "hourly_minimum": "Minimum Budget",
+      "hourly_maximum": "Maximum Budget"
+    },
+    "CREATE_OFFER":{
+      "title": "Offer",
+      "describe": "Describe your Offer",
+      "describe_legend": "Your Offer is your chance to create a good first impression with the customer, Do it Awesome!!",
+      "items": "Offer Items",
+      "add": "Add new Item",
+      "files": "Files",
+      "files_legend": "Provide all files that help you to complete your offer",
+      "uplodad": "Upload Files",
+      "item_cost": "Cost",
+      "item_time": "Time",
+      "total_time": "Total Time Spend",
+      "total_project": "Totall Project",
+      "save_and_send": "Save and Send Offer",
+      "cancel_button": "Cancel Offer"
+    },
+    "DASHBOARD_MENU_ITEMS":{
+      "dashboard": "My Dashboard",
+      "selling": "Selling",
+      "buying": "Buying",
+      "contacts": "Contacts",
+      "inbox": "Inbox",
+      "settings": "Settings",
+      "tools": "Tools for Growth"
+    },
+    "DASHBOARD":{
+      "edit_profile": "Edit My Profile",
+      "completed_jobs": "Total Completed Jobs",
+      "inbox": "Inbox Unread Messages",
+      "view_all": "View all",
+      "verified_info": "My Verified Info",
+      "items": "Active Items",
+      "items_orders": "Orders",
+      "items_products": "Products",
+      "items_bis": "BIS",
+      "item_requests": "Job Requests",
+      "overview": "Overview"
+    },
+    "DASHBOARD_SELLING_MENU":{
+      "orders": "Orders",
+      "bis": "BIS",
+      "catalog": "Catalog",
+      "analytics": "Analytics",
+      "buyers_requests": "Buyers Requests"
+    },
+    "ORDERS_MENU":{
+      "orders_actives": "Actives",
+      "orders_delivered": "Delivered",
+      "orders_completed": "Completed",
+      "orders_cancelled": "Cancelled"
+    },
+    "ORDER_ITEM":{
+      "budget": "Budget",
+      "delivery": "Delivery Time",
+      "view_order": "View Orders",
+      "title": "Active Orders",
+      "filter_by": "Filter by"
+    },
+    "DELIVERED_ORDERS":{
+      "buyer": "Buyer",
+      "project": "BIS/Project",
+      "due_on": "Due on",
+      "status": "Status",
+      "request_review": "Request Review",
+      "title": "Delivered Orders"
+    },
+    "COMPLETED_ORDERS":{
+      "buyer": "Buyer",
+      "project": "BIS/Project",
+      "rating": "Raiting",
+      "comment": "View Comment",
+      "title": "Completed Orders"
+    },
+    "CANCELLED_ORDERS":{
+      "buyer": "Buyer",
+      "project": "BIS/Project",
+      "date": "Date",
+      "reason": "View Reason",
+      "title": "Cancelled Orders"
+    },
+    "BIS_MENU_ITEMS":{
+      "actives": "Actives",
+      "drafts": "Drafts",
+      "denied": "Denied"
+    },
+    "ACTIVE_BIS":{
+      "title": "Active BIS",
+      "impressions": "Impressions",
+      "clicks": "Clicks",
+      "views": "Views",
+      "create": "Create New BIS"
+    },
+    "DRAFT_BIS":{
+      "title": "Drafts BIS Drafted Bis?"
+    },
+    "DENIED_BIS":{
+      "title": "Denied BIS",
+      "name": "BIS Name",
+      "date": "Date",
+      "reason": "Reason",
+      "view": "View Reason"
+    },
+    "CATALOG":{
+      "title": "Active Products",
+      "view": "View Product",
+      "edit": "Edit Product",
+      "delete": "Delete Product",
+      "create": "Create new Product",
+      "price": "Price"
+    },
+    "ANALYTICS":{
+      "title": "Analytics",
+      "customers": "Total Customers",
+      "orders": "Total Completed Orders",
+      "products": "Total Products",
+      "reviews": "Total Reviews",
+      "overview": "Overview",
+      "delivered": "Delivered",
+      "completed": "Completed",
+      "new_products": "New Products",
+      "new_orders": "New Orders",
+      "level": "Your seller level",
+      "learn": "Learn more",
+      "rating": "Rating",
+      "all_time": "All-Time Rating",
+      "breakdown": "Rating Breakdown",
+      "order": "Rated Orders"
+    },
+    "BUYERS_REQUEST":{
+      "title": "Buyers Requests",
+      "date": "Date",
+      "view": "View Request",
+      "send": "Send Offer",
+      "reject": "Reject Request",
+      "budget": "Budget",
+      "delivery_time": "Delivery Time"
+    },
+    "CONTACTS":{
+      "buyers_tab": "My Buyers",
+      "sellers_tab": "My Sellers",
+      "buyer_name": "Buyer Name",
+      "buyer_order": "Completed Orders",
+      "last_order": "Last Order",
+      "buyer_profile": "User Profile",
+      "buyer_history": "History",
+      "seller_name": "Seller Name",
+      "seller_ordero": "Completed Orders",
+      "last_order1": "Last Order",
+      "seller_profile": "User Profile",
+      "seller_history": "History"
+    },
+    "BUYING_ORDERS_MENU_ITEMS":{
+      "orders_actives": "Actives",
+      "orders_delivered": "Delivered",
+      "orders_completed": "Completed",
+      "orders_cancelled": "Cancelled"
+    },
+    "BUYING_ACTIVE_ORDERS":{
+      "title": "Active Orders",
+      "seller": "Seller",
+      "project": "BIS/Project",
+      "due_on": "Due on Due Date",
+      "status": "Status"
+    },
+    "BUYING_DELIVERED_ORDERS":{
+      "title": "Delvered Orders",
+      "seller": "Seller",
+      "project": "BIS/Project",
+      "due_on": "Delivered",
+      "status": "Status",
+      "post_review": "Post Review"
+    },
+    "BUYING_COMPLETED_ORDERS":{
+      "title": "Completed Orders",
+      "seller": "Seller",
+      "bis": "BIS/Project",
+      "rating": "Rating",
+      "view_comment": "View Comment"
+    },
+    "BUYING_MENU_ITEMS":{
+      "orders": "Orders",
+      "my_requests": "My Requests",
+      "my_projects": "My Projects"
+    },
+    "BUYING_MY_REQUESTS":{
+      "title": "Buyers Requests",
+      "date": "Date",
+      "view": "View Request",
+      "send": "Send Offer",
+      "reject": "Reject Request",
+      "budget": "Budget",
+      "delivery_time": "Delivery Time",
+      "view_offers": "View Offers",
+      "edit_request": "Edit Request",
+      "cancel_request": "Cancel Request"
+    },
+    "BUYING_MY_PROJECTS":{
+      "title": "Posted Projects",
+      "total_offers": "Total Offers",
+      "budget": "Budget",
+      "delivery_time": "Delivery Time",
+      "view_offers": "View Offers",
+      "editproject": "Edit Project",
+      "delete_project": "Delete Project"
+    },
+    "SETTINGS_MENU_ITEMS":{
+      "profile": "Profile",
+      "skills": "Skills",
+      "trusts_and_verifications": "Trusts and Verifications",
+      "references": "References"
+    },
+    "PROFILE_MEMBERSHIP":{
+      "title": "Membership & Billing",
+      "change_email": "Change email",
+      "change_password": "Change Password",
+      "update_billing": "Update or change Billing Information",
+      "billing_info": "Billing Information",
+      "cancel_membership": "Cancel Membership",
+      "upgrade_membership": "Upgrade membership"
+    },
+    "PROFILE_REQUERIED":{
+      "title": "Profile - Required",
+      "name": "Name(s)",
+      "lastname": "Last Name",
+      "iam": "I am Gender",
+      "birth_date": "Birth date",
+      "phone_number": "Phone Number",
+      "address": "Address",
+      "add_more": "Add more Add another contact info",
+      "describe": "Describe Yourself",
+      "save": "Save"
+    },
+    "ENTERPRISE_PROFILE":{
+      "title": "Enterprise Profile - Optional",
+      "enterprise_name": "Enterprise Name",
+      "show_enterprise_name": "Show Enterprise name?  Show Enterprise name instead of you profile name?",
+      "enterprise_size": "Size of your the Enterprise",
+      "enterprise_contact_info": "Enterprise contact Info",
+      "address": "Enterprise Address",
+      "phone_number": "Phone Number",
+      "describe": "Describe your enterprise",
+      "save": "Save"
+    },
+    "SETTINGS_SKILLS":{
+      "title": "Main Skills and Sub-Categories",
+      "add": "Add Skill",
+      "update": "Update Skill"
+    },
+    "ADD_SKILL_AND_SUB_CATEGORIES":{
+      "title": "Add Skill and Sub-Categories",
+      "main": "Main Category",
+      "subcategories": "Sub-Categories",
+      "add_button": "Add Skill",
+      "cancel": "Cancel"
+    },
+    "SETTINGS_TRUST_AND_VERIFICATIONS":{
+      "title": "Verified Info",
+      "verify_email": "Verify Email Address",
+      "verify_email_legend": "We will send an email to: (variable), Confirm your email is importat to allow us to securely communicate between you and your customers and/or your providers We will send an email to (variable), Confirming your email is important to us, this allows the secure communication between you and your costumers and/or providers.",
+      "verify_phone": "Verify Phone",
+      "verify_phone_legend": "We will send a text message to your phone: (variable), you will enter the code tat will sent you. We will send a text message to your phone: (variable), please enter the code you will received.",
+      "government_id": "Government ID",
+      "upload_id": "Upload Government ID",
+      "update_id": "Update Government ID",
+      "see_id": "See Government ID",
+      "delete_id": "Delete Government ID",
+      "commercial_patent": "commercial Pattent",
+      "upload_patent": "Upload Commercial Patent",
+      "update_patent": "Update Commercial Patent",
+      "see_patent": "See Commercial Patent",
+      "delete_patent": "Delete Commercial Patent"
+    },
+    "SETTINGS_REFERENCES":{
+      "title": "Professional References",
+      "view": "View Preference",
+      "hide": "Hide Reference",
+      "request_reference": "Request for a Reference"
+    },
+    "UPLOAD_IMAGES":{
+      "title": "Upload your",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "REQUEST_REFERENCE":{
+      "title": "Request for a Reference",
+      "legend": "Enter the email address to people you want to request a Reference, if you will enter mor than one, please separate by semicolon (;) Enter the email address of people you want to request a Reference from, if you type more than one email address, please separate them by a semicolon (;)",
+      "request": "Request Reference",
+      "cancel": "Cancel Request"
+    },
+    "VERIFY_PHONE_NUMBER":{
+      "title": "Verify Phone Number",
+      "legend": "Please, enter below the four digits code that we sent to your phone number Please, enter the four digit code that we sent to your phone number.",
+      "verify": "Verify"
+    },
+    "CHANGE_EMAIL":{
+      "title": "Change email",
+      "registered": "Email Registered",
+      "new": "New Email",
+      "current_pass": "Current Password",
+      "forgot_pass": "have you forto your password? Forgot your password?",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "CHANGE_PASSWORD":{
+      "title": "Change Password",
+      "current_pass": "Current Password",
+      "forgot_pass": "have you forto your password? Forgot your password?",
+      "new_pass": "New Password",
+      "confirm_pass": "Confirm New Password",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "PAID_METHODS":{
+      "title": "Paid Methods",
+      "current": "Current Paid Method",
+      "update": "Update",
+      "delete": "delete",
+      "principal": "Set as Principal",
+      "add": "Add another paid method"
+    },
+    "BILLING_INFORMATION":{
+      "title": "Billing Information",
+      "memberhip": "Your Membership",
+      "next_billing_date": "Next Billing Date",
+      "legend": "Membership fees are billed at the beginning of each period and may apear in your account a few days after the billing date.",
+      "date": "Date",
+      "description": "Description",
+      "period": "Perod Payment Term",
+      "paid_method": "Paid Method",
+      "total": "Total"
+    },
+    "MEMBERSHIP_INFO":{
+      "title": "Memberships Information Our Memberships",
+      "continue": "Continue",
+      "cancel": "Cancel"
+    },
+    "CHECKOUT":{
+      "title": "Checkout",
+      "choose_paid_method": "Choose your paid method",
+      "choose_chage_type": "Choose your Charge Type",
+      "monthly": "Monthly",
+      "biyearly": "Biyearly",
+      "yearly": "Yearly"
+    },
+    "PAID_DETAILS":{
+      "title": "Paid Details Payment Details?",
+      "description": "Description",
+      "amount": "Amount",
+      "sub_total": "Sub Total",
+      "total": "Total",
+      "date": "Transaction Date",
+      "next_charge": "Next Charge Date",
+      "paid_method": "Paid Method",
+      "charge_type": "Charge Type",
+      "back": "Back to My Dashboard",
+      "download": "Download"
+    },
+    "REVIEW":{
+      "title": "Review",
+      "sub-title": "review",
+      "rate": "Rate your Service Rate the Service",
+      "legend": "Below you wil find the main topics to rate Aspects to Rate",
+      "compliment": "Give a Compliment?",
+      "compliment_legend": "if your seller exceeds your expectaions, giveit a compliment If the seller exceeded your expectations, why don't give a compliment?",
+      "submit": "Submit Review",
+      "cancel": "Cancel Review"
+    },
+    "REFERENCE":{
+      "title": "Reference",
+      "review": "Review",
+      "legend": "Provide reference for the selles, will help it to improve his profile on our site and get more customers Provide a reference of the seller, this will help improve his profile in Bishound and will also acquire more customers.",
+      "aditional_info_title": "Additional Info",
+      "full_name_and_position": "Full name and position",
+      "since_you_met": "Since you met the seller? How long do you know the seller?",
+      "phone_number": "Phone Number",
+      "picture": "Upload Picture",
+      "submit": "Submit Reference",
+      "cancel": "Cancel Reference"
+    },
+    "CREATE_BIS_WIZARD_MENU_ITEMS":{
+      "overview": "Overview",
+      "pricing": "Pricing",
+      "description": "Description",
+      "requirements": "Requirements",
+      "gallery": "Gallery",
+      "publish": "Publish BIS"
+    },
+    "CREATE_BIS_WIZARD_BUTTONS":{
+      "cancel": "Cancel",
+      "next": "Next",
+      "save_and_continue": "Save and Continue",
+      "back": "Back",
+      "add_faq": "Add FAQ's",
+      "add_requirement": "Add Requirement",
+      "save_and_preview": "Save and Preview",
+      "publish_bis": "Publish BIS",
+      "done": "Done"
+    },
+    "CREATE_BIS_START_PAGE":{
+      "title": "How would you like Start?",
+      "bis": "Create a New BIS",
+      "product": "Add New Product"
+    },
+    "CREATE_BIS_OVERVIEW":{
+      "title": "BIS Title",
+      "category": "Category",
+      "subcategory": "Sub-Category",
+      "tags": "Search tags"
+    },
+    "CREATE_BIS_PRICING":{
+      "title": "Price Type for your BIS",
+      "fixed": "Fixed Price",
+      "hourly": "Hourly Price",
+      "rush": "Rush Delivery Fee",
+      "rush_legend": "Describe how much your charge if you have a charge for Rush Delivery, doesn{t matter if isfixed price or hourly rate How much is your Rush Delivery charge? It doesn't matter if its fixed price or hourly price."
+    },
+    "CREATE_BIS_DESCRIPTION":{
+      "title": "Description",
+      "title_legend": "Describe clearly you BIS Describe your BIS as clear as you can.",
+      "faqs_title": "Frequently Asked Questions by your Customers FAQ's by customers.",
+      "faqs_legend": "Add Questions & Answers for your buyers",
+      "add_faq": "Add FAQ's"
+    },
+    "CREATE_BIS_REQUIREMENTS":{
+      "title": "Tell your buyers what you need to get started",
+      "title_legend": "Structure your Buyer's Instructions, provide all the main requirements to start the project",
+      "requirement": "Requirement",
+      "placeholder": "For example: specifications, brand, guidelines or background materials"
+    },
+    "CREATE_BIS_GALLERY":{
+      "title": "Build  Image Gallery for you BIS",
+      "title_legend": "Add memorable content to your gallery to set yourself apart from competitors.",
+      "bis_photos": "BIS Photos",
+      "bis_photos_legend": "upload photos that describe or are related to your BIS",
+      "drag_and_drop": "Drag and Drop",
+      "browse": "Browse",
+      "bis_files": "Files",
+      "bis_files_legend": "We recommend adding PDF o .doc files if it further clarifies the service you will be providing We recommend adding PDF o .doc files to clarify the services you will be providing"
+    },
+    "PUBLISH_BIS":{
+      "almost": "Almost there",
+      "almost_legend": "Let's publish your BIS and get some buyers rolling in",
+      "alive": "It's Alive!",
+      "alive_legend": "Promote your BIS"
+    },
+    "CREATE_LANDING_MENU_ITEMS":{
+      "home": "Home",
+      "about_us": "About Us",
+      "services": "Services",
+      "products": "Products",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "preview": "Preview"
+    },
+    "CREATE_LANDING_START_PAGE":{
+      "title": "How would you like Start?",
+      "landing": "Create your Web Create your Site",
+      "edit_landing": "Edit your Web Edit your Site"
+    },
+    "CREATE_LANDING_GALLERY":{
+      "title": "Home Image Gallery",
+      "title_legend": "Add memorable content to you gallery to set yourself apart from competitors.",
+      "bis_photos": "BIS Photos",
+      "bis_photos_legend": "upload photos that describe or are related to your BIS",
+      "drag_and_drop": "Drag and Drop",
+      "description_text": "Description Text",
+      "description_legend": "Add a description for each one of your images or just one",
+      "add_text": "Add Text"
+    },
+    "CREATE_LANDING_ABOUT_US":{
+      "title": "would you like…",
+      "select_profile": "Select your Profile Description",
+      "select_enterprise_profile": "select your Enterprise Profile Description",
+      "add_new": "Add new Description",
+      "describe": "Describe Yourself",
+      "show_references": "show Profesional References",
+      "legend": "Boost the chance to be selected showing your proessional references to your potential customers, this will help to build trust with your customers and have the cance to show what other people think about you. Boost your chance of being selected, by showing your professional references to your potential clients. This will help you build trust among your customers and show what other people think of you."
+    },
+    "CREATE_LANDING_SERVICES":{
+      "title": "would you like…",
+      "export_bis": "Export your BIS's",
+      "export_skills": "Export your Skills",
+      "add_new_skill": "Add new Skill"
+    },
+    "CREATE_LANDING_PRODUCTS":{
+      "title": "would you like…",
+      "export_product": "Export your Products"
+    },
+    "CREATE_LANDING_PORTFOLIO":{
+      "title": "would you like…",
+      "export_completed_order": "Export your Completed Orders",
+      "export_activer_ordes": "Export your Active Orders"
+    },
+    "CREATE_LANDING_CONTACT":{
+      "title": "would you like…",
+      "export_personal_profile": "Export your Personal Profile as contact Info",
+      "export_enterprise_profile": "Export your Enterpise Profile as Contact Info"
+    },
+    "PUBLISH_LANDING":{
+      "almost": "Almost there, Patience is a virtue",
+      "almost_legend": "Let's publish your Site* and get some buyers rolling in",
+      "alive": "It's Alive!",
+      "alive_legend": "Promote you site"
+    },
+    "CREATE_LANDING_WIZARD_BUTTONS":{
+      "cancel": "Cancel",
+      "next": "Next",
+      "save_and_continue": "Save and Continue",
+      "back": "Back",
+      "save_and_preview": "Save and Preview",
+      "publish_site": "Publish Site",
+      "done": "Done"
+    }
+  }
+  

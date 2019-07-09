@@ -1,0 +1,169 @@
+.card-block {
+  min-height: 220px;
+}
+.scrolling{
+  overflow-x: auto;
+}
+.rate {
+  height: 50px;
+  width: 100%;
+}
+
+.rate p {
+  text-align: center;
+}
+
+.rate label {
+  font-size: 20px;
+  margin-right: 0.3rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+@media only screen and (max-width: 1300px) {
+
+  .rate label {
+    font-size: 100%!important;
+      margin-right: 0.3rem!important;
+  }
+}
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+/* label:hover,
+label:hover ~ label {
+  color: #ff00ff;
+  cursor: pointer;
+} */
+
+/* input[type="radio"]:active ~ label {
+  color: #ff00ff;
+} */
+.checkStar ~ label{
+  color: #ff00ff;
+}
+
+.scrolling{
+  overflow-x: auto;
+  width: 100%;
+}
+.categorys{
+  height: 50px;
+  border: solid #000 1px;
+}
+.rate {
+  height: 50px;
+  width: 100%;
+}
+.rateMini {
+  height: 50px;
+  width: 100%;
+}
+.rateMini{
+  position: absolute!important;
+  margin-left:0.5rem!important;
+}
+
+.rateMini label{
+  font-size: 1.5rem!important;
+  margin-right: 0.3rem!important;
+
+}
+.rate p {
+  text-align: left;
+}
+
+.rateMini p {
+  text-align: left;
+}
+
+.rate label {
+  font-size: 130%;
+  margin-right: 0.5rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.rate label {
+  color: #a7acb1;
+}
+@media only screen and (max-width: 1000px) {
+
+  .rate label {
+    font-size: 100%!important;
+      margin-right: 0.3rem!important;
+  }
+  .rateMini label {
+    font-size: 100%!important;
+      margin-right: 0.3rem!important;
+  }
+}
+.rateMini label {
+  color: #a7acb1;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+.rate label:hover,
+.rate label:hover ~ label {
+  color: #0000ff;
+  cursor: pointer;
+}
+
+.btn-bishound:hover{
+  background-color: #0000ff!important;
+  color: #f8f9fa!important;
+  cursor: pointer;
+}
+.btn-bishound-active:hover{
+  background-color: #f8f9fa!important;
+  color: #0000ff!important;
+  cursor: pointer;
+}
+/*
+
+
+input[type="radio"]:checked ~ label {
+  color: #0000ff;
+}
+.valoracionRanking:checked ~ label {
+  color: #0000ff;
+} */
+
+
+.checkStar ~ label{
+  color: #0000ff;
+}
+
+
+.calificacionResultado{
+  position: absolute;
+  z-index: 3;
+  margin-left: 5%;
+  font-size: 0.5rem !important;
+
+}
+.service-card{
+  width: 100%;
+    height: auto;
+    border-radius: 9px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.4s ease all;
+    transform: none;
+    backface-visibility: hidden;
+    position: relative;
+}

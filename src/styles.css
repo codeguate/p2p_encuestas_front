@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: "Bishound Font";
+  src: url("./assets/fonts/Averta-Regular.otf");
+}
+html,
+body {
+  min-height: 10%;
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  color: #bdbcbd !important;
+  font-size: 1rem;
+  text-align: left;
+  font-family: "Bishound Font" !important;
+}
+
+html, body {
+  background-color: #ffffff !important;
+}
+.carouselMain{
+  width: 100%;
+  height: auto;
+  max-height: 550px;
+}
+.footerWme {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+}
+
+
+.bg-indigo{
+  background-color: rgb(85, 35, 147);
+  color: #fff;
+}
+
+.bg-white{
+  background-color: #fff;
+  color: rgb(85, 35, 147);
+}
+
+.round-border{
+  border: 0.4rem solid;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+.banner{
+  height: 10rem;
+}

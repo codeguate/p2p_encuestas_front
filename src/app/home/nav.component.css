@@ -1,0 +1,60 @@
+.footer {
+  background: #061D25;
+  padding: 10px 0px;
+  height: 10%;
+}
+.footer a {
+  color: #70726F;
+  font-size: 20px;
+  padding: 10px;
+  border-right: 1px;
+  transition: all .2s ease;
+}
+.jumbotron{
+  background-color: none!important;
+}
+.footer a:hover {
+  color: #bdbcbd;
+}
+
+.social-media{
+  padding-top: 3%;
+}
+
+.social-media a{
+  font-size: 3rem;
+}
+.border-buttom{
+  border-bottom: solid 1px #fff;
+  color: #fff;
+}
+
+.dropdown-item.active,.dropdown-item:active{
+    color: #fff;
+    text-decoration: none;
+    background-color: #a7acb1!important;
+}
+
+
+
+.bg-animate-adds{
+  background-image: url("./../../assets/png/fondos/fondo1.jpeg") !important ;
+  opacity: 1;
+}
+.trusted-by {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+.trusted-by img, .trusted-by picture {
+  display: block;
+}
+
+

@@ -1,0 +1,122 @@
+<div class="pr-5 pl-5 bg-bishound mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['./../../dashboard/home']" >Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['./../../dashboard/eventos']" >Eventos</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['./../../dashboard/localidades']" >Localidades</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Home Windows -->
+  <div class="row mt-3">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 offset-xs-3 offset-sm-3 offset-md-3 offset-lg-3">
+      <div class="accordion" id="AcordionEditar">
+        <div class="card">
+          <div id="formEditar" class="collapse" aria-labelledby="headingOne" data-parent="#AcordionEditar">
+            <div class="card-body">
+                <form class="form-signin" autocomplete="off" id="login-form"  #loginForm="ngForm" (ngSubmit)="insert(loginForm.value)">
+                    <h1 class="h3 mb-3 font-weight-normal">Funcion</h1>
+
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group mb-1">
+                          <input type="text" class="form-control" name="username" required
+                          ngModel #username="ngModel" placeholder="Usuario">
+                        </div>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group mb-3">
+                          <input type="password" class="form-control" name="password" required
+                          ngModel #password="ngModel" placeholder="Password">
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-3">
+                        <ngui-map
+                          zoom="18"
+                          center="14.66430813990437, -90.51446914672852"
+                          (mapClick)="onMapClick($event)"
+                          mapTypeId="roadmap">
+                            <marker *ngFor="let pos of positions"
+                              [position]="pos"
+                              (initialized$)="onMarkerInit($event)"></marker>
+                        </ngui-map>
+                      </div>
+
+
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Actualizar Evento</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+      <div class="accordion " id="AcordionEventos" *ngFor="let data of Table; let i = index">
+        <div class="card">
+          <div class="card-header pointer text-secondary" id="headingOne"  (click)="ocultarForm();collapse('collapseOne-'+((data.id)?data.id:''))">
+
+              <button class="btn btn-link text-left" type="button">
+                  <h2 class="mb-0 ">{{data.titulo}} </h2>
+              </button>
+
+          </div>
+
+          <div id="collapseOne-{{((data.id)?data.id:'')}}" class="collapse" aria-labelledby="headingOne" data-parent="#AcordionEventos">
+            <div class="card-body">
+              <div class="row mb-4 ml-5 mr-5">
+                <div class="d-md-flex flex-wrap gutter-sm pt-3 mb-3">
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mb-3 service-card"
+                        (click)="collapse('formEditar');collapse('collapseOne-'+((data.id)?data.id:''))"
+                        style="cursor: pointer"
+                        *ngFor="let item of data.funciones">
+                    <div class="card mb-4 shadow-sm">
+                      <img class="bd-placeholder-img card-img-top" width="100%" height="200" src="{{((item.imagen!=null && item.imagen!='')?item.imagen:'http://placehold.it/1000X1000?text=X')}}">
+
+                      <div class="card-body">
+                        <p class="card-text text-primary">
+                            {{((item.titulo!=null)?item.titulo:'')}}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <small class="text-muted text-left">
+                            Fecha: {{((item.fecha_inicio!=null)?item.fecha_inicio:'')}} <br>
+                            Hora: {{((item.hora_inicio!=null)?item.hora_inicio:'')}}
+                          </small>
+                          <div class="btn-group ">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+<!-- Fin Home Windows -->
+</div>
+
+  <!-- Inicio Notificaciones -->
+  <simple-notifications [options]="options"></simple-notifications>
+  <!-- Fin Notificaciones -->

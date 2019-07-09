@@ -1,0 +1,28 @@
+<block-ui>
+<div class="body w-100">
+    <nav class="navbar navbar-expand-lg fixed-top bg-indigo">
+        <a class="navbar-brand" [routerLink]="['./']" (click)="navegar('./../')">
+            <img src="./../../assets/png/fondos/logo.png" width="150" height="40" class="d-inline-block align-top" alt="">
+          </a>
+      <ul class="nav ml-auto">
+        <li class="nav-item pr-2">
+          <button type="button" class="btn btn-primary  pointer" [routerLink]="['./']" (click)="abrirModal()">Aplica con nosotros</button>
+        </li>
+        <li class="nav-item pr-3">
+          <a class="btn btn-primary pointer" target="_blank" href="https://www.tuenti.gt/">Ir a Tuenti</a>
+        </li>
+      </ul>
+
+    </nav>
+  <div style="margin-top: 4rem;">
+    <router-outlet></router-outlet>
+  </div>
+  <nav class="navbar bottom  navbar-light bg-faded">
+      <div class="mx-auto text-center">
+        <p class="mb-1">© 2019 tuenti</p>
+      </div>
+  </nav>
+</div>
+
+
+</block-ui>
