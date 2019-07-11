@@ -60,12 +60,12 @@ ngOnInit() {
   this.translate = this.app.translate;
   // console.log(this.app.translate);
   // console.log(this.translate);
-  $(document).ready(data => {
-      this.changeLang()
-      this.cargarSlides();
-      this.ngAfterViewInit()
-      this.cargarTop();
-  })
+  // $(document).ready(data => {
+  //     this.changeLang()
+  //     this.cargarSlides();
+  //     this.ngAfterViewInit()
+  //     this.cargarTop();
+  // })
 }
 ngAfterViewInit() {
   // setTimeout(() => {

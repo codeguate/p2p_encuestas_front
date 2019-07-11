@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'checkout/:id', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'paid/:token/:ern', component: ComprobanteComponent, canActivate: [AuthGuard] },
   { path: 'conocenos', component: ConocenosComponent },
-  { path: 'login', component: LoginComponent, canActivate: [HomeGuard] },
+  { path: 'login/:type', component: LoginComponent, canActivate: [HomeGuard] },
   { path: 'recovery', component: RecoveryComponent, canActivate: [HomeGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [HomeGuard] },
   { path: '**', redirectTo: 'main', pathMatch: 'full' }

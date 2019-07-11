@@ -19,6 +19,7 @@ declare var $: any
 })
 export class LoginComponent implements OnInit {
   auth:any
+  type:any = 'Promotor';
   @Input() public isModal: boolean;
   @Input() public idBis: string;
   @BlockUI() blockUI: NgBlockUI;
@@ -30,7 +31,11 @@ export class LoginComponent implements OnInit {
     private _service: NotificationsService,
     private nav:NavComponent
   ) { }
+  getParams(){
+    this.type = this.route.snapshot.paramMap.get("type");
+    console.log(this.type);
 
+  }
   public options = {
     position: ["bottom", "right"],
     timeOut: 2000,
@@ -120,6 +125,7 @@ createError(error) {
     $('#searchContent').addClass('d-none');
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
+    this.getParams()
   }
 
 }
