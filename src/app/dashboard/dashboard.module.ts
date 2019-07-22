@@ -29,6 +29,7 @@ import { LocalidadesComponent } from './localidades/localidades.component';
 import { AsientosComponent } from './asientos/asientos.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NguiMapModule} from '@ngui/map';
+import { EncuestasComponent } from './encuestas/encuestas.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalidadesComponent,
     AsientosComponent,
     ProfileComponent,
+    EncuestasComponent,
   ],
   providers:[
     AuthGuard,

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { AppRoutingModule } from './app.routing';
 import { LoadersCssModule } from 'angular2-loaders-css';
@@ -41,6 +43,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
 
     BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
     SimpleNotificationsModule.forRoot(),
     LoadersCssModule,
     AppRoutingModule

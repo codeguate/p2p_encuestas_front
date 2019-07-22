@@ -1,34 +1,26 @@
 <div class="pr-5 pl-5 mt-5">
   <!-- Home Windows -->
   <div class="row pt-3" *ngIf="SelectedData">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mx-auto mb-3 mt-3 ">
-      <!-- Seller Card -->
-      <div class="mb-5">
-        <div class="shadow-Main">
-          <img class="img-profile mt-3" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
-        </div>
-          <div class="card-body">
-            <h2 class="card-title text-center c-azul-bishound">Hola, {{SelectedData.nombres+' '+SelectedData.apellidos}}</h2>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mx-auto mb-3 mt-3 shadow profile-main">
+
+      
+      <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                  <div class="input-group mb-3">
+                      <input type="text"
+           placeholder="Datepicker"
+           class="form-control"
+           bsDatepicker>
+                  </div>
+                </div>
           </div>
-
-            <!-- info seller Area -->
-          <div class="row ml-0 mr-0">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center">
-                <small class="text-secondary">Te ha registrado como {{SelectedData.roles.titulo}}, puedes proceder a la encuesta o modificar tu perfil</small>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-5 text-center">
-
-                <a class="btn btn-primary form-control" [routerLink]="['./../encuesta']">Vamos a la Encuesta</a>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-1 text-center">
-                <a [routerLink]="['./../profile']">Editar Perfil</a>
-              </div>
-            </div>
-            <!-- Fin info seller Area -->
-
-
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            
+          </div>
       </div>
-      <!-- Fin Seller Card -->
+      
+
     </div>
     <!-- Fin Main Home Page -->
   </div>
