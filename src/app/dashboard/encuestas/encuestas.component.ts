@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { UsersService } from "./../../home/_services/users.service";
+import { EncuestasService } from "./../../home/_services/encuestas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -18,6 +18,12 @@ export class EncuestasComponent implements OnInit {
   tipoUsuario:number = +localStorage.getItem('currentTipoUsuarioId');
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
+  positions:any
+  lat:any
+  lng:any
+  localidades:any
+  today:any = this.hoy();
+  now1:any = this.now();
   SelectedData:any = null;
   id:number = +localStorage.getItem('currentId');
   selected={
@@ -27,12 +33,7 @@ export class EncuestasComponent implements OnInit {
     PhoneNumber:false,
     BussinessAddress:false
   };
-  mainData = {
-    password:'',
-    username:localStorage.getItem('currentEmail'),
-    id:+localStorage.getItem('currentId'),
-    type:'changepass'
-  }
+
   @BlockUI() blockUI: NgBlockUI;
   rowsItems:any=[
     {id:1}
@@ -41,13 +42,31 @@ export class EncuestasComponent implements OnInit {
     let id = ((this.rowsItems[this.rowsItems.length-1].id)*1)+1
     this.rowsItems.push({id:id})
   }
+  now(){
+      let today = new Date();
+      let hh = String(today.getHours()).padStart(2, '0');
+      let mm = String(today.getMinutes()).padStart(2, '0'); //January is 0!
+      let ss = String(today.getSeconds()).padStart(2, '0'); //January is 0!
+      let stoday = hh + ':' + mm + ':' + ss;
+      console.log(stoday);
+
+      return stoday;
+  }
+  hoy(){
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      let stoday = yyyy + '-' + mm + '-' + dd;
+      return stoday;
+  }
   constructor(
     private _service: NotificationsService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
     private AuthService: AuthService,
-    private UsersService:UsersService,
+    private UsersService:EncuestasService,
     ) { }
 
     changePass(formValue:any){
@@ -68,14 +87,31 @@ export class EncuestasComponent implements OnInit {
                       })
     }
   ngOnInit() {
+    this.today = this.hoy();
+    this.now1 = this.now();
     $('html, body').animate({scrollTop:0}, '300');
     $('#searchContent').addClass('d-none');
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
     // this.blockUI.reset();
-    this.cargarOne();
-  }
 
+    // this.cargarOne();
+  }
+  mainData = {
+    titulo : "Encuesta "+this.today,
+    direccion: "",
+    asistentes: 0,
+    ventas: 0,
+    hora_inicio: this.now1,
+    fecha_inicio: this.today,
+    hora_fin: this.now1,
+    fecha_fin: this.today,
+    latitud: 0,
+    longitud: 0,
+    type: 1,
+    state: 1,
+    user:+localStorage.getItem('currentId')
+  }
   cargarOne(){
     // this.blockUI.reset();
 
@@ -104,26 +140,30 @@ export class EncuestasComponent implements OnInit {
                     })
   }
 
-  update(formValue:any){
-    this.blockUI.start();
-    setTimeout(() => {
-
-        this.blockUI.stop();
-    }, 1000);
-    formValue.id = localStorage.getItem('currentId');
-    let nombres = formValue.nombre.split(' ')
-    let apellidos = formValue.apellido.split(' ')
-    this.SelectedData.primerNombre = nombres[0] ;
-    this.SelectedData.segundoNombre = nombres[1] ;
-    this.SelectedData.primerApellido = apellidos[0] ;
-    this.SelectedData.segundoApellido = apellidos[1] ;
-    this.SelectedData.descripcion = formValue.descripcion ;
-    this.SelectedData.id = formValue.id ;
-    formValue=this.SelectedData;
-    this.UsersService.update(formValue)
+  insert(formValue:any){
+    this.mainData = {
+      titulo : "Encuesta "+this.today,
+      direccion: "",
+      asistentes: 0,
+      ventas: 0,
+      hora_inicio: this.now1,
+      fecha_inicio: this.today,
+      hora_fin: this.now1,
+      fecha_fin: this.today,
+      latitud: this.lat,
+      longitud: this.lng,
+      type: 1,
+      state: 1,
+      user:+localStorage.getItem('currentId')
+    }
+    this.UsersService.create(this.mainData)
                       .then(response => {
                         this.createSuccess('Profile Saved')
                         this.SelectedData = response
+                        console.log(response);
+                        if(response.id && response.user>0){
+                          this.router.navigate([`./dashboard/home`])
+                        }
                         console.clear
 
 
@@ -215,6 +255,27 @@ export class EncuestasComponent implements OnInit {
 
   public chartHovered(e:any):void {
     console.log(e);
+  }
+
+  onMapReady(map) {
+    console.log('map', map);
+    console.log('markers', map.markers);  // to get all markers as an array
+  }
+  onIdle(event) {
+    console.log('map', event.target);
+  }
+  onMarkerInit(marker) {
+    console.log('marker', marker);
+  }
+  onMapClick(event) {
+    this.positions = event.latLng;
+      let positions1 = event.latLng + '';
+      let pos = positions1.replace(')','').replace('(','').split(',')
+      this.lat = pos[0]
+      this.lng = pos[1]
+      event.target.panTo(this.positions);
+      console.log(this.lat+' @ '+this.lng+' @ '+event.latLng+'\n'+pos[0]);
+
   }
 
 }
