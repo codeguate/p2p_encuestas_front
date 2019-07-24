@@ -85,14 +85,15 @@ export class ProfileComponent implements OnInit {
     this.UsersService.getSingle(this.id)
                     .then(response => {
                       this.SelectedData = response;
-                      this.SelectedData.apellido = ((this.SelectedData.primerApellido)?this.SelectedData.primerApellido:'')+' '+((this.SelectedData.segundoApellido)?this.SelectedData.segundoApellido:'')
-                      this.SelectedData.nombre = ((this.SelectedData.primerNombre)?this.SelectedData.primerNombre:'')+' '+((this.SelectedData.segundoNombre)?this.SelectedData.segundoNombre:'')
+                      this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                      this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
                       // console.log(response);
                       this.selected.GovermentID = response.verificacion?response.verificacion.indexOf("G"):false;
                       this.selected.ComercialPatent = response.verificacion?response.verificacion.indexOf("C"):false;
                       this.selected.EmailAddress = response.verificacion?response.verificacion.indexOf("E"):false;
                       this.selected.PhoneNumber = response.verificacion?response.verificacion.indexOf("P"):false;
                       this.selected.BussinessAddress = response.verificacion?response.verificacion.indexOf("B"):false;
+                      console.log(response)
                       if(response.state=='21'){
                         $('#ActualizaPass').modal('show');
                       }
