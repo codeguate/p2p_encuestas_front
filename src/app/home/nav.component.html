@@ -7,6 +7,23 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+<div class="nav-footer row p-1 text-light" *ngIf="user.id>0">
 
+  <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;" routerLinkActive="active" [routerLink]="['./home']">
+    <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
+    <div>Encuestas</div>
+  </a>
+
+  <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;" routerLinkActive="active" [routerLink]="['./profile']">
+    <img src="./../../assets/png/04-Promotor/MenuBack/conflict.png" style="width: 3rem; height:3rem;" alt="">
+    <div>Perfil</div>
+  </a>
+
+  <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;" routerLinkActive="active" [routerLink]="['./../encuesta']">
+    <img src="./../../assets/png/04-Promotor/MenuBack/Rectangle1506.png" style="width: 1.8rem; height:1.8rem;" alt="">
+    <div>Calendario</div>
+  </a>
+
+</div>
 
 </block-ui>

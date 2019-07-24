@@ -58,3 +58,17 @@
 }
 
 
+
+
+.nav-footer{
+  background-image: url(./../../assets/png/04-Promotor/MenuBack/Group2483.png);
+  background-size: 100% 100%;
+}
+.nav-footer>a{
+  border-bottom: none;
+  border-left: none;
+}
+.nav-footer>a:hover{
+  box-shadow: inset #4f1b86 4px 1px 20px 20px;
+  cursor: pointer;
+}

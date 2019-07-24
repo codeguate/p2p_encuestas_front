@@ -15,7 +15,7 @@ import { HomeGuard } from "./_guards/home.guard";
 import { AuthGuard } from "./_guards/auth.guard";
 
 const routes: Routes = [
-  { path: '', component: MainComponent , pathMatch: 'full'},
+  { path: '', component: MainComponent , pathMatch: 'full', canActivate: [HomeGuard]},
   { path: 'evento/:id/:fecha', component: EventoComponent},
   { path: 'evento/:idFuncion/localidad/:idArea', component: LocalidadesComponent, canActivate: [AuthGuard] },
   { path: 'checkout/:id', component: CheckoutComponent, canActivate: [AuthGuard] },
