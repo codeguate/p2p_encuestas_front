@@ -25,7 +25,10 @@ export class EncuestasComponent implements OnInit {
   today:any = this.hoy();
   now1:any = this.now();
   SelectedData:any = null;
+  edad:any = "18-25"
+  genero:any = "hombre"
   id:number = +localStorage.getItem('currentId');
+  sesion:boolean=false;
   selected={
     GovermentID:false,
     ComercialPatent:false,
@@ -86,6 +89,26 @@ export class EncuestasComponent implements OnInit {
                         this.blockUI.stop()
                       })
     }
+  getParams(){
+    try{
+      let idTemp = '';
+      if(this.route.snapshot){
+         idTemp = this.route.snapshot.paramMap.get("id");
+
+      }
+
+
+      this.sesion=true;
+
+      this.id = +idTemp
+      if(this.sesion){
+        this.cargarOne(this.id);
+      }
+    }
+    catch(e){
+      this.sesion=false;
+    }
+  }
   ngOnInit() {
     this.today = this.hoy();
     this.now1 = this.now();
@@ -93,9 +116,9 @@ export class EncuestasComponent implements OnInit {
     $('#searchContent').addClass('d-none');
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
-    // this.blockUI.reset();
 
-    // this.cargarOne();
+
+    this.getParams();
   }
   mainData = {
     titulo : "Encuesta "+this.today,
@@ -112,26 +135,20 @@ export class EncuestasComponent implements OnInit {
     state: 1,
     user:+localStorage.getItem('currentId')
   }
-  cargarOne(){
+  cargarOne(id?:any){
     // this.blockUI.reset();
-
-    this.id = +localStorage.getItem('currentId');
+    if(!id){
+      this.id = +localStorage.getItem('currentId');
+    }
     // this.blockUI.start();
     this.SelectedData = null;
     this.UsersService.getSingle(this.id)
                     .then(response => {
                       this.SelectedData = response;
-                      this.SelectedData.apellido = ((this.SelectedData.primerApellido)?this.SelectedData.primerApellido:'')+' '+((this.SelectedData.segundoApellido)?this.SelectedData.segundoApellido:'')
-                      this.SelectedData.nombre = ((this.SelectedData.primerNombre)?this.SelectedData.primerNombre:'')+' '+((this.SelectedData.segundoNombre)?this.SelectedData.segundoNombre:'')
-                      // console.log(response);
-                      this.selected.GovermentID = response.verificacion?response.verificacion.indexOf("G"):false;
-                      this.selected.ComercialPatent = response.verificacion?response.verificacion.indexOf("C"):false;
-                      this.selected.EmailAddress = response.verificacion?response.verificacion.indexOf("E"):false;
-                      this.selected.PhoneNumber = response.verificacion?response.verificacion.indexOf("P"):false;
-                      this.selected.BussinessAddress = response.verificacion?response.verificacion.indexOf("B"):false;
-                      if(response.state=='21'){
-                        $('#ActualizaPass').modal('show');
-                      }
+                      this.mainData = response;
+                      this.positions = new google.maps.LatLng(parseFloat(response.latitud), parseFloat(response.longitud));
+                      console.log(response);
+
                       this.blockUI.stop();
                     }).catch(error => {
                       console.clear

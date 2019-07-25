@@ -60,7 +60,7 @@
                     <td>{{ data.titulo }}</td>
                     <td>{{ data.inicio }}</td>
                     <td>
-                      <button type="button" class="btn btn-warning" (click)="cargarSingle(data.id)" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
+                      <button type="button" class="btn btn-warning" [routerLink]="['./../comentarios',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
                     </td>
                 </tr>
             </tbody>

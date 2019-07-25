@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
   { path: 'eventos', component: EventosComponent },
   { path: 'encuesta', component: EncuestasComponent, canActivate: [AuthGuard] },
+  { path: 'comentarios/:id', component: EncuestasComponent, canActivate: [AuthGuard] },
   { path: 'asientos', component: AsientosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'inbox', component: InboxComponent },
