@@ -2,6 +2,8 @@
 <div class="body w-100">
   <div class="header">
     <img class="logo" src="./../../assets/png/01-Bienvenido/Logo.png">
+    <a *ngIf="user.id>0" style="font-size: 3rem;position: absolute;right: 1rem;margin-top: 5rem;cursor: pointer;" class="logout" (click)="logout()">
+    <i class="fa fa-sign-out "  ></i></a>
   </div>
   <div class="cuerpo">
     <router-outlet></router-outlet>
