@@ -85,9 +85,9 @@ export class ProfileComponent implements OnInit {
     this.UsersService.getSingle(this.id)
                     .then(response => {
                       this.SelectedData = response;
-                      this.SelectedData.apellido = ((this.SelectedData.primerApellido)?this.SelectedData.primerApellido:'')+' '+((this.SelectedData.segundoApellido)?this.SelectedData.segundoApellido:'')
-                      this.SelectedData.nombre = ((this.SelectedData.primerNombre)?this.SelectedData.primerNombre:'')+' '+((this.SelectedData.segundoNombre)?this.SelectedData.segundoNombre:'')
-                      // console.log(response);
+                      this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                      this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                      console.log(response);
                       this.selected.GovermentID = response.verificacion?response.verificacion.indexOf("G"):false;
                       this.selected.ComercialPatent = response.verificacion?response.verificacion.indexOf("C"):false;
                       this.selected.EmailAddress = response.verificacion?response.verificacion.indexOf("E"):false;
@@ -113,6 +113,8 @@ export class ProfileComponent implements OnInit {
     formValue.id = localStorage.getItem('currentId');
     let nombres = formValue.nombre.split(' ')
     let apellidos = formValue.apellido.split(' ')
+    this.SelectedData.nombres = nombres[0] ;
+    this.SelectedData.apellidos = nombres[1] ;
     this.SelectedData.primerNombre = nombres[0] ;
     this.SelectedData.segundoNombre = nombres[1] ;
     this.SelectedData.primerApellido = apellidos[0] ;
@@ -120,10 +122,17 @@ export class ProfileComponent implements OnInit {
     this.SelectedData.descripcion = formValue.descripcion ;
     this.SelectedData.id = formValue.id ;
     formValue=this.SelectedData;
+
     this.UsersService.update(formValue)
                       .then(response => {
                         this.createSuccess('Profile Saved')
                         this.SelectedData = response
+                        this.SelectedData = response;
+                        this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                        this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+
+                         console.log(response);
+
                         console.clear
 
 

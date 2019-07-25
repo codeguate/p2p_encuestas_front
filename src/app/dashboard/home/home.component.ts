@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from "./../../home/_services/users.service";
+import { EncuestasService } from "./../../home/_services/encuestas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
   SelectedData:any = null;
+  Table:any = null;
   id:number = +localStorage.getItem('currentId');
   selected={
     GovermentID:false,
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private _service: NotificationsService,
     private route: ActivatedRoute,
+    private EncuestasService: EncuestasService,
     private location: Location,
     private router: Router,
     private AuthService: AuthService,
@@ -92,6 +95,7 @@ export class HomeComponent implements OnInit {
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
     // this.blockUI.reset();
+    this.cargarAll();
     this.cargarOne();
   }
 
@@ -111,6 +115,32 @@ export class HomeComponent implements OnInit {
                       if(response.state=='21'){
                         $('#ActualizaPass').modal('show');
                       }
+                      this.blockUI.stop();
+                    }).catch(error => {
+                      console.clear
+                      this.blockUI.stop();
+                      this.createError(error)
+                    })
+  }
+
+  cargarAll(){
+    // this.blockUI.reset();
+
+    this.id = +localStorage.getItem('currentId');
+    // this.blockUI.start();
+    this.SelectedData = null;
+
+    let data = {
+      id:localStorage.getItem('currentId'),
+      state:localStorage.getItem('currentId'),
+      filter:'user'
+    }
+    this.EncuestasService.getAllFilter(data)
+                    .then(response => {
+                      this.Table = response;
+
+                    console.log(response);
+
                       this.blockUI.stop();
                     }).catch(error => {
                       console.clear

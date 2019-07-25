@@ -1,35 +1,75 @@
 <div class="pr-5 pl-5 mt-5">
     <!-- Home Windows -->
     <div class="row pt-3" *ngIf="SelectedData">
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mx-auto mb-3 mt-3 shadow profile-main">
+      <form class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mx-auto mb-3 mt-3 shadow row profile-main " *ngIf="SelectedData">
         <!-- Seller Card -->
-        <div class="mb-5">
-          <div class="shadow-Main">
-            <img class="img-profile mt-3" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
+
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 d-flex">
+            <input type="text" name="nombre" id="nombre" ngModel #nombre="ngModel" class="form-control m-auto" [(ngModel)]="SelectedData.nombre">
           </div>
-            <div class="card-body">
-              <h2 class="card-title text-center c-azul-bishound">Hola, {{SelectedData.nombres+' '+SelectedData.apellidos}}</h2>
-            </div>
 
-              <!-- info seller Area -->
-            <div class="row ml-0 mr-0">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center">
-                  <small class="text-secondary">Te ha registrado como {{SelectedData.roles.titulo}}, puedes proceder a la encuesta o modificar tu perfil</small>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="shadow-Main">
+                  <img class="img-profile mt-3" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-5 text-center">
+          </div>
 
-                  <a class="btn btn-primary form-control" [routerLink]="['./../profile']">Vamos a la Encuesta</a>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-1 text-center">
-                  <a [routerLink]="['./../profile']">Editar Perfil</a>
-                </div>
-              </div>
-              <!-- Fin info seller Area -->
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 d-flex">
+            <i class="fa fa-calendar m-auto"></i>
+          </div>
+
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left py-2">
+              <label for="nacimiento" class="">Fecha de Nacimiento</label>
+            <input type="text" name="nacimiento" id="nacimiento" ngModel #nacimiento="ngModel" class="form-control" [(ngModel)]="SelectedData.nacimiento">
+
+          </div>
+
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 d-flex">
+              <i class="fa fa-clock-o m-auto"></i>
+          </div>
+
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left py-2">
+
+            <label for="created_at" class="">Fecha de ingreso</label>
+
+            <input type="text" name="created_at" id="created_at" disabled ngModel #created_at="ngModel" class="form-control" [(ngModel)]="SelectedData.created_at">
+
+          </div>
+
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 d-flex">
+            <i class="fa fa-map-marker m-auto"></i>
+          </div>
+
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left py-2">
+
+            <label for="descripcion" class="">Direccion</label>
+            <input type="text" name="descripcion" id="descripcion" ngModel #descripcion="ngModel" class="form-control" [(ngModel)]="SelectedData.descripcion">
+
+          </div>
+
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 d-flex">
+            <i class="fa fa-phone m-auto"></i>
+          </div>
+
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-left py-2">
+
+            <label for="telefono" class="">Telefono</label>
+            <input type="text" name="telefono" id="telefono" ngModel #telefono="ngModel" class="form-control" [(ngModel)]="SelectedData.telefono">
+
+          </div>
 
 
-        </div>
+          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 mx-auto py-3">
+
+            <button type="button" class="btn btn-primary form-control" (click)="update(SelectedData)">Actualizar Informacion</button>
+
+          </div>
+
+
+
+
         <!-- Fin Seller Card -->
-      </div>
+      </form>
       <!-- Fin Main Home Page -->
     </div>
 
