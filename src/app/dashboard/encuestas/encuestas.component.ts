@@ -195,7 +195,7 @@ export class EncuestasComponent implements OnInit {
                               this.genero = "hombre";
                               this.edad = "18-25";
                               this.comentario = "";
-                              $('#imagenComentario').attr("src",'http://placehold.it/1000X1000?text=X');
+                              $('#imagenComentario').attr("src",'http://placehold.it/500X500?text=X');
                               $('#uploadImagenComentario').attr("value",'');
                               $("#comentario").focus();
                               this.getParams();

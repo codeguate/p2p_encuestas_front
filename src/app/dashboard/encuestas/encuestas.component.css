@@ -156,7 +156,7 @@ input[type="radio"]:checked ~ label {
   margin-top: 15%!important;
 }
 .profile-main{
-  border-radius: 5%;
+  border-radius: 15px;
   
   margin-left: auto;
   margin-right: auto;
@@ -258,4 +258,43 @@ input[type="radio"] {
 .selectedv{
   background-color: rgb(99,131,238);
   color: white !important;
+}
+#uploadImagenComentario{
+  visibility: hidden;
+}
+.cuadro-img{
+  border-radius: 15px;
+    border: 1px solid #6483ee;
+    padding: 5px;
+    height: 283.5px; 
+}
+#barra_de_progreso{
+  width: 100%;
+}
+progress[value]{
+/* Elimino la apariencia por defecto */ -webkit-appearance: none; -moz-appearance: none; appearance: none;
+/* Quito el borde que aparece en Firefox */ border: none;
+ /* Añado mis propios estilos */ width: 270px; height: 10px; overflow:hidden;
+ /* Estos estilos solo se aplicaran al fondo de la barra en mozilla */ border:1px inset white; background-color:white;
+ z-index: 1;
+ float: left;
+ margin-top: -46px;
+ height: 46px;
+ border-radius: 7px;
+}
+progress::-webkit-progress-value { 
+  background: rgb(99,131,238);
+  border-radius: 7px;
+  } 
+progress::-webkit-progress-bar { 
+  background-color: white;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+   border-radius: 7px;
+    /*esta sombra es para simular el borde que he aplicado arriba para Mozilla*/  
+}
+progress::-moz-progress-bar{
+  background: rgb(125, 46, 252);
+  /* border-radius: 50%; */
+  border-radius: 7px;
+
 }
