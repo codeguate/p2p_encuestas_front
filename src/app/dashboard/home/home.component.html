@@ -27,7 +27,7 @@
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-3 text-center">
 
-                <a class="btn btn-primary form-control" [routerLink]="['./../encuesta']">Vamos a la Encuesta</a>
+                <a class="btn btn-primary form-control" (click)="irEncuesta()">Vamos a la Encuesta</a>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  text-center">
                 <a [routerLink]="['./../profile']" class="color-white">Editar Perfil</a>
@@ -60,7 +60,7 @@
                     <td>{{ data.titulo }}</td>
                     <td>{{ data.inicio }}</td>
                     <td>
-                      <button type="button" class="btn btn-warning" [routerLink]="['./../comentarios',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
+                      <button type="button" class="btn btn-warning" [routerLink]="['./../encuesta',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
                     </td>
                 </tr>
             </tbody>

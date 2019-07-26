@@ -2,11 +2,13 @@ import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { EncuestasService } from "./../../home/_services/encuestas.service";
+import { ComentariosEncuestasService } from "./../../home/_services/comentarios-encuestas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
 // import 'rxjs/add/operator/switchMap';;
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { path } from "../../config.module";
 
 declare var $: any
 @Component({
@@ -19,14 +21,17 @@ export class EncuestasComponent implements OnInit {
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
   positions:any
-  lat:any
-  lng:any
+  lat:any=14.66430813990437
+  lng:any=-90.51446914672852
   localidades:any
   today:any = this.hoy();
   now1:any = this.now();
+  private basePath:string = path.path
   SelectedData:any = null;
   edad:any = "18-25"
   genero:any = "hombre"
+  comentario:any = ""
+  imagen:any = ""
   id:number = +localStorage.getItem('currentId');
   sesion:boolean=false;
   selected={
@@ -68,6 +73,7 @@ export class EncuestasComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
+    private ComentariosService: ComentariosEncuestasService,
     private AuthService: AuthService,
     private UsersService:EncuestasService,
     ) { }
@@ -121,8 +127,9 @@ export class EncuestasComponent implements OnInit {
     this.getParams();
   }
   mainData = {
-    titulo : "Encuesta "+this.today,
+    titulo : "Encuesta "+this.today+" - "+this.now1,
     direccion: "",
+    id: 0,
     asistentes: 0,
     ventas: 0,
     hora_inicio: this.now1,
@@ -145,10 +152,23 @@ export class EncuestasComponent implements OnInit {
     this.UsersService.getSingle(this.id)
                     .then(response => {
                       this.SelectedData = response;
+                      let tempData = this.mainData
                       this.mainData = response;
-                      this.positions = new google.maps.LatLng(parseFloat(response.latitud), parseFloat(response.longitud));
-                      console.log(response);
 
+                      if(response.asistentes < tempData.asistentes){
+                        this.mainData.asistentes = tempData.asistentes
+                      }
+
+                      if(response.ventas < tempData.ventas){
+                        this.mainData.ventas = tempData.ventas
+                      }
+                      this.lat = parseFloat(response.latitud)
+                      this.lng = parseFloat(response.longitud)
+                      this.positions = new google.maps.LatLng(this.lat, this.lng);
+                      // console.log(response);
+                      setTimeout(() => {
+                        this.positions = new google.maps.LatLng(this.lat, this.lng);
+                      }, 1500);
                       this.blockUI.stop();
                     }).catch(error => {
                       console.clear
@@ -156,43 +176,138 @@ export class EncuestasComponent implements OnInit {
                       this.createError(error)
                     })
   }
+  agregarComentario(){
+    this.imagen = $('#imagenComentario').attr("src")
+    let data = {
+      titulo: this.genero,
+      nombre: this.edad,
+      comentario: this.comentario,
+      imagen: this.imagen,
+      url: null,
+      state: 1,
+      encuesta: this.mainData.id
+    }
+    this.blockUI.start();
 
+    this.ComentariosService.create(data)
+                            .then(response => {
+                              this.createSuccess('Comentario Enviado')
+                              this.genero = "hombre";
+                              this.edad = "18-25";
+                              this.comentario = "";
+                              $('#imagenComentario').attr("src",'http://placehold.it/1000X1000?text=X');
+                              $('#uploadImagenComentario').attr("value",'');
+                              $("#comentario").focus();
+                              this.getParams();
+                              console.clear
+
+
+                              this.blockUI.stop();
+                            }).catch(error => {
+                              console.clear
+
+                              this.blockUI.stop();
+                              this.createError(error)
+                            })
+    console.log(data);
+
+  }
   insert(formValue:any){
     this.mainData = {
-      titulo : "Encuesta "+this.today,
-      direccion: "",
-      asistentes: 0,
-      ventas: 0,
-      hora_inicio: this.now1,
-      fecha_inicio: this.today,
-      hora_fin: this.now1,
-      fecha_fin: this.today,
+      titulo : this.mainData.titulo,
+      direccion: this.mainData.direccion,
+      asistentes: this.mainData.asistentes,
+      ventas: this.mainData.ventas,
+      hora_inicio: this.mainData.hora_inicio,
+      fecha_inicio: this.mainData.fecha_inicio,
+      hora_fin: this.mainData.hora_fin,
+      fecha_fin: this.mainData.fecha_fin,
       latitud: this.lat,
       longitud: this.lng,
-      type: 1,
-      state: 1,
+      type: this.mainData.type,
+      id: this.mainData.id,
+      state: this.mainData.state,
       user:+localStorage.getItem('currentId')
     }
-    this.UsersService.create(this.mainData)
-                      .then(response => {
-                        this.createSuccess('Profile Saved')
-                        this.SelectedData = response
-                        console.log(response);
-                        if(response.id && response.user>0){
-                          this.router.navigate([`./dashboard/home`])
-                        }
-                        console.clear
+    this.blockUI.start();
+    if(this.mainData.id>0){
+      this.UsersService.update(this.mainData)
+                            .then(response => {
+
+                              if(response.id && response.user>0){
+                                this.createSuccess('Encuesta Actualizada')
+                                this.mainData = response
+                              }
+                              console.clear
 
 
-                        this.blockUI.stop();
-                      }).catch(error => {
-                        console.clear
+                              this.blockUI.stop();
+                            }).catch(error => {
+                              console.clear
 
-                        this.blockUI.stop();
-                        this.createError(error)
-                      })
+                              this.blockUI.stop();
+                              this.createError(error)
+                            })
+    }else{
+      this.UsersService.create(this.mainData)
+                            .then(response => {
+                              this.createSuccess('Encuesta Enviada')
+                              this.SelectedData = response
+                              console.log(response);
+                              if(response.id && response.user>0){
+                                this.router.navigate([`./dashboard/home`])
+                              }
+                              console.clear
 
 
+                              this.blockUI.stop();
+                            }).catch(error => {
+                              console.clear
+
+                              this.blockUI.stop();
+                              this.createError(error)
+                            })
+    }
+
+
+
+  }
+
+
+  subirImagenes(archivo,form,id){
+    var archivos=archivo.srcElement.files;
+    // ${this.basePath}/
+    let url = `${this.basePath}/api/upload`
+
+    var i=0;
+    var size=archivos[i].size;
+    var type=archivos[i].type;
+        if(size<(5*(1024*1024))){
+          if(type=="image/png" || type=="image/jpeg" || type=="image/jpg"){
+        $("#"+id).upload(url,
+            {
+              avatar: archivos[i],
+              carpeta: "Encuestas"
+          },
+          function(respuesta)
+          {
+            $('#imagenComentario').attr("src",'')
+            $('#imagenComentario').attr("src",respuesta)
+            $("#"+id).val('')
+            $("#barra_de_progreso").val(0)
+          },
+          function(progreso, valor)
+          {
+
+            $("#barra_de_progreso").val(valor);
+          }
+        );
+          }else{
+            this.createError("El tipo de imagen no es valido")
+          }
+      }else{
+        this.createError("La imagen es demaciado grande")
+      }
   }
 
   public options = {
@@ -214,76 +329,7 @@ export class EncuestasComponent implements OnInit {
         this._service.error('¡Error!', error);
 
   }
-   // lineChart
-   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Delivered'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Completed'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'New Products'},
-    {data: [90, 48, 57, 9, 10, 27, 40], label: 'New Orders'}
-  ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions:any = {
-    responsive: true
-  };
-  public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'line';
 
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
-    }
-    this.lineChartData = _lineChartData;
-  }
-
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-
-  onMapReady(map) {
-    console.log('map', map);
-    console.log('markers', map.markers);  // to get all markers as an array
-  }
-  onIdle(event) {
-    console.log('map', event.target);
-  }
-  onMarkerInit(marker) {
-    console.log('marker', marker);
-  }
   onMapClick(event) {
     this.positions = event.latLng;
       let positions1 = event.latLng + '';

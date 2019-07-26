@@ -74,4 +74,16 @@ export class AuthService {
                         .catch(this.handleError)
     }
 
+    upload(form):Promise<any> {
+      let url = `${this.basePath}/api/upload`
+
+        return this.http.post(url,form)
+                        .toPromise()
+                          .then(response => {
+                            //console.log(response.json())
+                            return response
+                          })
+                          .catch(this.handleError)
+      }
+
 }

@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   ranking=5;
   SelectedData:any = null;
   Table:any = null;
+  today:any = this.hoy();
+  now1:any = this.now();
   id:number = +localStorage.getItem('currentId');
   selected={
     GovermentID:false,
@@ -42,6 +44,24 @@ export class HomeComponent implements OnInit {
   agregar(){
     let id = ((this.rowsItems[this.rowsItems.length-1].id)*1)+1
     this.rowsItems.push({id:id})
+  }
+  now(){
+    let today = new Date();
+    let hh = String(today.getHours()).padStart(2, '0');
+    let mm = String(today.getMinutes()).padStart(2, '0'); //January is 0!
+    let ss = String(today.getSeconds()).padStart(2, '0'); //January is 0!
+    let stoday = hh + ':' + mm + ':' + ss;
+    console.log(stoday);
+
+    return stoday;
+  }
+  hoy(){
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      let stoday = yyyy + '-' + mm + '-' + dd;
+      return stoday;
   }
   constructor(
     private _service: NotificationsService,
@@ -90,6 +110,8 @@ export class HomeComponent implements OnInit {
                       })
     }
   ngOnInit() {
+    this.today = this.hoy();
+    this.now1 = this.now();
     $('html, body').animate({scrollTop:0}, '300');
     $('#searchContent').addClass('d-none');
     $('#inSeachForm').removeClass('d-none');
@@ -121,6 +143,40 @@ export class HomeComponent implements OnInit {
                       this.blockUI.stop();
                       this.createError(error)
                     })
+  }
+
+  irEncuesta(){
+    let mainData = {
+      titulo : "Encuesta "+this.today+" - "+this.now1,
+      direccion: "",
+      asistentes: 0,
+      ventas: 0,
+      hora_inicio: this.now1,
+      fecha_inicio: this.today,
+      hora_fin: this.now1,
+      fecha_fin: this.today,
+      latitud: 0,
+      longitud: 0,
+      type: 1,
+      state: 1,
+      user:+localStorage.getItem('currentId')
+    }
+    this.blockUI.start();
+    this.EncuestasService.create(mainData)
+                      .then(response => {
+                        this.router.navigate([`./../../dashboard/encuesta/${response.id}`])
+                        this.createSuccess('Encuesta Guardada')
+                        mainData = response
+                        console.clear
+
+
+                        this.blockUI.stop();
+                      }).catch(error => {
+                        console.clear
+
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
   }
 
   cargarAll(){
