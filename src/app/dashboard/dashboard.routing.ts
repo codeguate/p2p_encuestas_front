@@ -9,6 +9,7 @@ import { EventosComponent } from './eventos/eventos.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LocalidadesComponent } from './localidades/localidades.component';
 import { EncuestasComponent } from './encuestas/encuestas.component';
+import { GaleriaComponent } from './galeria/galeria.component';
 
 import { AuthGuard } from "../home/_guards/auth.guard";
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
   { path: 'eventos', component: EventosComponent },
   { path: 'encuesta/:id', component: EncuestasComponent, canActivate: [AuthGuard] },
+  { path: 'galeria', component: GaleriaComponent, canActivate: [AuthGuard] },
   { path: 'asientos', component: AsientosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'inbox', component: InboxComponent },

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { EncuestasService } from "./../../home/_services/encuestas.service";
 import { ComentariosEncuestasService } from "./../../home/_services/comentarios-encuestas.service";
+import { ImagenesService } from "./../../home/_services/imagenes.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -74,6 +75,7 @@ export class EncuestasComponent implements OnInit {
     private location: Location,
     private router: Router,
     private ComentariosService: ComentariosEncuestasService,
+    private ImagenesService: ImagenesService,
     private AuthService: AuthService,
     private UsersService:EncuestasService,
     ) { }
@@ -165,7 +167,7 @@ export class EncuestasComponent implements OnInit {
                       this.lat = parseFloat(response.latitud)
                       this.lng = parseFloat(response.longitud)
                       this.positions = new google.maps.LatLng(this.lat, this.lng);
-                      // console.log(response);
+                      console.log(response);
                       setTimeout(() => {
                         this.positions = new google.maps.LatLng(this.lat, this.lng);
                       }, 1500);
@@ -177,12 +179,11 @@ export class EncuestasComponent implements OnInit {
                     })
   }
   agregarComentario(){
-    this.imagen = $('#imagenComentario').attr("src")
     let data = {
       titulo: this.genero,
       nombre: this.edad,
       comentario: this.comentario,
-      imagen: this.imagen,
+      imagen: "",
       url: null,
       state: 1,
       encuesta: this.mainData.id
@@ -209,7 +210,40 @@ export class EncuestasComponent implements OnInit {
                               this.blockUI.stop();
                               this.createError(error)
                             })
-    console.log(data);
+    // console.log(data);
+
+  }
+  guardarImg(){
+    this.imagen = $('#imagenComentario').attr("src")
+    if(this.imagen!=""){
+      let data = {
+        titulo: this.imagen,
+        imagen: this.imagen,
+        url: this.imagen,
+        state: 1,
+        encuesta: this.mainData.id,
+      }
+      this.blockUI.start();
+      this.ImagenesService.create(data)
+                        .then(response => {
+                            this.createSuccess('Imagen Guardada')
+                            this.imagen = response.url
+                            // console.log(response);
+                            if(response.id){
+                              $('#imagenComentario').attr("src",'http://placehold.it/500X500?text=X');
+                              $('#uploadImagenComentario').attr("value",'');
+                              this.imagen="";
+                              this.getParams();
+                            }
+                            console.clear
+                            this.blockUI.stop();
+                        }).catch(error => {
+                            console.clear
+
+                            this.blockUI.stop();
+                            this.createError(error)
+                        })
+    }
 
   }
   insert(formValue:any){
@@ -295,6 +329,8 @@ export class EncuestasComponent implements OnInit {
             $('#imagenComentario').attr("src",respuesta)
             $("#"+id).val('')
             $("#barra_de_progreso").val(0)
+            $('#guardarImagenes').attr("disabled",false)
+            $("#stopLoader").click();
           },
           function(progreso, valor)
           {

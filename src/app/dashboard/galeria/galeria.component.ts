@@ -8,17 +8,19 @@ import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
 // import 'rxjs/add/operator/switchMap';;
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { path } from "../../config.module";
 
 declare var $: any
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-galeria',
+  templateUrl: './galeria.component.html',
+  styleUrls: ['./galeria.component.css']
 })
-export class HomeComponent implements OnInit {
+export class GaleriaComponent implements OnInit {
   tipoUsuario:number = +localStorage.getItem('currentRol');
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
+  private basePath:string = path.path
   SelectedData:any = null;
   Table:any = null;
   today:any = this.hoy();
@@ -237,6 +239,44 @@ export class HomeComponent implements OnInit {
                       })
 
 
+  }
+
+  subirImagenes(archivo,form,id){
+    var archivos=archivo.srcElement.files;
+    // ${this.basePath}/
+    let url = `${this.basePath}/api/upload`
+
+    var i=0;
+    var size=archivos[i].size;
+    var type=archivos[i].type;
+        if(size<(5*(1024*1024))){
+          if(type=="image/png" || type=="image/jpeg" || type=="image/jpg"){
+        $("#"+id).upload(url,
+            {
+              avatar: archivos[i],
+              carpeta: "Edecanes"
+          },
+          function(respuesta)
+          {
+            $('#imagenComentario').attr("src",'')
+            $('#imagenComentario').attr("src",respuesta)
+            $("#"+id).val('')
+            $("#barra_de_progreso").val(0)
+            $('#guardarImagenes').attr("disabled",false)
+            $("#stopLoader").click();
+          },
+          function(progreso, valor)
+          {
+
+            $("#barra_de_progreso").val(valor);
+          }
+        );
+          }else{
+            this.createError("El tipo de imagen no es valido")
+          }
+      }else{
+        this.createError("La imagen es demaciado grande")
+      }
   }
 
   public options = {

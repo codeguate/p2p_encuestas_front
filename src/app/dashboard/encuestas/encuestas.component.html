@@ -61,21 +61,24 @@
 
       <div class="row">
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 p-3">
-            <ngui-map style="height:50%;"
-            class="shadow p-3 profile-main"
-            zoom="10"
-            center="{{ mainData.latitud>0?mainData.latitud:'14.66430813990437' }}, {{ mainData.longitud<0?mainData.longitud:'-90.51446914672852' }}"
-            (mapClick)="onMapClick($event)"
-            mapTypeId="roadmap">
-              <marker
-                [position]="positions"
-                ></marker>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1 mt-3">
+          <ngui-map style="height:20rem;"
+          class="shadow p-3 profile-main"
+          zoom="10"
+          center="{{ mainData.latitud>0?mainData.latitud:'14.66430813990437' }}, {{ mainData.longitud<0?mainData.longitud:'-90.51446914672852' }}"
+          (mapClick)="onMapClick($event)"
+          mapTypeId="roadmap">
+            <marker
+              [position]="positions"
+              ></marker>
           </ngui-map>
+        </div>
 
-          <div style="height:50%;"
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3">
+
+          <div
           class="shadow p-3 mt-3 profile-main">
-          <table class="table table-hover" *ngIf="mainData.comentarios" [mfData]="mainData.comentarios" #mf="mfDataTable" [mfRowsOnPage]="2">
+          <table class="table table-hover" *ngIf="mainData.comentarios" [mfData]="mainData.comentarios" #mf="mfDataTable" [mfRowsOnPage]="4">
               <thead>
                   <tr>
                       <th style="width:20%;">
@@ -122,14 +125,14 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " >
 
-            <div *ngIf="id>0" class="profile-main shadow">
-                <div class="form-group mt-3  px-3 pb-3 ">
+            <div *ngIf="id>0" class="shadow p-3 mt-3 profile-main row">
+                  <div class="form-group mt-3  px-3 pb-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <label for="comentario" class="text-primary control-label text">Comentario</label>
                     <div class="">
                       <input type="numer" name="comentario" id="comentario" class="form-control border-morado" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}">
                     </div>
                   </div>
-                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  form-group  px-3 pb-3 ">
+                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2  form-group  px-3 pb-3 ">
                       <label class="text-primary control-label text">Género</label>
                       <div class="d-flex">
                         <div class="radio_genero" style="margin-left: auto">
@@ -144,74 +147,96 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8  form-group  px-3 pb-3 ">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10  form-group  px-3 pb-3 ">
                         <label class="text-primary control-label text">Edad promedio de consumidor</label>
                         <div class="d-flex">
-                          <div class="radio_genero">
+                          <div class="radio_genero m-auto">
                               <label for="edad-1" class="text icon" [class.selectedv]="edad=='18-25'">18-25</label>
                               <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
                               <input type="radio" name="edad" id="edad-1" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="18-25"  required="required" pattern="" title="">
                           </div>
-                          <div class="radio_genero">
+                          <div class="radio_genero m-auto">
                               <label for="edad-2" class="text icon" [class.selectedv]="edad=='22-35'">22-35</label>
                               <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
                               <input type="radio" name="edad" id="edad-2" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="22-35"  required="required" pattern="" title="">
                           </div>
-                          <div class="radio_genero">
+                          <div class="radio_genero m-auto">
                               <label for="edad-3" class="text icon" [class.selectedv]="edad=='35-45'">35-45</label>
                               <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
                               <input type="radio" name="edad" id="edad-3" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="35-45"  required="required" pattern="" title="">
                           </div>
-                          <div class="radio_genero">
+                          <div class="radio_genero m-auto">
                               <label for="edad-4" class="text icon" [class.selectedv]="edad=='45-55'">45-55</label>
                               <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
                               <input type="radio" name="edad" id="edad-4" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="45-55"  required="required" pattern="" title="">
                           </div>
-                          <div class="radio_genero">
+                          <div class="radio_genero m-auto">
                               <label for="edad-5" class="text icon" [class.selectedv]="edad=='+55'">+55</label>
                               <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
                               <input type="radio" name="edad" id="edad-5" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="+55"  required="required" pattern="" title="">
                           </div>
                         </div>
                       </div>
-
-
-                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-3 row shadow profile-main">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                          <div class="cuadro-img d-flex">
-                              <img src="http://placehold.it/500X500?text=X" style="max-height: 100%;" id="imagenComentario" class="img-thumbnail m-auto" alt="" srcset="">
-                          </div>
-                          
-                        </div>
-
-                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-                              <label for="uploadImagenComentario" class="text icon">seleccionar archivo</label>
-                              <progress value="0" max="100" class="loader_img" id="barra_de_progreso"></progress>
-                              <input type="file" id="uploadImagenComentario" (change)="subirImagenes($event,{id:0},'uploadImagenComentario')"/>
-                              
-                              <button type="button" class="form-control border-morado  text icon" placeholder="">Tomar Foto </button>
-                        </div>
-                      </div>
-
-
                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                        <div class="form-group mt-3 shadow p-3 profile-main">
+                        <div class="form-group p-3">
                           <div class="">
-
-                            <button type="button" [disabled]="comentario==''" class="btn btn-primary" (click)="agregarComentario()">Agregar</button>
-
+                            <button type="button" style="padding: .1em 1em;" [disabled]="comentario==''" class="btn btn-primary" (click)="agregarComentario()">Agregar</button>
                           </div>
                         </div>
                       </div>
-
-
-
             </div>
-
 
         </div>
 
 
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pb-3">
+          <div
+            class="shadow p-3 mt-3 profile-main">
+            <table class="table table-hover w-100" *ngIf="mainData.imgs" [mfData]="mainData.imgs" #mf="mfDataTable" [mfRowsOnPage]="6">
+                <div class="w-100">
+                    <div class="row p-3" >
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cuadro-img-min d-flex" *ngFor="let data of mf.data">
+                          <img src="{{data.imagen}}" style="max-height: 100%;" class="img-thumbnail m-auto" alt="" srcset="">
+                        </div>
+
+
+                    </div>
+                </div>
+                <div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                    </div>
+                </div>
+                </div>
+              </table>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3 row">
+          <div class="shadow p-3 mt-3 profile-main">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="cuadro-img d-flex">
+                      <img src="http://placehold.it/500X500?text=X" style="max-height: 100%;" id="imagenComentario" class="img-thumbnail m-auto" alt="" srcset="">
+                  </div>
+
+                </div>
+
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                      <label for="uploadImagenComentario" class="text icon">seleccionar archivo</label>
+                      <progress value="0" max="100" class="loader_img" id="barra_de_progreso"></progress>
+                      <input type="file" id="uploadImagenComentario" (change)="subirImagenes($event,{id:0},'uploadImagenComentario');blockUI.start()"/>
+
+                      <button type="button" (click)="blockUI.stop()" id="stopLoader" class="form-control border-morado  text icon d-none" placeholder="">Tomar Foto </button>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+                    <button type="button" style="padding: .1em 1em;" disabled class="btn btn-primary" id="guardarImagenes" (click)="guardarImg()">Agregar</button>
+
+                </div>
+
+          </div>
+
+        </div>
 
 
 
