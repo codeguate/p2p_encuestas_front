@@ -203,3 +203,15 @@ progress::-moz-progress-bar{
   border-radius: 7px;
 
 }
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: #fff 3px 3px 19px 14px;
+cursor: pointer;
+}
+
+.close:hover{
+  cursor: pointer;
+  color: red;
+}

@@ -11,7 +11,9 @@
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <div class="shadow-Main">
                   <img class="img-profile mt-3" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
-                </div>
+                  <a type="button" class="close" (click)="uploadImg()"><i class="fa fa-edit"></i></a>
+
+              </div>
           </div>
 
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 d-flex">
@@ -113,3 +115,31 @@
       </form>
     </div>
   </div>
+
+  <div class="modal fade" id="UploadProfileImg">
+      <div class="modal-dialog">
+        <form class="modal-content" autocomplete="off" #recoveryForm="ngForm" (ngSubmit)="changePass(recoveryForm.value)">
+          <div class="modal-body">
+                <div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="cuadro-img d-flex">
+                            <img src="http://placehold.it/500X500?text=X" style="max-height: 100%;" id="imagenComentario" class="img-thumbnail m-auto" alt="" srcset="">
+                        </div>
+
+                      </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <label for="uploadImagenComentario" class="text icon">seleccionar archivo</label>
+                        <progress value="0" max="100" class="loader_img" id="barra_de_progreso"></progress>
+                        <input type="file" id="uploadImagenComentario" (change)="subirImagenes($event,{id:0},'uploadImagenComentario');blockUI.start()"/>
+
+                        <button type="button" (click)="blockUI.stop()" id="stopLoader" class="form-control border-morado  text icon d-none" placeholder="">Tomar Foto </button>
+                  </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="guardar()" class=" btn-primary " disabled id="guardarImagenes" placeholder="">Guardar</button>
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>

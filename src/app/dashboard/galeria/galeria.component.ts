@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from "./../../home/_services/users.service";
 import { EncuestasService } from "./../../home/_services/encuestas.service";
+import { EdecanService } from "./../../home/_services/edecan.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -53,7 +54,7 @@ export class GaleriaComponent implements OnInit {
     let mm = String(today.getMinutes()).padStart(2, '0'); //January is 0!
     let ss = String(today.getSeconds()).padStart(2, '0'); //January is 0!
     let stoday = hh + ':' + mm + ':' + ss;
-    console.log(stoday);
+    // console.log(stoday);
 
     return stoday;
   }
@@ -71,6 +72,7 @@ export class GaleriaComponent implements OnInit {
     private EncuestasService: EncuestasService,
     private location: Location,
     private router: Router,
+    private EdecanService: EdecanService,
     private AuthService: AuthService,
     private UsersService:UsersService,
     ) { }
@@ -197,7 +199,7 @@ export class GaleriaComponent implements OnInit {
                     .then(response => {
                       this.Table = response;
 
-                    console.log(response);
+                    // console.log(response);
 
                       this.blockUI.stop();
                     }).catch(error => {
@@ -207,26 +209,27 @@ export class GaleriaComponent implements OnInit {
                     })
   }
 
-  update(formValue:any){
+  guardar(){
     this.blockUI.start();
-    setTimeout(() => {
+    let url = $('#imagenComentario').attr("src")
+    if(url!=""){
 
-        this.blockUI.stop();
-    }, 1000);
-    formValue.id = localStorage.getItem('currentId');
-    let nombres = formValue.nombre.split(' ')
-    let apellidos = formValue.apellido.split(' ')
-    this.SelectedData.primerNombre = nombres[0] ;
-    this.SelectedData.segundoNombre = nombres[1] ;
-    this.SelectedData.primerApellido = apellidos[0] ;
-    this.SelectedData.segundoApellido = apellidos[1] ;
-    this.SelectedData.descripcion = formValue.descripcion ;
-    this.SelectedData.id = formValue.id ;
-    formValue=this.SelectedData;
-    this.UsersService.update(formValue)
+
+    let data = {
+      titulo: url,
+      imagen: url,
+      url: url,
+      state: 1,
+      promotor: null,
+      edecan: localStorage.getItem('currentId'),
+      evento: null
+    }
+    this.EdecanService.create(data)
                       .then(response => {
-                        this.createSuccess('Profile Saved')
-                        this.SelectedData = response
+                        this.createSuccess('Imagen agregada')
+                        $('#imagenComentario').attr("src",'http://placehold.it/500X500?text=X')
+                        $('#guardarImagenes').attr("disabled",true)
+                        this.cargarOne();
                         console.clear
 
 
@@ -237,7 +240,7 @@ export class GaleriaComponent implements OnInit {
                         this.blockUI.stop();
                         this.createError(error)
                       })
-
+                    }
 
   }
 
@@ -278,6 +281,25 @@ export class GaleriaComponent implements OnInit {
         this.createError("La imagen es demaciado grande")
       }
   }
+  delete(id:string){
+    this.blockUI.start();
+    if(confirm("¿Desea eliminar la Foto?")){
+      this.EdecanService.delete(id)
+                        .then(response => {
+                          this.cargarOne()
+                          console.clear
+                          this.createSuccess('Foto Eliminada exitosamente')
+                          this.blockUI.stop();
+                      }).catch(error => {
+                          console.clear
+                          this.createError(error)
+                          this.blockUI.stop();
+                        })
+    }else{
+      $('#Loading').css('display','none')
+    }
+
+  }
 
   public options = {
       position: ['bottom', 'right'],
@@ -297,65 +319,6 @@ export class GaleriaComponent implements OnInit {
   createError(error) {
         this._service.error('¡Error!', error);
 
-  }
-   // lineChart
-   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Delivered'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Completed'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'New Products'},
-    {data: [90, 48, 57, 9, 10, 27, 40], label: 'New Orders'}
-  ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions:any = {
-    responsive: true
-  };
-  public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'line';
-
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
-    }
-    this.lineChartData = _lineChartData;
-  }
-
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
   }
 
 }

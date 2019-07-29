@@ -7,6 +7,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
 // import 'rxjs/add/operator/switchMap';;
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { path } from "../../config.module";
 
 declare var $: any
 @Component({
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   tipoUsuario:number = +localStorage.getItem('currentTipoUsuarioId');
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
+  private basePath:string = path.path
   SelectedData:any = null;
   id:number = +localStorage.getItem('currentId');
   selected={
@@ -72,6 +74,7 @@ export class ProfileComponent implements OnInit {
     $('#searchContent').addClass('d-none');
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
+    // $('#UploadProfileImg').modal('show');
     // this.blockUI.reset();
     this.cargarOne();
   }
@@ -87,7 +90,7 @@ export class ProfileComponent implements OnInit {
                       this.SelectedData = response;
                       this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
                       this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
-                      console.log(response);
+                      // console.log(response);
                       this.selected.GovermentID = response.verificacion?response.verificacion.indexOf("G"):false;
                       this.selected.ComercialPatent = response.verificacion?response.verificacion.indexOf("C"):false;
                       this.selected.EmailAddress = response.verificacion?response.verificacion.indexOf("E"):false;
@@ -131,7 +134,7 @@ export class ProfileComponent implements OnInit {
                         this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
                         this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
 
-                         console.log(response);
+                        //  console.log(response);
 
                         console.clear
 
@@ -146,7 +149,78 @@ export class ProfileComponent implements OnInit {
 
 
   }
+  guardar(){
+    this.blockUI.start();
+    let url = $('#imagenComentario').attr("src")
+    if(url!=""){
+    let data = {
+      foto: url,
+      id: localStorage.getItem('currentId'),
+    }
+    this.UsersService.update(data)
+                      .then(response => {
+                        this.createSuccess('Foto de perfil guardada')
+                        this.SelectedData = response
+                        this.SelectedData = response;
+                        this.SelectedData.apellido = ((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                        this.SelectedData.nombre = ((this.SelectedData.nombres)?this.SelectedData.nombres:'')+' '+((this.SelectedData.apellidos)?this.SelectedData.apellidos:'')
+                        $('#UploadProfileImg').modal('hide');
+                        $('#imagenComentario').attr("src",'http://placehold.it/500X500?text=X')
+                        $('#guardarImagenes').attr("disabled",true)
+                        //  console.log(response);
+                        console.clear
 
+
+                        this.blockUI.stop();
+                      }).catch(error => {
+                        console.clear
+
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
+                    }
+
+  }
+  subirImagenes(archivo,form,id){
+    var archivos=archivo.srcElement.files;
+    // ${this.basePath}/
+    let url = `${this.basePath}/api/upload`
+
+    var i=0;
+    var size=archivos[i].size;
+    var type=archivos[i].type;
+        if(size<(5*(1024*1024))){
+          if(type=="image/png" || type=="image/jpeg" || type=="image/jpg"){
+        $("#"+id).upload(url,
+            {
+              avatar: archivos[i],
+              carpeta: "PROFILE"
+          },
+          function(respuesta)
+          {
+            $('#imagenComentario').attr("src",'')
+            $('#imagenComentario').attr("src",respuesta)
+            $("#"+id).val('')
+            $("#barra_de_progreso").val(0)
+            $('#guardarImagenes').attr("disabled",false)
+            $("#stopLoader").click();
+          },
+          function(progreso, valor)
+          {
+
+            $("#barra_de_progreso").val(valor);
+          }
+        );
+          }else{
+            this.createError("El tipo de imagen no es valido")
+          }
+      }else{
+        this.createError("La imagen es demaciado grande")
+      }
+  }
+  uploadImg(){
+    $('#UploadProfileImg').modal('show');
+  }
   public options = {
       position: ['bottom', 'right'],
       timeOut: 2000,
@@ -166,64 +240,6 @@ export class ProfileComponent implements OnInit {
         this._service.error('¡Error!', error);
 
   }
-   // lineChart
-   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Delivered'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Completed'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'New Products'},
-    {data: [90, 48, 57, 9, 10, 27, 40], label: 'New Orders'}
-  ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions:any = {
-    responsive: true
-  };
-  public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'line';
 
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
-    }
-    this.lineChartData = _lineChartData;
-  }
-
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
 
 }

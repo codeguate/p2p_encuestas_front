@@ -57,7 +57,7 @@ export class EncuestasComponent implements OnInit {
       let mm = String(today.getMinutes()).padStart(2, '0'); //January is 0!
       let ss = String(today.getSeconds()).padStart(2, '0'); //January is 0!
       let stoday = hh + ':' + mm + ':' + ss;
-      console.log(stoday);
+      // console.log(stoday);
 
       return stoday;
   }
@@ -167,10 +167,12 @@ export class EncuestasComponent implements OnInit {
                       this.lat = parseFloat(response.latitud)
                       this.lng = parseFloat(response.longitud)
                       this.positions = new google.maps.LatLng(this.lat, this.lng);
-                      console.log(response);
+                      // console.log(response);
                       setTimeout(() => {
+                        this.lat = parseFloat(response.latitud)
+                        this.lng = parseFloat(response.longitud)
                         this.positions = new google.maps.LatLng(this.lat, this.lng);
-                      }, 1500);
+                      }, 2500);
                       this.blockUI.stop();
                     }).catch(error => {
                       console.clear
@@ -196,8 +198,7 @@ export class EncuestasComponent implements OnInit {
                               this.genero = "hombre";
                               this.edad = "18-25";
                               this.comentario = "";
-                              $('#imagenComentario').attr("src",'http://placehold.it/500X500?text=X');
-                              $('#uploadImagenComentario').attr("value",'');
+
                               $("#comentario").focus();
                               this.getParams();
                               console.clear
@@ -287,7 +288,7 @@ export class EncuestasComponent implements OnInit {
                             .then(response => {
                               this.createSuccess('Encuesta Enviada')
                               this.SelectedData = response
-                              console.log(response);
+                              // console.log(response);
                               if(response.id && response.user>0){
                                 this.router.navigate([`./dashboard/home`])
                               }
