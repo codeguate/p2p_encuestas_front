@@ -163,18 +163,60 @@ input[type="radio"]:checked ~ label {
 }
 .cuadro-img{
   border-radius: 15px;
-    border: 1px solid #6483ee;
-    padding: 5px;
-    height: 10rem;
+  border: 2px solid white;
+  padding: 5px;
+  height: 10rem;
+  background-color: #674a93;
+}
+.img-thumbnail{
+  padding: 0px;
+  background-color: white;
+  border-radius: 15px;
+}
+#content-uploads{
+  border-radius: 15px;
+}
+.img-profile{
+  margin-top: 0 !important;
+  height: auto !important;
+  width: 100% !important;
+}
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /* box-shadow: #ff6b6b 3px 3px 19px 14px; */
+  cursor: pointer !important;
+  background-color: #0000008f;
+  opacity: 1;
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: none !important;
 }
 .cuadro-img-min{
     border-radius: 15px;
     border: 1px solid #6483ee;
-    padding: 5px;
+    padding: 0px;
     height: 200px;
+    background-color: #000000cf;
 }
 #barra_de_progreso{
   width: 100%;
+  margin-top: -30px;
+  height: 20px;
+}
+#guardarImagenes{
+  color: #5375ec;
+  background-color: white;
+}
+#row-file{
+  padding-bottom: 15px;
+}
+.select_file{
+  color: #000;
 }
 progress[value]{
 /* Elimino la apariencia por defecto */ -webkit-appearance: none; -moz-appearance: none; appearance: none;
