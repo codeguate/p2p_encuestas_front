@@ -140,7 +140,7 @@ input[type="radio"]:checked ~ label {
 }
 
 .shadow-Main{
-  height: 10rem;
+  height: auto;
   background-image: url(./../../../assets/png/03-BienvenidaAPP/Path2095.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -150,10 +150,12 @@ input[type="radio"]:checked ~ label {
 
 }
 .img-profile{
-  height: 50%!important;
-  width: auto;
+  width: 90%;
   padding: 0;
   margin: 0 auto;
   padding: 1rem;
   margin-top: 15%!important;
+}
+.border-black{
+  border: 1px solid #0000002b;
 }

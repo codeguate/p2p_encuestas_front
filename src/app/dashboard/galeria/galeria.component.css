@@ -140,7 +140,6 @@ input[type="radio"]:checked ~ label {
 }
 
 .shadow-Main{
-  height: 10rem;
   background-image: url(./../../../assets/png/03-BienvenidaAPP/Path2095.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -156,6 +155,11 @@ input[type="radio"]:checked ~ label {
   margin: 0 auto;
   padding: 1rem;
   margin-top: 15%!important;
+  padding: 0;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin: 10px 0px;
+  margin-top: 10px !important;
 }
 
 #uploadImagenComentario{
@@ -177,7 +181,6 @@ input[type="radio"]:checked ~ label {
   border-radius: 15px;
 }
 .img-profile{
-  margin-top: 0 !important;
   height: auto !important;
   width: 100% !important;
 }

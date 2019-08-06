@@ -138,7 +138,6 @@ input[type="radio"]:checked ~ label {
 }
 
 .shadow-Main{
-  height: 10rem;
   background-image: url(./../../../assets/png/03-BienvenidaAPP/Path2095.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -147,9 +146,19 @@ input[type="radio"]:checked ~ label {
   text-align: center;
 
 }
+.fa-edit:before, .fa-pencil-square-o:before{
+  color: black;
+}
+.btn-outline-primary{
+  background-color: white;
+}
+#guardarImagenes{
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ffffff70;
+  border-radius: 7px;
+}
 .img-profile{
-  height: 50%!important;
-  width: auto;
+  width: 70%; 
   padding: 0;
   margin: 0 auto;
   padding: 1rem;
@@ -185,8 +194,6 @@ cursor: pointer;
   color: red;
 }
 .img-profile{
-  height: 50%!important;
-  width: auto;
   padding: 0;
   margin: 0 auto;
   padding: 1rem;
@@ -237,4 +244,21 @@ progress::-moz-progress-bar{
   /* border-radius: 50%; */
   border-radius: 7px;
 
+}
+.img-profile{
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0;
+}
+a.close {
+  width: 60%;
+  margin-top: 56%;
+  margin-left: auto;
+  padding: 9px;
+  margin-right: auto;
+  display: block;
+}
+input#nombre{
+  text-align: center;
+  font-size: 2em;
 }
