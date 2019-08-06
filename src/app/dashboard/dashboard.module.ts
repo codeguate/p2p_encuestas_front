@@ -31,6 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { NguiMapModule} from '@ngui/map';
 import { EncuestasComponent } from './encuestas/encuestas.component';
 import { GaleriaComponent } from './galeria/galeria.component';
+import { EdecanesComponent } from './registrar/edecanes/edecanes.component';
+import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -68,6 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProfileComponent,
     EncuestasComponent,
     GaleriaComponent,
+    EdecanesComponent,
+    UsuariosComponent,
   ],
   providers:[
     AuthGuard,
