@@ -33,6 +33,8 @@ import { EncuestasComponent } from './encuestas/encuestas.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { EdecanesComponent } from './registrar/edecanes/edecanes.component';
 import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
+import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas.component';
+import { PromotorComponent } from './promotor/promotor.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -72,6 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     GaleriaComponent,
     EdecanesComponent,
     UsuariosComponent,
+    ReporteEncuestasComponent,
+    PromotorComponent,
   ],
   providers:[
     AuthGuard,

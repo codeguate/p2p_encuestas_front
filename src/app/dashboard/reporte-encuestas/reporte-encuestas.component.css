@@ -1,0 +1,161 @@
+.scrolling{
+  overflow-x: auto;
+  width: 100%;
+}
+.categorys{
+  height: 50px;
+  border: solid #000 1px;
+}
+.card-block {
+  min-height: 220px;
+}
+.scrolling{
+  overflow-x: auto;
+}
+.rate {
+  height: 50px;
+  width: 100%;
+  padding-left: 1rem;
+}
+.color-white{
+  color: white !important;
+}
+.rate p {
+  text-align: center;
+}
+
+.rate label {
+  font-size: 1.5rem!important;
+    margin-right: 0.3rem!important;
+}
+@media only screen and (max-width: 1300px) {
+
+  .rate label {
+    font-size: 100%!important;
+      margin-right: 0.3rem!important;
+  }
+}
+input[type="radio"] {
+  display: none;
+}
+.rateMini label {
+  color: #a7acb1;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+.rate label:hover,
+.rate label:hover ~ label {
+  color: #0000ff;
+  cursor: pointer;
+}
+
+.btn-bishound:hover{
+  background-color: #0000ff!important;
+  color: #f8f9fa!important;
+  cursor: pointer;
+}
+.btn-bishound-active:hover{
+  background-color: #f8f9fa!important;
+  color: #0000ff!important;
+  cursor: pointer;
+}
+/*
+
+
+input[type="radio"]:checked ~ label {
+  color: #0000ff;
+}
+.valoracionRanking:checked ~ label {
+  color: #0000ff;
+} */
+
+
+.checkStar ~ label{
+  color: #0000ff;
+}
+
+
+.calificacionResultado{
+  position: absolute;
+  z-index: 3;
+  margin-left: 5%;
+  font-size: 0.5rem !important;
+
+}
+label {
+  color: #a7acb1;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+/* label:hover,
+label:hover ~ label {
+  color: #0000ff;
+} */
+
+input[type="radio"]:checked ~ label {
+  color: #0000ff;
+}
+
+.vertical-scroll{
+  height: 200px;
+  overflow-y: auto;
+}
+.created-date{
+  font-size: 0.8rem;
+  vertical-align: top;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 5%;
+  text-align: center;
+  color: #6c757d;
+}
+.vertical-scroll-comments{
+  height: 40%;
+  overflow-y: auto;
+}
+.social-media{
+  padding-top: 3%;
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.social-media a{
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: black;
+}
+.social-media a:hover{
+  color: rgb(60, 58, 68);
+}
+.border-buttom{
+  border-bottom: solid 1px #fff;
+  color: #fff;
+}
+
+.shadow-Main{
+  height: auto;
+  background-image: url(./../../../assets/png/03-BienvenidaAPP/Path2095.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+.img-profile{
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+  padding: 1rem;
+  margin-top: 15%!important;
+}
+.border-black{
+  border: 1px solid #0000002b;
+}
