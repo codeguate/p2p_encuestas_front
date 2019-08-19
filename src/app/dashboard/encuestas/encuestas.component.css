@@ -304,3 +304,24 @@ progress::-moz-progress-bar{
   border-radius: 7px;
 
 }
+
+
+@media only screen and (max-width: 1000px) {
+  .row{
+    font-size: 0.8rem;
+  }
+  .text{
+    font-size: 0.8rem;
+  }
+  .selectedy{
+    width: 15vw;
+    background-color: rgb(99,131,238);
+    color: white !important;
+  }
+  .fecha{
+    font-size: 0.8rem;
+    /* width: 1vw; */
+    /* padding-top: 1.5vh; */
+    /* padding-bottom: 1.5vh; */
+  }
+}

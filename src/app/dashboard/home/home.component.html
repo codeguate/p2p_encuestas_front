@@ -1,27 +1,28 @@
 <div class="pr-5 pl-5">
   <!-- Home Windows -->
-  <div class="row pt-3" *ngIf="SelectedData">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mx-auto mb-3 mt-3 " style="color: white !important;background-image: linear-gradient(180deg, rgb(99,131,238), transparent); background-color: rgb(74,71,236);">
+  <div class="row " *ngIf="SelectedData">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mx-auto mb-3 mt-3 " style="color: white !important;background-image: linear-gradient(180deg, rgb(99,131,238), transparent); background-color: rgb(74,71,236); border-radius: 5%;">
       <!-- Seller Card -->
       <div class="">
 
           <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 d-flex text-left">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 d-flex text-left pt-2 w-50">
                 <h3 class="m-auto">
                     {{SelectedData.nombres+' '+SelectedData.apellidos}}
                 </h3>
                 </div>
 
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
                     <div class="shadow-Main">
-                        <img class="img-profile mt-3" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
-                      </div>
+                        <img class="img-profile" src="{{(SelectedData.foto && SelectedData.foto!='null' && SelectedData.foto!='')?SelectedData.foto:'./../../../assets/png/03-BienvenidaAPP/Group2416.png'}}" alt="Avatar">
+                      <a type="button" class="close" (click)="uploadImg()"><i class="fa fa-edit"></i></a>
+                  </div>
                 </div>
           </div>
 
 
             <!-- info seller Area -->
-          <div class="row ml-0 mr-0" >
+          <div class="row ml-0 mr-0 w-100" >
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center" *ngIf="tipoUsuario!=1">
                 <small class="text-secondary color-white">Te ha registrado como {{SelectedData.roles.titulo}}, puedes proceder a la encuesta o modificar tu perfil</small>
               </div>
@@ -66,7 +67,37 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="3">
+                <td colspan="5" style="text-align: center;">
+                    <mfBootstrapPaginator></mfBootstrapPaginator>
+                </td>
+            </tr>
+            </tfoot>
+          </table>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"  *ngIf="tipoUsuario==1">
+        <table class="table table-hover" *ngIf="UTable" [mfData]="UTable" #mf="mfDataTable" [mfRowsOnPage]="5">
+            <thead>
+                <tr>
+                    <th style="width:40%;">
+                      <mfDefaultSorter by="titulo">Titulo</mfDefaultSorter></th>
+                    <th style="width:40%;">
+                      <mfDefaultSorter by="inicio">Fecha</mfDefaultSorter></th>
+                    <th style="width:20%;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of mf.data">
+                    <td>{{ data.titulo }}</td>
+                    <td>{{ data.inicio }}</td>
+                    <td>
+                      <button type="button" class="btn btn-warning" [routerLink]="['./../encuesta',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: center;">
                     <mfBootstrapPaginator></mfBootstrapPaginator>
                 </td>
             </tr>

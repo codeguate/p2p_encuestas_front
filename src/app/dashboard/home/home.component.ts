@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   sesionNueva = localStorage.getItem('currentNuevaSesion');
   ranking=5;
   SelectedData:any = null;
+  UTable:any = null;
   Table:any = null;
   today:any = this.hoy();
   now1:any = this.now();
@@ -133,7 +134,6 @@ export class HomeComponent implements OnInit {
                       this.SelectedData.apellido = ((this.SelectedData.primerApellido)?this.SelectedData.primerApellido:'')+' '+((this.SelectedData.segundoApellido)?this.SelectedData.segundoApellido:'')
                       this.SelectedData.nombre = ((this.SelectedData.primerNombre)?this.SelectedData.primerNombre:'')+' '+((this.SelectedData.segundoNombre)?this.SelectedData.segundoNombre:'')
                       // console.log(response);
-
                       if(response.state=='21'){
                         $('#ActualizaPass').modal('show');
                       }
@@ -195,7 +195,12 @@ export class HomeComponent implements OnInit {
                     .then(response => {
                       this.Table = response;
 
-                    // console.log(response);
+                      setTimeout(() => {
+                      $(".pull-right").css("display","none");
+                      $(".pagination").css("padding-left","20%");
+
+                      }, 200);
+                      // console.log(response);
 
                       this.blockUI.stop();
                     }).catch(error => {

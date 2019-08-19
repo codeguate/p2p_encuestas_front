@@ -15,13 +15,13 @@ import { HomeGuard } from "./_guards/home.guard";
 import { AuthGuard } from "./_guards/auth.guard";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login/Promotor', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'evento/:id/:fecha', component: EventoComponent},
   { path: 'evento/:idFuncion/localidad/:idArea', component: LocalidadesComponent, canActivate: [AuthGuard] },
   { path: 'checkout/:id', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'paid/:token/:ern', component: ComprobanteComponent, canActivate: [AuthGuard] },
   { path: 'conocenos', component: ConocenosComponent },
-  { path: 'login/:type', component: LoginComponent, canActivate: [HomeGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [HomeGuard] },
   { path: 'recovery', component: RecoveryComponent, canActivate: [HomeGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [HomeGuard] },
   { path: '**', redirectTo: 'main', pathMatch: 'full' }

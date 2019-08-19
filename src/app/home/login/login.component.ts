@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     private nav:NavComponent
   ) { }
   getParams(){
-    this.type = this.route.snapshot.paramMap.get("type");
+    // this.type = this.route.snapshot.paramMap.get("type");
+    this.type = "Promotor";
     console.log(this.type);
 
   }

@@ -1,25 +1,20 @@
 <div class="pr-5 pl-5 mt-3">
   <!-- Home Windows -->
   <form class="row" *ngIf="mainData">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mx-auto shadow profile-main h-75">
-
-
-      <div class="row p-3 profile-main">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row pt-3">
-
-
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mx-auto shadow profile-main h-75 w-100">
+      <div class="row py-3 profile-main w-100">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row pt-3 w-100">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
                 <p class="text-left text">
                     Fecha
                   </p>
                 <div class="form-group">
                     <div class="input-group ">
-                        <input type="date" name="fecha_inicio" id="fecha_inicio" ngModel #fecha_inicio="ngModel" class="form-control text border-morado" [(ngModel)]="mainData.fecha_inicio">
+                        <input type="date" name="fecha_inicio" id="fecha_inicio" ngModel #fecha_inicio="ngModel" class="form-control text border-morado fecha" [(ngModel)]="mainData.fecha_inicio">
                     </div>
                   </div>
             </div>
-
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
                 <p class="text-left text" >Hora</p>
                 <div class="form-group">
                     <div class="input-group ">
@@ -29,38 +24,133 @@
             </div>
             <div class="row w-100 m-auto">
               <div class="separador">
-
               </div>
             </div>
-
-
-
           </div>
       </div>
-
       <div class="row profile-main asistentes-row p-3 shadow-lg mt-1">
-
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <label for="asistentes" class="text asistentes ">Número de asistentes</label>
-
           <input type="number" class="form-control border-morado font-weight-normal text-asistentes" name="asistentes" id="asistentes" ngModel #asistentes="ngModel"  [(ngModel)]="mainData.asistentes">
-
         </div>
-
-
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <label for="inputventas" class="text-primary asistentes control-label text">Número de Ventas</label>
             <div class="">
               <input type="numer" class="form-control border-morado font-weight-normal text-asistentes" name="ventas" id="ventas" ngModel #ventas="ngModel"  [(ngModel)]="mainData.ventas">
             </div>
         </div>
-
-
       </div>
-
-
       <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " >
+            <div *ngIf="id>0" class="shadow p-3 mt-3 profile-main row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2  form-group  px-3 pb-3 ">
+                    <label class="text-primary control-label text">Género</label>
+                    <div class="d-flex">
+                      <div class="radio_genero" style="margin-left: auto">
+                          <label for="hombre" class="fa fa-male text icon" [class.selectedv]="genero=='hombre'"></label>
+                          <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
+                          <input type="radio" name="genero" id="hombre" [(ngModel)]="genero" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="hombre"  required="required" pattern="" title="">
+                      </div>
+                      <div class="radio_genero" style="margin-right: auto">
+                          <label for="mujer" class="fa fa-female text icon" [class.selectedv]="genero=='mujer'"></label>
+                          <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
+                          <input type="radio" name="genero" id="mujer" [(ngModel)]="genero" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="mujer"  required="required" pattern="" title="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10  form-group  px-3 pb-3 ">
+                      <label class="text-primary control-label text">Edad promedio de consumidor</label>
+                      <div class="w-100">
+                        <div class="d-flex w-100 py-3">
+                            <div class="radio_genero m-auto">
+                                <label for="edad-1" class="text icon" [class.selectedv]="edad=='18-25'">18-25</label>
+                                <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
+                                <input type="radio" name="edad" id="edad-1" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="18-25"  required="required" pattern="" title="">
+                            </div>
+                            <div class="radio_genero m-auto">
+                                <label for="edad-2" class="text icon" [class.selectedv]="edad=='22-35'">22-35</label>
+                                <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
+                                <input type="radio" name="edad" id="edad-2" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="22-35"  required="required" pattern="" title="">
+                            </div>
+                        </div>
+                        <div class="d-flex w-100 pt-3">
+                          <div class="radio_genero m-auto">
+                            <label for="edad-3" class="text icon" [class.selectedv]="edad=='35-45'">35-45</label>
+                            <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
+                            <input type="radio" name="edad" id="edad-3" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="35-45"  required="required" pattern="" title="">
+                          </div>
+                          <!-- <div class="radio_genero m-auto"> -->
+                              <!-- <label for="edad-4" class="text icon" [class.selectedv]="edad=='45-55'">45-55</label> -->
+                              <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
+                              <!-- <input type="radio" name="edad" id="edad-4" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="45-55"  required="required" pattern="" title=""> -->
+                          <!-- </div> -->
+                          <div class="radio_genero m-auto">
+                              <label for="edad-5" class="text icon" [class.selectedv]="edad=='+45'">+45</label>
+                              <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
+                              <input type="radio" name="edad" id="edad-5" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="+45"  required="required" pattern="" title="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="form-group mt-3  px-3 pb-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="comentario" class="text-primary control-label text">Comentario</label>
+                    <div class="">
+                      <input type="numer" name="comentario" id="comentario" class="form-control border-morado" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}">
+                    </div>
+                  </div>
 
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <div class="form-group p-3">
+                          <div class="">
+                            <button type="button" style="padding: .1em 1em;" [disabled]="comentario==''" class="btn btn-primary" (click)="agregarComentario()">Agregar</button>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3">
+          <div class="shadow p-3 mt-3 profile-main">
+            <table class="table table-hover" *ngIf="mainData.comentarios" [mfData]="mainData.comentarios" #mf="mfDataTable" [mfRowsOnPage]="4">
+                <thead>
+                    <tr>
+                        <th style="width:20%;">
+                          <mfDefaultSorter by="titulo">Genero</mfDefaultSorter></th>
+                        <th style="width:20%;">
+                          <mfDefaultSorter by="nombre">Edad</mfDefaultSorter></th>
+                        <th style="width:60%;">
+                          <mfDefaultSorter by="comentario">Comentario</mfDefaultSorter></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of mf.data">
+                        <td>
+                          <i class="fa  text icon selectedv" [class.fa-male]="data.titulo=='hombre'" [class.fa-female]="data.titulo=='mujer'"></i>
+                        </td>
+                        <td>
+                            <div class="text icon selectedy p-2" *ngIf="data.nombre=='18-25'">18-25</div>
+                            <div class="text icon selectedy p-2" *ngIf="data.nombre=='22-35'">22-35</div>
+                            <div class="text icon selectedy p-2" *ngIf="data.nombre=='35-45'">45-55</div>
+                            <div class="text icon selectedy p-2" *ngIf="data.nombre=='45-55'">45-55</div>
+                            <div class="text icon selectedy p-2" *ngIf="data.nombre=='+55'">+55</div>
+                        </td>
+                        <td>
+                          <div>
+                            {{ data.comentario }}
+                          </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+              </table>
+          </div>
+        </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1 mt-3">
           <ngui-map style="height:20rem;"
           class="shadow p-3 profile-main"
@@ -73,133 +163,32 @@
               ></marker>
           </ngui-map>
         </div>
-
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3">
-
-          <div
-          class="shadow p-3 mt-3 profile-main">
-          <table class="table table-hover" *ngIf="mainData.comentarios" [mfData]="mainData.comentarios" #mf="mfDataTable" [mfRowsOnPage]="4">
-              <thead>
-                  <tr>
-                      <th style="width:20%;">
-                        <mfDefaultSorter by="titulo">Genero</mfDefaultSorter></th>
-                      <th style="width:20%;">
-                        <mfDefaultSorter by="nombre">Edad</mfDefaultSorter></th>
-                      <th style="width:60%;">
-                        <mfDefaultSorter by="comentario">Comentario</mfDefaultSorter></th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let data of mf.data">
-                      <td>
-                        <i class="fa  text icon selectedv" [class.fa-male]="data.titulo=='hombre'" [class.fa-female]="data.titulo=='mujer'"></i>
-                      </td>
-                      <td>
-                          <div class="text icon selectedv p-2" *ngIf="data.nombre=='18-25'">18-25</div>
-                          <div class="text icon selectedv p-2" *ngIf="data.nombre=='22-35'">22-35</div>
-                          <div class="text icon selectedv p-2" *ngIf="data.nombre=='35-45'">45-55</div>
-                          <div class="text icon selectedv p-2" *ngIf="data.nombre=='45-55'">45-55</div>
-                          <div class="text icon selectedv p-2" *ngIf="data.nombre=='+55'">+55</div>
-                      </td>
-                      <td>
-                        <div>
-                          {{ data.comentario }}
-                        </div>
-                      </td>
-
-                  </tr>
-              </tbody>
-              <tfoot>
-              <tr>
-                  <td colspan="3">
-                      <mfBootstrapPaginator></mfBootstrapPaginator>
-                  </td>
-              </tr>
-              </tfoot>
-            </table>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3 row">
+          <div class="shadow py-3 mt-3 profile-main">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                  <label for="uploadImagenComentario" class="text icon">Seleccionar archivo</label>
+                  <progress value="0" max="100" class="loader_img" id="barra_de_progreso"></progress>
+                  <input type="file" id="uploadImagenComentario" (change)="subirImagenes($event,{id:0},'uploadImagenComentario');blockUI.start()"/>
+                  <button type="button" (click)="blockUI.stop()" id="stopLoader" class="form-control border-morado  text icon d-none" placeholder="">Tomar Foto </button>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="cuadro-img d-flex">
+                    <img src="http://placehold.it/500X500?text=X" style="max-height: 100%;" id="imagenComentario" class="img-thumbnail m-auto" alt="" srcset="">
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+                  <button type="button" style="padding: .1em 1em;" disabled class="btn btn-primary" id="guardarImagenes" (click)="guardarImg()">Agregar</button>
+              </div>
+          </div>
         </div>
-
-
-
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " >
-
-            <div *ngIf="id>0" class="shadow p-3 mt-3 profile-main row">
-                  <div class="form-group mt-3  px-3 pb-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <label for="comentario" class="text-primary control-label text">Comentario</label>
-                    <div class="">
-                      <input type="numer" name="comentario" id="comentario" class="form-control border-morado" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}">
-                    </div>
-                  </div>
-                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2  form-group  px-3 pb-3 ">
-                      <label class="text-primary control-label text">Género</label>
-                      <div class="d-flex">
-                        <div class="radio_genero" style="margin-left: auto">
-                            <label for="hombre" class="fa fa-male text icon" [class.selectedv]="genero=='hombre'"></label>
-                            <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
-                            <input type="radio" name="genero" id="hombre" [(ngModel)]="genero" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="hombre"  required="required" pattern="" title="">
-                        </div>
-                        <div class="radio_genero" style="margin-right: auto">
-                            <label for="mujer" class="fa fa-female text icon" [class.selectedv]="genero=='mujer'"></label>
-                            <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
-                            <input type="radio" name="genero" id="mujer" [(ngModel)]="genero" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="mujer"  required="required" pattern="" title="">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10  form-group  px-3 pb-3 ">
-                        <label class="text-primary control-label text">Edad promedio de consumidor</label>
-                        <div class="d-flex">
-                          <div class="radio_genero m-auto">
-                              <label for="edad-1" class="text icon" [class.selectedv]="edad=='18-25'">18-25</label>
-                              <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
-                              <input type="radio" name="edad" id="edad-1" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="18-25"  required="required" pattern="" title="">
-                          </div>
-                          <div class="radio_genero m-auto">
-                              <label for="edad-2" class="text icon" [class.selectedv]="edad=='22-35'">22-35</label>
-                              <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
-                              <input type="radio" name="edad" id="edad-2" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="22-35"  required="required" pattern="" title="">
-                          </div>
-                          <div class="radio_genero m-auto">
-                              <label for="edad-3" class="text icon" [class.selectedv]="edad=='35-45'">35-45</label>
-                              <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
-                              <input type="radio" name="edad" id="edad-3" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="35-45"  required="required" pattern="" title="">
-                          </div>
-                          <div class="radio_genero m-auto">
-                              <label for="edad-4" class="text icon" [class.selectedv]="edad=='45-55'">45-55</label>
-                              <!-- <img class="logos_genero" src="../../../assets/png/04-Promotor/Encuesta/Group2502.png"> -->
-                              <input type="radio" name="edad" id="edad-4" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}" class="form-control border-morado fa fa-female text icon" value="45-55"  required="required" pattern="" title="">
-                          </div>
-                          <div class="radio_genero m-auto">
-                              <label for="edad-5" class="text icon" [class.selectedv]="edad=='+55'">+55</label>
-                              <!-- <img class="logos_genero" style="display: block" src="../../../assets/png/04-Promotor/Encuesta/Group2501.png"> -->
-                              <input type="radio" name="edad" id="edad-5" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"  class="form-control border-morado fa fa-male text icon" value="+55"  required="required" pattern="" title="">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                        <div class="form-group p-3">
-                          <div class="">
-                            <button type="button" style="padding: .1em 1em;" [disabled]="comentario==''" class="btn btn-primary" (click)="agregarComentario()">Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-            </div>
-
-        </div>
-
-
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pb-3">
-          <div
-            class="shadow p-3 mt-3 profile-main">
+          <div class="shadow p-3 mt-3 profile-main">
             <table class="table table-hover w-100" *ngIf="mainData.imgs" [mfData]="mainData.imgs" #mf="mfDataTable" [mfRowsOnPage]="6">
                 <div class="w-100">
                     <div class="row p-3" >
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cuadro-img-min d-flex" *ngFor="let data of mf.data">
                           <img src="{{data.imagen}}" style="max-height: 100%;" class="img-thumbnail m-auto" alt="" srcset="">
                         </div>
-
-
                     </div>
                 </div>
                 <div>
@@ -212,61 +201,18 @@
               </table>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 px-3 row">
-          <div class="shadow p-3 mt-3 profile-main">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <div class="cuadro-img d-flex">
-                      <img src="http://placehold.it/500X500?text=X" style="max-height: 100%;" id="imagenComentario" class="img-thumbnail m-auto" alt="" srcset="">
-                  </div>
-
-                </div>
-
-                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-                      <label for="uploadImagenComentario" class="text icon">seleccionar archivo</label>
-                      <progress value="0" max="100" class="loader_img" id="barra_de_progreso"></progress>
-                      <input type="file" id="uploadImagenComentario" (change)="subirImagenes($event,{id:0},'uploadImagenComentario');blockUI.start()"/>
-
-                      <button type="button" (click)="blockUI.stop()" id="stopLoader" class="form-control border-morado  text icon d-none" placeholder="">Tomar Foto </button>
-                </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
-                    <button type="button" style="padding: .1em 1em;" disabled class="btn btn-primary" id="guardarImagenes" (click)="guardarImg()">Agregar</button>
-
-                </div>
-
-          </div>
-
-        </div>
-
-
-
-
-
-
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-3">
-
             <button type="button" *ngIf="id>0" (click)="insert({data:1})"  class="btn btn-primary">Enviar reporte</button>
             <button type="button" *ngIf="!id>0" (click)="insert({data:1})" class="btn btn-primary">Enviar reporte</button>
-
           </div>
         </div>
-
       </div>
-
-
-
     </div>
-
-
-
-
     <!-- Fin Main Home Page -->
 </form>
-
   <!-- Fin Home Windows -->
 </div>
-
   <!-- Inicio Notificaciones -->
   <simple-notifications [options]="options"></simple-notifications>
   <!-- Fin Notificaciones -->
