@@ -120,6 +120,9 @@ export class HomeComponent implements OnInit {
     // this.blockUI.reset();
     this.cargarAll();
     this.cargarOne();
+    if(this.tipoUsuario==1){
+      this.cargarAllEncuestas();
+    }
   }
 
   cargarOne(){
@@ -194,6 +197,34 @@ export class HomeComponent implements OnInit {
     this.EncuestasService.getAllFilter(data)
                     .then(response => {
                       this.Table = response;
+
+                      setTimeout(() => {
+                      $(".pull-right").css("display","none");
+                      $(".pagination").css("padding-left","20%");
+
+                      }, 200);
+                      // console.log(response);
+
+                      this.blockUI.stop();
+                    }).catch(error => {
+                      console.clear
+                      this.blockUI.stop();
+                      this.createError(error)
+                    })
+  }
+
+  cargarAllEncuestas(){
+    // this.blockUI.reset();
+
+    let data = {
+      id:localStorage.getItem('currentId'),
+      state:localStorage.getItem('currentId'),
+      filter:'user'
+    }
+    this.EncuestasService.getAll()
+                    .then(response => {
+                      this.UTable = response;
+                      console.log(response);
 
                       setTimeout(() => {
                       $(".pull-right").css("display","none");

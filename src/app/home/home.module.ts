@@ -22,6 +22,7 @@ import { EventosFuncionesAreaService } from './_services/eventos-funciones-area.
 import { EventosFuncionesService } from './_services/eventos-funciones.service';
 import { EventosVentasService } from './_services/eventos-ventas.service';
 import { EventosService } from './_services/eventos.service';
+import { MarcasService } from './_services/marcas.service';
 
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -77,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EventosFuncionesService,
     AuthGuard,
     EventosVentasService,
+    MarcasService,
     HomeGuard,
     EventosFuncionesAreaService,
     GlobalsService,

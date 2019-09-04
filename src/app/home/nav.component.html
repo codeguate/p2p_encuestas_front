@@ -9,32 +9,38 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<div class="nav-footer row p-1 text-light px-auto" *ngIf="user.id>0">
+<div class="nav-footer row p-1 text-light px-auto text-center d-flex w-100" *ngIf="user.id>0">
+  <div style="width: 100%;margin:auto;">
+    <a  *ngIf="user.rol==3" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;margin-left: 5%;" routerLinkActive="active" [routerLink]="['./galeria']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
+      <div>Galeria</div>
+    </a>
 
-  <a  *ngIf="user.rol==3" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;margin-left: 5%;" routerLinkActive="active" [routerLink]="['./galeria']">
-    <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
-    <div>Galeria</div>
-  </a>
+    <a  *ngIf="user.rol==2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./home']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
+      <div>Reportes</div>
+    </a>
 
-  <a  *ngIf="user.rol==2" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./home']">
-    <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
-    <div>Encuestas</div>
-  </a>
+    <a  *ngIf="user.rol==1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./encuestas']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
+      <div>Reportes</div>
+    </a>
 
-  <a  *ngIf="user.rol==1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./encuestas']">
-    <img src="./../../assets/png/04-Promotor/MenuBack/list.png" style="width: 1.5rem; height:1.8rem;" alt="">
-    <div>Encuestas</div>
-  </a>
+    <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./profile']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/conflict.png" style="width: 3rem; height:3rem;" alt="">
+      <div>Perfil</div>
+    </a>
 
-  <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 border-right border-light text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./profile']">
-    <img src="./../../assets/png/04-Promotor/MenuBack/conflict.png" style="width: 3rem; height:3rem;" alt="">
-    <div>Perfil</div>
-  </a>
+    <a *ngIf="user.rol!=1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./../encuesta']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/Rectangle1506.png" style="width: 1.8rem; height:1.8rem;" alt="">
+      <div>Calendario</div>
+    </a>
+    <a  *ngIf="user.rol==1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./usuarios']">
+      <img src="./../../assets/png/04-Promotor/MenuBack/Rectangle1506.png" style="width: 1.8rem; height:1.8rem;" alt="">
+      <div>Usuarios</div>
+    </a>
+  </div>
 
-  <a class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;width:30%;" routerLinkActive="active" [routerLink]="['./../encuesta']">
-    <img src="./../../assets/png/04-Promotor/MenuBack/Rectangle1506.png" style="width: 1.8rem; height:1.8rem;" alt="">
-    <div>Calendario</div>
-  </a>
 
 </div>
 

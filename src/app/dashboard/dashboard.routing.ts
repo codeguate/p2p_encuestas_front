@@ -12,6 +12,8 @@ import { EncuestasComponent } from './encuestas/encuestas.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas.component';
 import { PromotorComponent } from './promotor/promotor.component';
+import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
+import { UsuarioComponent } from './registrar/usuario/usuario.component';
 
 import { AuthGuard } from "../home/_guards/auth.guard";
 
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'asientos', component: AsientosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'inbox', component: InboxComponent },
+  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'usuario/:id', component: UsuarioComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: '', redirectTo: 'home' , pathMatch: 'full'},
 ];

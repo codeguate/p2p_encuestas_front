@@ -35,6 +35,7 @@ import { EdecanesComponent } from './registrar/edecanes/edecanes.component';
 import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
 import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas.component';
 import { PromotorComponent } from './promotor/promotor.component';
+import { UsuarioComponent } from './registrar/usuario/usuario.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsuariosComponent,
     ReporteEncuestasComponent,
     PromotorComponent,
+    UsuarioComponent,
   ],
   providers:[
     AuthGuard,
