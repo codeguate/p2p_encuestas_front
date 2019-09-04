@@ -40,7 +40,7 @@
             <thead>
                 <tr>
                     <th style="width:40%;">
-                      <mfDefaultSorter by="titulo">Titulo</mfDefaultSorter></th>
+                      <mfDefaultSorter by="titulo">Responsable</mfDefaultSorter></th>
                     <th style="width:40%;">
                       <mfDefaultSorter by="inicio">Fecha</mfDefaultSorter></th>
                     <th style="width:20%;"></th>
@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let data of mf.data">
-                    <td>{{ data.titulo }}</td>
+                    <td>{{ data.usuarios.nombres+' '+data.usuarios.apellidos }}</td>
                     <td>{{ data.inicio }}</td>
                     <td>
                       <button type="button" class="btn btn-warning" [routerLink]="['./../encuesta',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>

@@ -191,7 +191,7 @@ export class ReporteEncuestasComponent implements OnInit {
       state:localStorage.getItem('currentId'),
       filter:'user'
     }
-    this.EncuestasService.getAllFilter(data)
+    this.EncuestasService.getAll()
                     .then(response => {
                       this.Table = response;
 

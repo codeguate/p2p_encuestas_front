@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { EncuestasService } from "./../../home/_services/encuestas.service";
 import { ComentariosEncuestasService } from "./../../home/_services/comentarios-encuestas.service";
 import { ImagenesService } from "./../../home/_services/imagenes.service";
+import { MarcasService } from "./../../home/_services/marcas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -25,6 +26,7 @@ export class EncuestasComponent implements OnInit {
   lat:any=14.66430813990437
   lng:any=-90.51446914672852
   localidades:any
+  marcas:any
   today:any = this.hoy();
   now1:any = this.now();
   private basePath:string = path.path
@@ -76,6 +78,7 @@ export class EncuestasComponent implements OnInit {
     private router: Router,
     private ComentariosService: ComentariosEncuestasService,
     private ImagenesService: ImagenesService,
+    private MarcasService: MarcasService,
     private AuthService: AuthService,
     private UsersService:EncuestasService,
     ) { }
@@ -90,6 +93,20 @@ export class EncuestasComponent implements OnInit {
                         this.cargarOne();
                         this.createSuccess('Su Clave fue Cambiada')
                         $('#ActualizaPass').modal('hide');
+                        this.blockUI.stop()
+                      })
+                      .catch( error => {
+                        this.createError(error)
+                        this.blockUI.stop()
+                      })
+    }
+    cargarMarcas(){
+      // console.log(this.mainData.hash);
+      this.blockUI.start()
+      this.MarcasService.getAll()
+                      .then( response => {
+                        this.marcas = response
+                        console.log(response);
                         this.blockUI.stop()
                       })
                       .catch( error => {
@@ -127,6 +144,7 @@ export class EncuestasComponent implements OnInit {
 
 
     this.getParams();
+    this.cargarMarcas()
   }
   mainData = {
     titulo : "Encuesta "+this.today+" - "+this.now1,
@@ -134,11 +152,14 @@ export class EncuestasComponent implements OnInit {
     id: 0,
     asistentes: 0,
     ventas: 0,
+    edades: '',
+    generos: '',
     hora_inicio: this.now1,
     fecha_inicio: this.today,
     hora_fin: this.now1,
     fecha_fin: this.today,
     latitud: 0,
+    marca: 0,
     longitud: 0,
     type: 1,
     state: 1,
@@ -156,6 +177,8 @@ export class EncuestasComponent implements OnInit {
                       this.SelectedData = response;
                       let tempData = this.mainData
                       this.mainData = response;
+                      this.edad = response.edades;
+                      this.genero = response.generos;
 
                       if(response.asistentes < tempData.asistentes){
                         this.mainData.asistentes = tempData.asistentes
@@ -259,6 +282,9 @@ export class EncuestasComponent implements OnInit {
       fecha_fin: this.mainData.fecha_fin,
       latitud: this.lat,
       longitud: this.lng,
+      edades: this.edad,
+      marca: this.mainData.marca,
+      generos: this.genero,
       type: this.mainData.type,
       id: this.mainData.id,
       state: this.mainData.state,
