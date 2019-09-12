@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from "./../../home/_services/users.service";
 import { EncuestasService } from "./../../home/_services/encuestas.service";
+import { MarcasService } from "./../../home/_services/marcas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -37,6 +38,31 @@ export class ReporteEncuestasComponent implements OnInit {
     id:+localStorage.getItem('currentId'),
     type:'changepass'
   }
+  filterSelectedId:any
+  filterSelected:any='0'
+  filters = [
+    {
+      type:'todo',
+      identif:'all',
+      titulo:'Todo',
+      filtro:[],
+      id:0
+    },
+    {
+      type:'marcas',
+      identif:'marca',
+      titulo:'Marcas',
+      filtro:[],
+      id:1
+    },
+    {
+      type:'usuarios',
+      identif:'user',
+      titulo:'Usuarios',
+      filtro:[],
+      id:2
+    }
+  ]
   @BlockUI() blockUI: NgBlockUI;
   rowsItems:any=[
     {id:1}
@@ -70,6 +96,7 @@ export class ReporteEncuestasComponent implements OnInit {
     private location: Location,
     private router: Router,
     private AuthService: AuthService,
+    private MarcasService:MarcasService,
     private UsersService:UsersService,
     ) { }
 
@@ -117,8 +144,37 @@ export class ReporteEncuestasComponent implements OnInit {
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
     // this.blockUI.reset();
+    this.cargarFiltros();
     this.cargarAll();
     this.cargarOne();
+  }
+  async cargarFiltros(){
+    await this.UsersService.getAll()
+                      .then( response => {
+                        this.filters.forEach(element => {
+                          if(element.type=="usuarios"){
+                            element.filtro = response
+                          }
+                        });
+                      })
+                      .catch(error => {
+                        console.clear
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
+    await this.MarcasService.getAll()
+                      .then( response => {
+                        this.filters.forEach(element => {
+                          if(element.type=="marcas"){
+                            element.filtro = response
+                          }
+                        });
+                      })
+                      .catch(error => {
+                        console.clear
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
   }
 
   cargarOne(){
@@ -184,25 +240,42 @@ export class ReporteEncuestasComponent implements OnInit {
 
     this.id = +localStorage.getItem('currentId');
     // this.blockUI.start();
-    this.SelectedData = null;
 
-    let data = {
-      id:localStorage.getItem('currentId'),
-      state:localStorage.getItem('currentId'),
-      filter:'user'
-    }
+    console.log(this.filterSelected);
+
+    if(this.filterSelected==0){
+
     this.EncuestasService.getAll()
-                    .then(response => {
-                      this.Table = response;
+                          .then(response => {
+                            this.Table = response;
 
-                    // console.log(response);
+                          // console.log(response);
 
-                      this.blockUI.stop();
-                    }).catch(error => {
-                      console.clear
-                      this.blockUI.stop();
-                      this.createError(error)
-                    })
+                            this.blockUI.stop();
+                          }).catch(error => {
+                            console.clear
+                            this.blockUI.stop();
+                            this.createError(error)
+                          })
+    }else{
+      let data = {
+        id:this.filterSelectedId,
+        state:localStorage.getItem('currentId'),
+        filter:this.filters[this.filterSelected].identif
+      }
+      this.EncuestasService.getAllFilter(data)
+                          .then(response => {
+                            this.Table = response;
+
+                          // console.log(response);
+
+                            this.blockUI.stop();
+                          }).catch(error => {
+                            console.clear
+                            this.blockUI.stop();
+                            this.createError(error)
+                          })
+    }
   }
 
   update(formValue:any){

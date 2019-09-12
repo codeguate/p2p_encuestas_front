@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from "./../../home/_services/users.service";
 import { EncuestasService } from "./../../home/_services/encuestas.service";
+import { MarcasService } from "./../../home/_services/marcas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
@@ -38,6 +39,21 @@ export class HomeComponent implements OnInit {
     id:+localStorage.getItem('currentId'),
     type:'changepass'
   }
+  filterSelected:any='1'
+  filters = [
+    {
+      type:'marcas',
+      titulo:'Marcas',
+      filtro:[],
+      id:1
+    },
+    {
+      type:'usuarios',
+      titulo:'Usuarios',
+      filtro:[],
+      id:2
+    }
+  ]
   @BlockUI() blockUI: NgBlockUI;
   rowsItems:any=[
     {id:1}
@@ -71,6 +87,7 @@ export class HomeComponent implements OnInit {
     private location: Location,
     private router: Router,
     private AuthService: AuthService,
+    private MarcasService:MarcasService,
     private UsersService:UsersService,
     ) { }
 
@@ -118,11 +135,40 @@ export class HomeComponent implements OnInit {
     $('#inSeachForm').removeClass('d-none');
     $('#logoTipo').addClass('d-none');
     // this.blockUI.reset();
+    this.cargarFiltros();
     this.cargarAll();
     this.cargarOne();
     if(this.tipoUsuario==1){
       this.cargarAllEncuestas();
     }
+  }
+  async cargarFiltros(){
+    await this.UsersService.getAll()
+                      .then( response => {
+                        this.filters.forEach(element => {
+                          if(element.type=="usuarios"){
+                            element.filtro = response
+                          }
+                        });
+                      })
+                      .catch(error => {
+                        console.clear
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
+    await this.MarcasService.getAll()
+                      .then( response => {
+                        this.filters.forEach(element => {
+                          if(element.type=="marcas"){
+                            element.filtro = response
+                          }
+                        });
+                      })
+                      .catch(error => {
+                        console.clear
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
   }
 
   cargarOne(){

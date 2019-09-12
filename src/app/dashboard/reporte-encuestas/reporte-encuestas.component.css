@@ -159,3 +159,30 @@ input[type="radio"]:checked ~ label {
 .border-black{
   border: 1px solid #0000002b;
 }
+
+
+.text{
+  color: #474ebb !important;
+  font-weight: 400 !important;
+}
+.border-morado{
+  color: #474ebb;
+  border-color: #474ebb;
+  border-radius: 8px !important;
+  border: 1px solid #474ebb;
+
+}
+@media only screen and (max-width: 1000px) {
+  .row{
+    font-size: 0.8rem;
+  }
+  .text{
+    font-size: 0.8rem;
+  }
+  .fecha{
+    font-size: 0.8rem;
+    /* width: 1vw; */
+    /* padding-top: 1.5vh; */
+    /* padding-bottom: 1.5vh; */
+  }
+}

@@ -44,35 +44,37 @@
       <!-- Fin Seller Card -->
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" [class.d-none]="tipoUsuario!=1"  *ngIf="tipoUsuario==1">
+    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" [class.d-none]="tipoUsuario!=1"  *ngIf="tipoUsuario==1" >
         <a type="button" class="close" (click)="uploadImg()"><i class="fa fa-plus"></i></a>
-        <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
-            <thead>
+        <div style="overflow-x: auto;width:100%;">
+            <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead>
+                    <tr>
+                        <th style="width:40%;">
+                          <mfDefaultSorter by="nombres">Nombres</mfDefaultSorter></th>
+                        <th style="width:20%;">
+                          <mfDefaultSorter by="email">Email</mfDefaultSorter></th>
+                        <th style="width:10%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of mf.data">
+                        <td>{{ data.nombres +' '+data.apellidos}}</td>
+                        <td>{{ data.email }}</td>
+                        <td>
+                          <button type="button" class="btn btn-warning" [routerLink]="['./../usuario',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
                 <tr>
-                    <th style="width:40%;">
-                      <mfDefaultSorter by="titulo">Nombres</mfDefaultSorter></th>
-                    <th style="width:40%;">
-                      <mfDefaultSorter by="inicio">Email</mfDefaultSorter></th>
-                    <th style="width:20%;"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of mf.data">
-                    <td>{{ data.nombres +' '+data.apellidos}}</td>
-                    <td>{{ data.email }}</td>
-                    <td>
-                      <button type="button" class="btn btn-warning" [routerLink]="['./../usuario',data.id]" style="cursor:pointer;"><i class="fa fa-eye"></i> Ver</button>
+                    <td colspan="5" style="text-align: center;">
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
                     </td>
                 </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="5" style="text-align: center;">
-                    <mfBootstrapPaginator></mfBootstrapPaginator>
-                </td>
-            </tr>
-            </tfoot>
-          </table>
+                </tfoot>
+              </table>
+        </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"  *ngIf="tipoUsuario==1">

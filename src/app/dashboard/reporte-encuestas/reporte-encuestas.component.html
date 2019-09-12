@@ -36,6 +36,36 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"  *ngIf="tipoUsuario==1">
+        <div class="form-check form-check-inline" *ngFor="let data of filters">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" (click)="cargarAll()" id="inlineRadio{{data.id}}" value="{{data.id}}" [(ngModel)]="filterSelected">
+            <label class="form-check-label" for="inlineRadio{{data.id}}">{{data.titulo}}</label>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 w-100" *ngIf="filterSelected==1">
+            <p class="text-left text">
+                Marcas
+              </p>
+            <div class="form-group">
+                <div class="input-group ">
+                  <select name="marca" id="marca" ngModel #marca="ngModel" class="form-control text border-morado fecha" (change)="cargarAll()" [(ngModel)]="filterSelectedId">
+                    <option value="">Escoge la marca que deseas ver</option>
+                    <option *ngFor="let data of filters[filterSelected].filtro" value="{{data.id}}">{{data.titulo}}</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 w-100" *ngIf="filterSelected==2">
+              <p class="text-left text">
+                  Usuarios
+                </p>
+              <div class="form-group">
+                  <div class="input-group ">
+                    <select name="usuario" id="usuario" ngModel #usuario="ngModel" class="form-control text border-morado fecha" (change)="cargarAll()" [(ngModel)]="filterSelectedId">
+                      <option value="">Escoge el Usuario que deseas ver</option>
+                      <option *ngFor="let data of filters[filterSelected].filtro" value="{{data.id}}">{{data.nombres}}</option>
+                    </select>
+                  </div>
+                </div>
+          </div>
         <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
             <thead>
                 <tr>
