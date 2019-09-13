@@ -45,7 +45,7 @@
     </div>
 
     <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" [class.d-none]="tipoUsuario!=1"  *ngIf="tipoUsuario==1" >
-        <a type="button" class="close" (click)="uploadImg()"><i class="fa fa-plus"></i></a>
+        <a type="button" class="close" (click)="addUser()" style="right:-10%;color:blue;cursor:pointer;"><i class="fa fa-plus"></i></a>
         <div style="overflow-x: auto;width:100%;">
             <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
                 <thead>
@@ -144,8 +144,43 @@
             </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" [disabled]="(new_pass.value!=new_pass_rep.value) || new_pass.value==''">Change Password</button>
-        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="(new_pass.value!=new_pass_rep.value) || new_pass.value==''">Cambiar Contraseña</button>
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addUser">
+  <div class="modal-dialog">
+    <form class="modal-content" autocomplete="off" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+      <div class="modal-header">
+          <h4 class="modal-title">Ingresa los datos del nuevo usuario</h4>
+      </div>
+      <div class="modal-body">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control bishound-input" placeholder="Email" id="email" name="email" required
+                  ngModel #email="ngModel">
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control bishound-input" placeholder="Nombre" id="nombre" name="nombre" required
+                    ngModel #nombre="ngModel">
+                </div>
+              </div>
+          <div class="form-group">
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control bishound-input" placeholder="Telefono" id="telefono" name="telefono" required
+                  ngModel #telefono="ngModel">
+              </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
       </div>
     </form>
   </div>

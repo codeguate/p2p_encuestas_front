@@ -74,7 +74,7 @@ export class UsuariosComponent implements OnInit {
     private UsersService:UsersService,
     ) { }
 
-    generar(){
+    Pass(){
       let string = this.SelectedData.birthday+":"+this.SelectedData.username;
       let encodedString = btoa(string);
       this.SelectedData.codigo =  encodedString.substr(encodedString.length-10,encodedString.length);
@@ -178,7 +178,32 @@ export class UsuariosComponent implements OnInit {
                         this.createError(error)
                       })
   }
+  addUser(){
+    $('#addUser').modal('show');
 
+  }
+register(formValue:any){
+  let pass = this.generarPass(25)
+    let mainData = {
+      username: formValue.email.split('@')[0],
+      email: formValue.email,
+      nombre: formValue.nombre,
+      telefono: formValue.telefono,
+      password: pass,
+    }
+    this.blockUI.start();
+    this.UsersService.create(mainData)
+                      .then(response => {
+                        this.createSuccess('Usuario Creado')
+                        console.clear
+                        this.blockUI.stop();
+                      }).catch(error => {
+                        console.clear
+
+                        this.blockUI.stop();
+                        this.createError(error)
+                      })
+  }
   cargarAll(){
     // this.blockUI.reset();
 
@@ -262,6 +287,14 @@ export class UsuariosComponent implements OnInit {
   createError(error) {
         this._service.error('¡Error!', error);
 
+  }
+  generarPass(longitud)
+  {
+    let i:number
+    var caracteres = "123456789+/-*abcdefghijkmnpqrtuvwxyz123456789+/-*ABCDEFGHIJKLMNPQRTUVWXYZ12346789+/-*";
+    var contraseña = "";
+    for (i=0; i<longitud; i++) contraseña += caracteres.charAt(Math.floor(Math.random()*caracteres.length));
+    return contraseña;
   }
 
 }
