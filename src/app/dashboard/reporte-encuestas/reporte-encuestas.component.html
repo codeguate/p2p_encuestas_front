@@ -66,6 +66,38 @@
                   </div>
                 </div>
           </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p style="padding-top: 2%;padding-bottom: 2%;">
+                  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                    Fecha
+                  </button>
+                </p>
+                <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                    <div class="card">
+                      <div class="card-body">
+                          <ngb-datepicker #d="ngbDatepicker" #dp (select)="onDateSelection($event)" [displayMonths]="1" [dayTemplate]="t" outsideDays="hidden">
+                            </ngb-datepicker>
+                            
+                            <ng-template #t let-date let-focused="focused">
+                              <span class="custom-day"
+                                    [class.focused]="focused"
+                                    [class.range]="isRange(date)"
+                                    [class.faded]="isHovered(date) || isInside(date)"
+                                    (mouseenter)="hoveredDate = date"
+                                    (mouseleave)="hoveredDate = null">
+                                {{ date.day }}
+                              </span>
+                            </ng-template>
+                            
+                            <hr/>
+                            <pre>Model: {{ model | json }}</pre>
+                      </div>
+                    </div>
+                  </div>
+                <p></p>
+               
+          </div>
         <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
             <thead>
                 <tr>

@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 // import 'rxjs/add/operator/switchMap';;
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
-declare var $: any
+declare var $:any
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

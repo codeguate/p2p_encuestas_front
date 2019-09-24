@@ -36,6 +36,7 @@ import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
 import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas.component';
 import { PromotorComponent } from './promotor/promotor.component';
 import { UsuarioComponent } from './registrar/usuario/usuario.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     TooltipModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

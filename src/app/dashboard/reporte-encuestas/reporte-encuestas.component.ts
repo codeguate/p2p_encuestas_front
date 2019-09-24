@@ -7,10 +7,11 @@ import { MarcasService } from "./../../home/_services/marcas.service";
 import { AuthService } from "./../../home/_services/auth.service";
 import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
+import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 // import 'rxjs/add/operator/switchMap';;
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
-declare var $: any
+declare var $:any
 @Component({
   selector: 'app-reporte-encuestas',
   templateUrl: './reporte-encuestas.component.html',
@@ -24,6 +25,7 @@ export class ReporteEncuestasComponent implements OnInit {
   Table:any = null;
   today:any = this.hoy();
   now1:any = this.now();
+  public isCollapsed = true;
   id:number = +localStorage.getItem('currentId');
   selected={
     GovermentID:false,
@@ -98,8 +100,38 @@ export class ReporteEncuestasComponent implements OnInit {
     private AuthService: AuthService,
     private MarcasService:MarcasService,
     private UsersService:UsersService,
-    ) { }
+    calendar: NgbCalendar
+    
+    ) { 
+      this.fromDate = calendar.getToday();
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    }
+  hoveredDate: NgbDate;
+  fromDate: NgbDate;
+  toDate: NgbDate;
 
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+  }
     generar(){
       let string = this.SelectedData.birthday+":"+this.SelectedData.username;
       let encodedString = btoa(string);
