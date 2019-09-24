@@ -1,0 +1,16 @@
+.container{
+    margin: auto;
+}
+.promotor {
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: inherit;
+}
+@media only screen and (max-width: 1000px){
+    .promotor{
+        background-position: -154px 90%;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
