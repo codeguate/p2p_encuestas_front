@@ -11,6 +11,7 @@ import { LocalidadesComponent } from './localidades/localidades.component';
 import { EncuestasComponent } from './encuestas/encuestas.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 import { PromotorComponent } from './promotor/promotor.component';
 import { UsuariosComponent } from './registrar/usuarios/usuarios.component';
 import { UsuarioComponent } from './registrar/usuario/usuario.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'encuestas', component: ReporteEncuestasComponent, canActivate: [AuthGuard] },
   { path: 'promotor/:id', component: PromotorComponent, canActivate: [AuthGuard] },
   { path: 'galeria', component: GaleriaComponent, canActivate: [AuthGuard] },
+  { path: 'calendario', component: CalendarioComponent, canActivate: [AuthGuard] },
   { path: 'asientos', component: AsientosComponent },
   { path: 'localidades', component: LocalidadesComponent },
   { path: 'inbox', component: InboxComponent },

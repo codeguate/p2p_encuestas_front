@@ -8,6 +8,7 @@ import { DashboardRoutingModule } from './dashboard.routing';
 import { DashboardComponent } from './dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import {TooltipModule} from 'ng2-tooltip-directive';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
@@ -37,6 +38,7 @@ import { ReporteEncuestasComponent } from './reporte-encuestas/reporte-encuestas
 import { PromotorComponent } from './promotor/promotor.component';
 import { UsuarioComponent } from './registrar/usuario/usuario.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -60,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyCdJAwErIy3KmcE_EfHACIvL0Nl1RjhcUo'}),
     BlockUIModule,
     LoadersCssModule,
+    FullCalendarModule,
     DataTableModule,
     ChartsModule,
     DashboardRoutingModule
@@ -80,6 +83,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReporteEncuestasComponent,
     PromotorComponent,
     UsuarioComponent,
+    CalendarioComponent,
   ],
   providers:[
     AuthGuard,
