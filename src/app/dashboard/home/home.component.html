@@ -24,11 +24,11 @@
             <!-- info seller Area -->
           <div class="row ml-0 mr-0 w-100" >
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center" *ngIf="tipoUsuario!=1">
-                <small class="text-secondary color-white">Te ha registrado como {{SelectedData.roles.titulo}}, puedes proceder al reportes o modificar tu perfil</small>
+                <small class="text-secondary color-white">Se ha registrado como {{SelectedData.roles.titulo}}, puedes proceder al reporte o modificar tu perfil</small>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-3 text-center">
 
-                <a class="btn btn-primary form-control border-black" [class.d-none]="tipoUsuario!=2" (click)="irEncuesta()">Vamos al Reportes</a>
+                <a class="btn btn-primary form-control border-black" [class.d-none]="tipoUsuario!=2" (click)="irEncuesta()">Vamos a los Reportes</a>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  text-center mb-3">
                 <a [routerLink]="['./../profile']" class="color-white">Editar Perfil</a>
