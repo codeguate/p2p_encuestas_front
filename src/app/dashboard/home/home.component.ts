@@ -270,7 +270,7 @@ export class HomeComponent implements OnInit {
     this.EncuestasService.getAll()
                     .then(response => {
                       this.UTable = response;
-                      console.log(response);
+                      // console.log(response);
 
                       setTimeout(() => {
                       $(".pull-right").css("display","none");

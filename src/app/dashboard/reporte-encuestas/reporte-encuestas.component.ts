@@ -101,8 +101,8 @@ export class ReporteEncuestasComponent implements OnInit {
     private MarcasService:MarcasService,
     private UsersService:UsersService,
     calendar: NgbCalendar
-    
-    ) { 
+
+    ) {
       this.fromDate = calendar.getToday();
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
@@ -273,7 +273,7 @@ export class ReporteEncuestasComponent implements OnInit {
     this.id = +localStorage.getItem('currentId');
     // this.blockUI.start();
 
-    console.log(this.filterSelected);
+    // console.log(this.filterSelected);
 
     if(this.filterSelected==0){
 

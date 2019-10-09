@@ -189,6 +189,7 @@ register(formValue:any){
       email: formValue.email,
       nombre: formValue.nombre,
       telefono: formValue.telefono,
+      codigo: formValue.postal,
       rol: 2,
       password: pass,
     }

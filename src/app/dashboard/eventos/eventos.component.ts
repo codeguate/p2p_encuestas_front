@@ -47,14 +47,14 @@ export class EventosComponent implements OnInit {
   }
 
   onMapReady(map) {
-    console.log('map', map);
-    console.log('markers', map.markers);  // to get all markers as an array
+    // console.log('map', map);
+    // console.log('markers', map.markers);  // to get all markers as an array
   }
   onIdle(event) {
-    console.log('map', event.target);
+    // console.log('map', event.target);
   }
   onMarkerInit(marker) {
-    console.log('marker', marker);
+    // console.log('marker', marker);
   }
   onMapClick(event) {
     this.positions.push(event.latLng);
@@ -72,7 +72,7 @@ export class EventosComponent implements OnInit {
       state:localStorage.getItem('currentId'),
       filter:'usuario'
     }
-    console.log(data);
+    // console.log(data);
 
       this.mainService.getAllFilter(data)
                           .then(async response => {
@@ -80,7 +80,7 @@ export class EventosComponent implements OnInit {
                               element.idtitulo = element.titulo.replace(/ /g,'_');
                             });
                             this.Table = response;
-                            console.log(response);
+                            // console.log(response);
 
                             this.blockUI.stop();
                           }).catch(error => {

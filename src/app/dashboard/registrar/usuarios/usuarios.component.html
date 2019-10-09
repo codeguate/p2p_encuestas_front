@@ -23,11 +23,11 @@
             <!-- info seller Area -->
           <div class="row ml-0 mr-0 w-100" >
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-1 text-center" *ngIf="tipoUsuario!=1">
-                <small class="text-secondary color-white">Te ha registrado como {{SelectedData.roles.titulo}}, puedes proceder a la encuesta o modificar tu perfil</small>
+                <small class="text-secondary color-white">Se ha registrado como {{SelectedData.roles.titulo.toLower}}, puede proceder al reporte o modificar su perfil.</small>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 py-3 text-center">
 
-                <a class="btn btn-primary form-control border-black" [class.d-none]="tipoUsuario!=2" (click)="irEncuesta()">Vamos a la Encuesta</a>
+                <a class="btn btn-primary form-control border-black" [class.d-none]="tipoUsuario!=2" (click)="irEncuesta()">Vamos al reporte</a>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  text-center mb-3">
                 <a [routerLink]="['./../profile']" class="color-white">Editar Perfil</a>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11" [class.d-none]="tipoUsuario!=1"  *ngIf="tipoUsuario==1" >
-        <a type="button" class="close" (click)="addUser()" style="right:-10%;color:blue;cursor:pointer;"><i class="fa fa-plus"></i></a>
+        <a class="close" (click)="addUser()" style="right:0px;color:blue;cursor:pointer;"><i class="fa fa-plus"></i></a>
         <div style="overflow-x: auto;width:100%;">
             <table class="table table-hover" *ngIf="Table" [mfData]="Table" #mf="mfDataTable" [mfRowsOnPage]="5">
                 <thead>
@@ -175,6 +175,12 @@
               <div class="input-group mb-3">
                   <input type="text" class="form-control bishound-input" placeholder="Telefono" id="telefono" name="telefono" required
                   ngModel #telefono="ngModel">
+              </div>
+            </div>
+          <div class="form-group">
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control bishound-input" placeholder="Codigo Postal" id="postal" name="postal" required
+                  ngModel #postal="ngModel">
               </div>
             </div>
       </div>

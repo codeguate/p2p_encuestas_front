@@ -22,7 +22,7 @@ export class ComentariosEncuestasService {
 
   private handleError(error:any):Promise<any> {
   console.error("ha ocurrido un error")
-  console.log(error)
+  // console.log(error)
   return Promise.reject(error.message || error)
   }
 

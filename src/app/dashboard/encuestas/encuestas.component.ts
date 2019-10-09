@@ -106,7 +106,7 @@ export class EncuestasComponent implements OnInit {
       this.MarcasService.getAll()
                       .then( response => {
                         this.marcas = response
-                        console.log(response);
+                        // console.log(response);
                         this.blockUI.stop()
                       })
                       .catch( error => {
@@ -400,7 +400,7 @@ export class EncuestasComponent implements OnInit {
       this.lat = pos[0]
       this.lng = pos[1]
       event.target.panTo(this.positions);
-      console.log(this.lat+' @ '+this.lng+' @ '+event.latLng+'\n'+pos[0]);
+      // console.log(this.lat+' @ '+this.lng+' @ '+event.latLng+'\n'+pos[0]);
 
   }
 

@@ -116,7 +116,7 @@ export class RegisterComponent implements OnInit {
 
     this.mainService.create(formValue)
                       .then(async response => {
-                        console.log(response);
+                        // console.log(response);
                         // this.cargarAll()
                         $("#generalModalDetalle").modal('hide');
                         this.blockUI.stop();
@@ -132,7 +132,7 @@ export class RegisterComponent implements OnInit {
 
                       }).catch(error => {
                         console.clear
-                        console.log(error);
+                        // console.log(error);
 
                         this.blockUI.stop();
                         this.createError(error)
@@ -195,7 +195,7 @@ export class RegisterComponent implements OnInit {
         return false;
       }
       if (!cui) {
-          console.log("CUI vacío");
+          // console.log("CUI vacío");
           this.DPI = this.formatearDPI(cui);
 
           return true;
@@ -254,21 +254,21 @@ export class RegisterComponent implements OnInit {
 
       if (depto === 0 || muni === 0)
       {
-          console.log("CUI con código de municipio o departamento inválido.");
+          // console.log("CUI con código de municipio o departamento inválido.");
           this.DPI = this.formatearDPI(cui);
           return false;
       }
 
       if (depto > munisPorDepto.length)
       {
-          console.log("CUI con código de departamento inválido.");
+          // console.log("CUI con código de departamento inválido.");
           this.DPI = this.formatearDPI(cui);
           return false;
       }
 
       if (muni > munisPorDepto[depto -1])
       {
-          console.log("CUI con código de municipio inválido.");
+          // console.log("CUI con código de municipio inválido.");
           this.DPI = this.formatearDPI(cui);
           return false;
       }
@@ -284,7 +284,7 @@ export class RegisterComponent implements OnInit {
 
       let modulo = (total % 11);
       this.DPI = this.formatearDPI(cui);
-      console.log("CUI con módulo: " + modulo);
+      // console.log("CUI con módulo: " + modulo);
       $("#dpi").removeClass('border border-danger')
       $("#dpi").addClass('border border-success')
       this.enviarData=true;

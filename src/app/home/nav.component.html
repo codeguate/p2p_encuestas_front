@@ -1,7 +1,8 @@
 <block-ui>
 <div class="body w-100">
   <div class="header">
-    <img class="logo" src="./../../assets/png/01-Bienvenido/Logo.png">
+    <img *ngIf="user.rol==1" [routerLink]="['./encuestas']" class="logo pointer" src="./../../assets/png/01-Bienvenido/Logo.png">
+    <img *ngIf="user.rol!=1" [routerLink]="['./home']" class="logo pointer" src="./../../assets/png/01-Bienvenido/Logo.png">
     <a *ngIf="user.id>0" style="font-size: 3rem;position: absolute;right: 1rem;margin-top: 1vh;cursor: pointer;z-index: 200;" alt="Cerrar sesion" title="Cerrar sesion" class="logout" (click)="logout()">
     <i class="fa fa-sign-out "  ></i></a>
   </div>
@@ -32,7 +33,7 @@
     </a>
 
     <a *ngIf="user.rol!=1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;width:33.33333333%;cursor:pointer;" routerLinkActive="active" [routerLink]="['./calendario']">
-      <img src="./../../assets/png/04-Promotor/MenuBack/Rectangle1506.png" style="width: 1.8rem; height:1.8rem;" alt="">
+      <img src="./../../assets/png/05-Edecan/MenuBack/Group2504.png" style="width: 1.8rem; height:1.8rem;" alt="">
       <div>Calendario</div>
     </a>
     <a  *ngIf="user.rol==1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center text-light p-2" style="list-style:none;width:33.33333333%;cursor:pointer;" routerLinkActive="active" [routerLink]="['./usuarios']">

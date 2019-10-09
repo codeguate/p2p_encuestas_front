@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   getParams(){
     // this.type = this.route.snapshot.paramMap.get("type");
     this.type = "Promotor";
-    console.log(this.type);
+    // console.log(this.type);
 
   }
   public options = {
@@ -79,12 +79,12 @@ createError(error) {
             console.clear
 
                 this.blockUI.stop();
-                console.log(response);
+                // console.log(response);
 
-                if(response.rol!=3){
+                if(response.rol!=1){
                   this.router.navigate([`./dashboard/home`])
                 }else{
-                  this.router.navigate([`./dashboard/profile`])
+                  this.router.navigate([`./dashboard/encuestas`])
                 }
                 this.blockUI.stop();
                 this.nav.fullSession(true)
@@ -105,7 +105,7 @@ createError(error) {
             this.createError("Usuario o Clave incorrectas");
           }else{
             this.createError("Error: please call to support")
-            console.log(error);
+            // console.log(error);
 
           }
           setTimeout(() => {

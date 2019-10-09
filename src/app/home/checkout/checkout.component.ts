@@ -139,7 +139,7 @@ export class CheckoutComponent implements OnInit {
         id: 1,
         url: "comewme.com"
       }
-      console.log(data);
+      // console.log(data);
 
       this.paidService.pagar(data)
                           .then(response => {
@@ -224,7 +224,7 @@ export class CheckoutComponent implements OnInit {
     }
       this.mainService.getAllFilter(data)
                           .then(response => {
-                            console.log(response);
+                            // console.log(response);
 
                             this.blockUI.stop();
                           }).catch(error => {

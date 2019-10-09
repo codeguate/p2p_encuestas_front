@@ -151,16 +151,24 @@ input[type="radio"]:checked ~ label {
 }
 .img-profile{
   width: 90%;
-  padding: 0;
-  margin: 0 auto;
-  padding: 1rem;
-  margin-top: 15%!important;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: #000000 5px 7px 20px 0px;
 }
 .border-black{
   border: 1px solid #0000002b;
 }
 
 
+.col_perfil{
+  color: white !important;
+  background-image: linear-gradient(180deg, rgb(99,131,238), transparent);
+  background-color: rgb(74,71,236);
+  border-radius: 15px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 .text{
   color: #474ebb !important;
   font-weight: 400 !important;
@@ -172,6 +180,7 @@ input[type="radio"]:checked ~ label {
   border: 1px solid #474ebb;
 
 }
+
 @media only screen and (max-width: 1000px) {
   .row{
     font-size: 0.8rem;
@@ -185,6 +194,41 @@ input[type="radio"]:checked ~ label {
     /* padding-top: 1.5vh; */
     /* padding-bottom: 1.5vh; */
   }
+  .col_perfil{
+    border-radius: 5px;
+  }
+  .table tbody tr td{
+    font-size: 0.7rem!important;
+  }
+  .table tbody tr td button{
+    font-size: 0.7rem!important;
+  }
+  a.close {
+    width: 60%;
+    margin-top: -5%;
+    margin-left: -30%;
+    padding: 9px;
+    margin-right: auto;
+    position: absolute;
+    z-index: 100;
+  }
+  .img-profile{
+    width: auto;
+      padding: 0;
+      margin: 0 auto;
+      margin-top: 1vh;
+      height: 10vh;
+      border-radius: 10px;
+      box-shadow: #000000 5px 7px 20px 0px;
+  }
+  .pb-1, .py-1{
+    padding-top: 1rem;
+  }
+
+}
+
+.pull-right ,.float-sm-right{
+  display: none!important;
 }
 
 .custom-day {
@@ -198,9 +242,9 @@ input[type="radio"]:checked ~ label {
   background-color: #e6e6e6;
 }
 .custom-day.range, .custom-day:hover {
-  background-color: rgb(2, 117, 216);
+  background-color: rgba(74,71,236);
   color: white;
 }
 .custom-day.faded {
-  background-color: rgba(2, 117, 216, 0.5);
+  background-color: rgba(74,71,236,0.5);
 }

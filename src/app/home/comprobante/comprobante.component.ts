@@ -250,7 +250,7 @@ export class ComprobanteComponent implements OnInit {
     }
       this.mainService.getAllFilter(data)
                           .then(response => {
-                            console.log(response);
+                            // console.log(response);
 
                             this.blockUI.stop();
                           }).catch(error => {

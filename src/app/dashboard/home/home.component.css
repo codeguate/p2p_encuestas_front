@@ -155,7 +155,7 @@ input[type="radio"]:checked ~ label {
     margin: 0 auto;
     margin-top: 1vh;
     height: 20vh;
-    border-radius: 30%;
+    border-radius: 10px;
     box-shadow: #000000 5px 7px 20px 0px;
 }
 .border-black{
@@ -207,7 +207,7 @@ input#nombre{
       margin: 0 auto;
       margin-top: 1vh;
       height: 10vh;
-      border-radius: 5px;
+      border-radius: 10px;
       box-shadow: #000000 5px 7px 20px 0px;
   }
   .pb-1, .py-1{
