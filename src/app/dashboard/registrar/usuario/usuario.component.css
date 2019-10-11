@@ -17,7 +17,12 @@
   width: 100%;
   padding-left: 1rem;
 }
-
+.input-group-text{
+  background: none;
+  border:none;
+  margin-left: -3rem;
+  color: #ffffff!important;
+}
 .rate p {
   text-align: center;
 }
