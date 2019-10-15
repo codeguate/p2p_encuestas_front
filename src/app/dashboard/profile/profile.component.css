@@ -276,6 +276,9 @@ input#nombre{
   color: #ffffff!important;
 }
 @media only screen and (max-width: 1000px) {
+  .input-group-text{
+    margin-left: 0;
+  }
   input{
     font-size: 0.8rem!important;
   }
